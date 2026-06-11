@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maple Leaf Plumber</title>
+  <link rel="stylesheet" href="header-footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css">
+</head>
+<body>
+
+<!-- CITY CHOOSER POPUP -->
+<div class="popup-locations" data-locations="content">
+  <div class="container">
+    <figure class="popup-locations__img">
+      <div class="img-placeholder" style="width:278px;height:302px;background:#e0e0e0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#999;font-size:13px;">Maple Leaf Image</div>
+    </figure>
+    <div class="popup-locations__info">
+      <i class="icon-close" data-locations="close"></i>
+      <p class="popup-locations__title h4-t">Choose your city</p>
+      <ul class="popup-locations__list s1-t">
+        <li><a href="#">Toronto</a></li>
+        <li><a href="#">Ottawa</a></li>
+        <li><a href="#">Mississauga</a></li>
+        <li><a href="#">Hamilton</a></li>
+        <li><a href="#">Brampton</a></li>
+        <li><a href="#">Oakville</a></li>
+        <li><a href="#">Markham</a></li>
+        <li><a href="#">Vaughan</a></li>
+        <li><a href="#">Richmond Hill</a></li>
+      </ul>
+      <div class="popup-locations__bottom">
+        <div class="location-search">
+          <input class="location-search__input" type="text" placeholder="Search city...">
+          <button type="button"><i class="icon-search"></i></button>
+          <ul class="input-dropdown"></ul>
+        </div>
+        <a class="popup-locations__link link2-t" href="#">See all cities <i class="icon-dropdown"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTICE BAR -->
+<div class="notice-bar">
+  <div class="container">
+    <div class="notice-bar__info">
+      <i class="icon-canada"></i>
+      <span class="notice-bar__text s1-t">Canadian Owned and Operated</span>
+    </div>
+    <i class="icon-close notice-bar__close"></i>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+
+  <!-- Top row: logo + short nav + sticky panel + hamburger -->
+  <div class="container">
+
+    <a class="custom-logo-link" href="#">
+      <div class="logo-ph">[ LOGO ]</div>
+      <p class="logo-text">Plumbing the canadian way</p>
+    </a>
+
+    <nav class="header__menu short">
+      <ul class="menu-list main-menu-list">
+        <li class="main-menu-item span menu-item-has-children">
+          <span class="menu-link main-menu-link">Company Info</span>
+          <ul class="menu-list sub-menu-list sub-menu-depth-1">
+            <li class="sub-menu-item1"><a href="#" class="menu-link sub-menu-link">About Us</a></li>
+            <li class="sub-menu-item1"><a href="#" class="menu-link sub-menu-link">Contact Us</a></li>
+            <li class="sub-menu-item1"><a href="#" class="menu-link sub-menu-link">Reviews</a></li>
+            <li class="sub-menu-item1"><a href="#" class="menu-link sub-menu-link">Blog</a></li>
+            <li class="sub-menu-item1"><a href="#" class="menu-link sub-menu-link">Career</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header__sticky">
+      <div class="header__phone">
+        <span class="s4-t">Order a specialist</span>
+        <a href="tel:+14168774674" class="h4-t">
+          <i class="icon-phone"></i>
+          +1 416-877-4674
+        </a>
+      </div>
+      <a href="#" class="header__btn btn btn-t btn-transparent-dark">book now</a>
+    </div>
+
+    <div class="header__hamburger">
+      <span></span>
+    </div>
+
+  </div>
+
+  <!-- Bottom row: long nav + find button -->
+  <div class="header__row">
+    <div class="container">
+
+      <nav class="header__menu long">
+        <ul class="menu-list main-menu-list">
+
+          <!-- Heating -->
+          <li class="main-menu-item span col-4 menu-item-has-children">
+            <span class="menu-link main-menu-link">Heating</span>
+            <ul class="menu-list sub-menu-list sub-menu-depth-1">
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Furnace</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Furnace Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Furnace Installation</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Furnace Maintenance</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Buy Furnace</a></li>
+                </ul>
+              </li>
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Boiler</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Boiler Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Boiler Installation</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Boiler Maintenance</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Buy Boiler</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Heat Pump -->
+          <li class="main-menu-item span menu-item-has-children">
+            <span class="menu-link main-menu-link">Heat Pump</span>
+            <ul class="menu-list sub-menu-list sub-menu-depth-1">
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Heat Pump</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Buy Heat Pump</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Heat Pump Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Heat Pump Installation</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Heat Pump Maintenance</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Cooling -->
+          <li class="main-menu-item span menu-item-has-children">
+            <span class="menu-link main-menu-link">Cooling</span>
+            <ul class="menu-list sub-menu-list sub-menu-depth-1">
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Air Conditioner</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Air Conditioner Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Air Conditioner Installation</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Air Conditioner Maintenance</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Buy Air Conditioner</a></li>
+                </ul>
+              </li>
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Ductless Air Conditioner</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Ductless Air Conditioner Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Ductless Air Conditioner Installation</a></li>
+                </ul>
+              </li>
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Air Handler</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Air Handler Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Air Handler Installation</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Water -->
+          <li class="main-menu-item span col-4 menu-item-has-children">
+            <span class="menu-link main-menu-link">Water</span>
+            <ul class="menu-list sub-menu-list sub-menu-depth-1">
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Tankless Water Heater</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Tankless Water Heater Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Tankless Water Heater Installation</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Tankless Water Heater Maintenance</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Buy Tankless Water Heater</a></li>
+                </ul>
+              </li>
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Water Heater Tank</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Water Heater Tank Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Water Heater Tank Installation</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Buy Water Heater Tank</a></li>
+                </ul>
+              </li>
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Water Softener</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Water Softener Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Water Softener Installation</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Buy Water Softener</a></li>
+                </ul>
+              </li>
+              <li class="sub-menu-item1 span menu-item-has-children">
+                <span class="menu-link sub-menu-link">Reverse Osmosis</span>
+                <ul class="menu-list sub-menu-list sub-menu-depth-2">
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Reverse Osmosis Repair</a></li>
+                  <li class="sub-menu-item2"><a href="#" class="menu-link sub-menu-link">Reverse Osmosis Installation</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Brands -->
+          <li class="main-menu-item">
+            <a href="#" class="menu-link main-menu-link">Brands</a>
+          </li>
+
+          <!-- Commercial -->
+          <li class="main-menu-item">
+            <a href="#" class="menu-link main-menu-link">Commercial</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="header__find s1-t" data-locations="trigger" type="button">
+        <i class="icon-search-2"></i>find your local <i class="icon-dropdown"></i>
+      </button>
+
+    </div>
+  </div>
+
+</header>
+
+<!-- MAIN CONTENT PLACEHOLDER -->
+<main>
+
+  <!-- ===== HERO (promo design from template-home.php) ===== -->
+  <div class="promo">
+    <div class="promo__container container">
+      <div class="promo__info">
+        <h1 class="promo__title h1-t">Get Quality HVAC Repair Services in Canada</h1>
+        <p class="promo__subtitle">Buy &nbsp;&middot;&nbsp; Installation &nbsp;&middot;&nbsp; Replacement &nbsp;&middot;&nbsp; Repair</p>
+        <div class="promo__text">
+          <ul>
+            <li><span>Never an Overtime Charge</span></li>
+            <li><span>Licensed and Insured</span></li>
+            <li><span>Upfront Pricing</span></li>
+            <li><span>Locally Owned and Operated</span></li>
+            <li><span>Workmanship Parts Guaranteed</span></li>
+          </ul>
+        </div>
+        <button class="promo__btn btn btn-t" type="button">
+          <i class="icon-book"></i> Schedule Your Service
+        </button>
+      </div>
+      <picture class="promo__img">
+        <div class="ph-img" style="width:100%;height:100%;border-radius:0;">Hero Image — HVAC Technician</div>
+      </picture>
+    </div>
+
+  </div>
+
+  <!-- ===== COUPONS (design from test.php) ===== -->
+  <section class="cards-section" aria-labelledby="cards-title">
+    <div class="cards-shell">
+      <h2 class="cards-section__title" id="cards-title">AVAILABLE COUPONS</h2>
+      <div class="cards-section__divider" aria-hidden="true"></div>
+      <h3 class="cards-section__subtitle">CHOOSE YOUR COUPON!</h3>
+      <div class="cards-grid">
+
+        <article class="coupon-card coupon-card--red">
+          <div class="coupon-card__stub">
+            <div class="coupon-card__stub-inner"><span>REDEEMABLE</span></div>
+            <div class="coupon-card__perforation" aria-hidden="true"></div>
+          </div>
+          <div class="coupon-card__body">
+            <div class="coupon-card__top">
+              <div class="coupon-card__content">
+                <div class="coupon-card__amount">
+                  <span class="coupon-card__currency">$</span>
+                  <strong>50</strong>
+                  <span class="coupon-card__off">OFF</span>
+                </div>
+                <div class="coupon-card__amount-rule" aria-hidden="true"></div>
+                <p class="coupon-card__badge">OF ANY TYPE OF HVAC UNIT</p>
+              </div>
+              <div class="coupon-card__icon-wrap" aria-hidden="true">
+                <div class="ph-img" style="width:3.2rem;height:3.2rem;border-radius:0.4rem;font-size:1rem;">Logo</div>
+              </div>
+            </div>
+            <div class="coupon-card__bottom">
+              <h4 class="coupon-card__title">On the Repair</h4>
+              <p class="coupon-card__terms">Get a discount &nbsp;&middot;&nbsp; contact our expert for more details (866) 545-6460</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="coupon-card coupon-card--teal">
+          <div class="coupon-card__stub">
+            <div class="coupon-card__stub-inner"><span>REDEEMABLE</span></div>
+            <div class="coupon-card__perforation" aria-hidden="true"></div>
+          </div>
+          <div class="coupon-card__body">
+            <div class="coupon-card__top">
+              <div class="coupon-card__content">
+                <div class="coupon-card__amount">
+                  <span class="coupon-card__currency">$</span>
+                  <strong>30</strong>
+                  <span class="coupon-card__off">OFF</span>
+                </div>
+                <div class="coupon-card__amount-rule" aria-hidden="true"></div>
+                <p class="coupon-card__badge">Save &nbsp;&middot;&nbsp; <s style="opacity:.6;">$179</s> &nbsp; $149</p>
+              </div>
+              <div class="coupon-card__icon-wrap" aria-hidden="true">
+                <div class="ph-img" style="width:3.2rem;height:3.2rem;border-radius:0.4rem;font-size:1rem;">Logo</div>
+              </div>
+            </div>
+            <div class="coupon-card__bottom">
+              <h4 class="coupon-card__title">on the Diagnostics of your HVAC Unit</h4>
+              <p class="coupon-card__terms">Get a discount &nbsp;&middot;&nbsp; contact us for more details (866) 545-6460</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="coupon-card coupon-card--red">
+          <div class="coupon-card__stub">
+            <div class="coupon-card__stub-inner"><span>REDEEMABLE</span></div>
+            <div class="coupon-card__perforation" aria-hidden="true"></div>
+          </div>
+          <div class="coupon-card__body">
+            <div class="coupon-card__top">
+              <div class="coupon-card__content">
+                <div class="coupon-card__amount">
+                  <span class="coupon-card__currency" style="font-size:1.4rem;align-self:center;">get</span>
+                  <strong>3</strong>
+                  <span class="coupon-card__off">months</span>
+                </div>
+                <div class="coupon-card__amount-rule" aria-hidden="true"></div>
+                <p class="coupon-card__badge">Months for free</p>
+              </div>
+              <div class="coupon-card__icon-wrap" aria-hidden="true">
+                <div class="ph-img" style="width:3.2rem;height:3.2rem;border-radius:0.4rem;font-size:1rem;">Logo</div>
+              </div>
+            </div>
+            <div class="coupon-card__bottom">
+              <h4 class="coupon-card__title">of protection plan</h4>
+              <p class="coupon-card__terms">In addition to the warranty for repairs and spare part</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== BRANDS ===== -->
+  <section class="rv-certs" aria-label="Certifications">
+    <div class="rv-certs__track-wrap">
+      <div class="rv-certs__track">
+        <!-- First set -->
+        <div class="rv-certs__set">
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert1.png" alt="Certification" loading="eager"></div>
+          <div class="rv-certs__item rv-certs__item--lg"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert2.png" alt="Certification" loading="eager"></div>
+          <div class="rv-certs__item rv-certs__item--lg"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert3.png" alt="Certification" loading="eager"></div>
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert4.png" alt="Certification" loading="eager"></div>
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert6-removebg-preview.png" alt="Certification" loading="eager"></div>
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert7.png" alt="Certification" loading="eager"></div>
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert8.png" alt="Certification" loading="eager"></div>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="rv-certs__set" aria-hidden="true">
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert1.png" alt="" loading="eager"></div>
+          <div class="rv-certs__item rv-certs__item--lg"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert2.png" alt="" loading="eager"></div>
+          <div class="rv-certs__item rv-certs__item--lg"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert3.png" alt="" loading="eager"></div>
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert4.png" alt="" loading="eager"></div>
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert6-removebg-preview.png" alt="" loading="eager"></div>
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert7.png" alt="" loading="eager"></div>
+          <div class="rv-certs__item"><img src="https://mapleleafplumber.com/wp-content/uploads/2026/06/cert8.png" alt="" loading="eager"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE CATEGORIES ===== -->
+  <section class="scat">
+    <div class="container">
+      <h2 class="page-section-title">What HVAC units do we service?</h2>
+      <p class="page-section-sub">Our specialists repair HVAC equipment regardless of brand and manufacturer</p>
+      <div class="scat__grid">
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Air Conditioner Icon</div>
+          <h3 class="scat-card__name">Air Conditioner Repair</h3>
+          <a href="#" class="scat-card__link">See more</a>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Boiler Icon</div>
+          <h3 class="scat-card__name">Boiler Repair</h3>
+          <a href="#" class="scat-card__link">See more</a>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Furnace Icon</div>
+          <h3 class="scat-card__name">Furnace Repair</h3>
+          <a href="#" class="scat-card__link">See more</a>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Tankless WH Icon</div>
+          <h3 class="scat-card__name">Tankless Water Heater Repair</h3>
+          <a href="#" class="scat-card__link">See more</a>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Air Handler Icon</div>
+          <h3 class="scat-card__name">Air Handler Repair</h3>
+          <a href="#" class="scat-card__link">See more</a>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Heat Pump Icon</div>
+          <h3 class="scat-card__name">Heat Pump Repair</h3>
+          <a href="#" class="scat-card__link">See more</a>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Water Tank Icon</div>
+          <h3 class="scat-card__name">Water Heater Tank Repair</h3>
+          <a href="#" class="scat-card__link">See more</a>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Ductless AC Icon</div>
+          <h3 class="scat-card__name">Ductless Air Conditioner Repair</h3>
+          <a href="#" class="scat-card__link">See more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section id="mlpps-root">
+    <div class="mlpps-inner">
+
+      <div class="mlpps-header">
+        <h2 class="mlpps-heading">How will we solve your HVAC problems?</h2>
+        <p class="mlpps-subtext">Our proven 3-step process ensures a fast, reliable fix — from the first diagnosis to the final quality check. Every job is backed by our workmanship warranty.</p>
+      </div>
+
+      <div class="mlpps-timeline">
+        <div class="mlpps-connector"></div>
+
+        <div class="mlpps-steps-row">
+          <div class="mlpps-step-num-wrap"><div class="mlpps-step-num">01</div></div>
+          <div class="mlpps-step-num-wrap"><div class="mlpps-step-num">02</div></div>
+          <div class="mlpps-step-num-wrap"><div class="mlpps-step-num">03</div></div>
+        </div>
+
+        <div class="mlpps-cards">
+
+          <div class="mlpps-card">
+            <div class="mlpps-card-img-wrap">
+              <div class="ph-img mlpps-card-img" style="height:100%;border-radius:0;">HVAC Diagnostic Photo</div>
+              <div class="mlpps-card-gradient"></div>
+              <span class="mlpps-card-watermark">01</span>
+            </div>
+            <div class="mlpps-card-body">
+              <div class="mlpps-card-title-row">
+                <div class="mlpps-badge-wrap">
+                  <img src="https://mapleleafplumber.com/wp-content/uploads/2026/05/imgProcessBadge-1.svg" alt="" class="mlpps-badge-bg">
+                  <svg width="58" height="41" viewBox="0 0 58 41" fill="none" xmlns="http://www.w3.org/2000/svg" class="mlpps-badge-icon"><path d="M17.5628 3.51257H54.0932M17.5628 20.3728H54.0932M17.5628 37.2329H54.0932M3.5127 3.51257H3.5408M3.5127 20.3728H3.5408M3.5127 37.2329H3.5408" stroke="white" stroke-width="7.02508" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="mlpps-card-title">Preliminary Diagnostics</h3>
+              </div>
+              <div class="mlpps-card-divider"></div>
+              <div class="mlpps-card-list">
+                <p class="mlpps-list-label">We assess your HVAC system:</p>
+                <ul class="mlpps-list">
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">Thermostat &amp; controls</span>
+                  </li>
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">Refrigerant &amp; coils</span>
+                  </li>
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">Filters &amp; air ducts</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mlpps-card">
+            <div class="mlpps-card-img-wrap">
+              <div class="ph-img mlpps-card-img" style="height:100%;border-radius:0;">HVAC Repair Photo</div>
+              <div class="mlpps-card-gradient"></div>
+              <span class="mlpps-card-watermark">02</span>
+            </div>
+            <div class="mlpps-card-body">
+              <div class="mlpps-card-title-row">
+                <div class="mlpps-badge-wrap">
+                  <img src="https://mapleleafplumber.com/wp-content/uploads/2026/05/imgProcessBadge-1.svg" alt="" class="mlpps-badge-bg">
+                  <svg width="67" height="67" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg" class="mlpps-badge-icon"><path d="M33.0178 41.2723C37.5766 41.2723 41.2723 37.5766 41.2723 33.0178C41.2723 28.459 37.5766 24.7634 33.0178 24.7634C28.459 24.7634 24.7634 28.459 24.7634 33.0178C24.7634 37.5766 28.459 41.2723 33.0178 41.2723Z" stroke="white" stroke-width="5.62006" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="mlpps-card-title">Repair Process</h3>
+              </div>
+              <div class="mlpps-card-divider"></div>
+              <div class="mlpps-card-list">
+                <p class="mlpps-list-label">We perform the repair:</p>
+                <ul class="mlpps-list">
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">Using certified OEM parts</span>
+                  </li>
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">No damage to existing components</span>
+                  </li>
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">Fast, professional execution</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mlpps-card">
+            <div class="mlpps-card-img-wrap">
+              <div class="ph-img mlpps-card-img" style="height:100%;border-radius:0;">HVAC Quality Check Photo</div>
+              <div class="mlpps-card-gradient"></div>
+              <span class="mlpps-card-watermark">03</span>
+            </div>
+            <div class="mlpps-card-body">
+              <div class="mlpps-card-title-row">
+                <div class="mlpps-badge-wrap">
+                  <img src="https://mapleleafplumber.com/wp-content/uploads/2026/05/imgProcessBadge-1.svg" alt="" class="mlpps-badge-bg">
+                  <svg width="60" height="50" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="mlpps-badge-icon"><path d="M39.3406 47.068V42.1505C39.3406 39.5421 38.3044 37.0405 36.46 35.196C34.6156 33.3516 32.114 32.3154 29.5055 32.3154H12.2941C9.68566 32.3154 7.18406 33.3516 5.33962 35.196C3.49518 37.0405 2.45898 39.5421 2.45898 42.1505V47.068M41.7994 22.4803L46.717 27.3978L56.5521 17.5627M30.7349 12.6452C30.7349 18.0769 26.3316 22.4803 20.8998 22.4803C15.468 22.4803 11.0647 18.0769 11.0647 12.6452C11.0647 7.21339 15.468 2.81006 20.8998 2.81006C26.3316 2.81006 30.7349 7.21339 30.7349 12.6452Z" stroke="white" stroke-width="5.62006" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="mlpps-card-title">Quality Control &amp; Warranty</h3>
+              </div>
+              <div class="mlpps-card-divider"></div>
+              <div class="mlpps-card-list">
+                <p class="mlpps-list-label">We confirm:</p>
+                <ul class="mlpps-list">
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">Efficient heating &amp; cooling</span>
+                  </li>
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">Proper airflow throughout</span>
+                  </li>
+                  <li class="mlpps-list-item">
+                    <div class="mlpps-check"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7L5.5 10L11.5 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <span class="mlpps-list-text">Backed by our workmanship warranty</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="benefits">
+    <div class="container">
+      <h2 class="page-section-title">Benefits you get by working with our HVAC company</h2>
+      <div class="benefits__grid">
+        <div class="benefit-card">
+          <div class="ph-img benefit-card__icon">Icon</div>
+          <h3 class="benefit-card__title">Experience and professionalism</h3>
+          <p>Our team consists of skilled HVAC technicians with many years of experience. We keep up with new technologies and repair methods to provide our customers with the best possible service.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="ph-img benefit-card__icon">Icon</div>
+          <h3 class="benefit-card__title">Fast response and flexibility</h3>
+          <p>As a local company, we offer prompt same-day service to fix any HVAC issues. We customize our services to meet each client's needs and work at times that are convenient for them.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="ph-img benefit-card__icon">Icon</div>
+          <h3 class="benefit-card__title">Transparent pricing</h3>
+          <p>Our pricing policy is completely transparent and doesn't include any hidden fees. We do not charge more than agreed, so the price you see on the bill is the final price you pay.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="ph-img benefit-card__icon">Icon</div>
+          <h3 class="benefit-card__title">Quality assurance</h3>
+          <p>Regardless of the service you receive, we provide a full warranty on all our work and equipment to give our customers an extra sense of confidence in the quality of our services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTENT + SIDEBAR (sec-tem-5 design) ===== -->
+  <section id="mlptc-root">
+    <div class="mlptc-layout">
+
+      <!-- ── Main content ──────────────────────────────────────────── -->
+      <div class="mlptc-main">
+
+        <!-- About: Restore pleasant climate -->
+        <div class="mlptc-section">
+          <h2 class="mlptc-heading">Restore a pleasant climate in your home with our HVAC repair services</h2>
+          <p class="mlptc-body-text mlptc-body-text--narrow mlptc-mb">A comfortable climate in your home or office is more important than it seems. When your HVAC systems break down, our HVAC repair service is always on standby!</p>
+
+          <div class="mlptc-prevention-row mlptc-mb">
+            <div class="mlptc-prevention-text">
+              <p class="mlptc-body-text">Our experienced team uses the latest tools and techniques to fix any issue quickly. We keep a stock of spare parts from trusted manufacturers so we can get your system up and running without delay.</p>
+              <p class="mlptc-body-text">We provide reliable repair services for furnaces, heat pumps, boilers, air handlers, air conditioners, ductless AC, and water heaters.</p>
+            </div>
+            <div class="ph-img mlptc-prevention-img" style="min-height:200px;border-radius:20px;">HVAC Repair Photo</div>
+          </div>
+
+          <div class="mlptc-readmore-wrap" data-collapsed-height="72" onclick="mlptcToggleReadMore(this)">
+            <div class="mlptc-readmore-clip" style="max-height:72px;transition:max-height 0.5s ease-in-out;">
+              <div class="mlptc-readmore-content" style="opacity:0.85;transition:opacity 0.4s ease-in-out;">
+                <p class="mlptc-body-text">No matter what brand or price range your HVAC system falls under, you can expect top-quality repair service from us. Our specialists know the specific issues of each manufacturer, allowing us to quickly solve any problem. We work with many popular brands, including Trane, Rheem, Carrier, Bryant, Goodman, and American Standard.</p>
+              </div>
+              <div class="mlptc-readmore-fade" style="opacity:1;transition:opacity 0.3s ease-in-out;">
+                <div class="mlptc-readmore-gradient"></div>
+                <span class="mlptc-readmore-label">Read More +</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Differentiator: What sets us apart -->
+        <div class="mlptc-section">
+          <h2 class="mlptc-heading">What sets us apart from other teams?</h2>
+
+          <div class="mlptc-diagram-wrap mlptc-mb">
+            <div class="mlptc-diagram-float">
+              <div class="ph-img mlptc-diagram-img" style="height:220px;">HVAC Repairs Photo</div>
+            </div>
+            <p class="mlptc-body-text">Superior HVAC Service values your time, so we always arrive when agreed upon or right away in emergencies. If you have a refrigerant leak, poor airflow, short cycles, or nonstop running, we can fix it the same day in 99% of cases. Our HVAC repair experts are available for both commercial and residential issues.</p>
+          </div>
+
+          <div class="mlptc-readmore-wrap" data-collapsed-height="72" onclick="mlptcToggleReadMore(this)">
+            <div class="mlptc-readmore-clip" style="max-height:72px;transition:max-height 0.5s ease-in-out;">
+              <div class="mlptc-readmore-content" style="opacity:0.85;transition:opacity 0.4s ease-in-out;">
+                <p class="mlptc-body-text">Our pricing is transparent and fair. Once we diagnose your device and determine the scope of necessary repairs, we will provide you with a precise cost estimate. You will decide whether to approve the price before we start any work.</p>
+                <p class="mlptc-body-text">We are honest and clear about our prices and strive to make the service as affordable as possible. Upon completion of the work, we provide you with a warranty of up to 90 days.</p>
+              </div>
+              <div class="mlptc-readmore-fade" style="opacity:1;transition:opacity 0.3s ease-in-out;">
+                <div class="mlptc-readmore-gradient"></div>
+                <span class="mlptc-readmore-label">Read More +</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Breakdowns Accordion -->
+        <div class="mlptc-section">
+          <div class="mlptc-accordion-wrap">
+            <h2 class="mlptc-heading">What breakdowns can our HVAC repair experts eliminate?</h2>
+            <div class="mlptc-accordion-container">
+
+              <div class="mlptc-accordion-item" data-index="0">
+                <button class="mlptc-accordion-btn" onclick="mlptcToggleAccordion(this)" aria-expanded="false">
+                  <span class="mlptc-accordion-title">The unit is not turning on</span>
+                  <span class="mlptc-accordion-arrow" style="display:inline-block;transform:rotate(90deg);">&#8250;</span>
+                </button>
+                <div class="mlptc-accordion-panel" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.35s ease-in-out;">
+                  <div class="mlptc-accordion-overflow">
+                    <div class="mlptc-accordion-content" style="opacity:0;transform:translateY(-6px);transition:opacity 0.3s ease-in-out 0.05s, transform 0.3s ease-in-out 0.05s;">If your AC or any other HVAC unit won't turn on, check the power source. This problem may occur due to wiring problems or malfunctioning motors. Our specialists can professionally diagnose, fix and replace faulty parts.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mlptc-accordion-item mlptc-accordion-item--bordered" data-index="1">
+                <button class="mlptc-accordion-btn" onclick="mlptcToggleAccordion(this)" aria-expanded="false">
+                  <span class="mlptc-accordion-title">High energy bills</span>
+                  <span class="mlptc-accordion-arrow" style="display:inline-block;transform:rotate(90deg);">&#8250;</span>
+                </button>
+                <div class="mlptc-accordion-panel" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.35s ease-in-out;">
+                  <div class="mlptc-accordion-overflow">
+                    <div class="mlptc-accordion-content" style="opacity:0;transform:translateY(-6px);transition:opacity 0.3s ease-in-out 0.05s, transform 0.3s ease-in-out 0.05s;">Are your electricity bills too high? During hot summers and cold winters, you may notice your energy costs rising. This often happens because of dirty filters, small ductwork, or poor insulation. Our certified HVAC repair service can help you find and fix these problems.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mlptc-accordion-item mlptc-accordion-item--bordered" data-index="2">
+                <button class="mlptc-accordion-btn" onclick="mlptcToggleAccordion(this)" aria-expanded="false">
+                  <span class="mlptc-accordion-title">Loud noises</span>
+                  <span class="mlptc-accordion-arrow" style="display:inline-block;transform:rotate(90deg);">&#8250;</span>
+                </button>
+                <div class="mlptc-accordion-panel" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.35s ease-in-out;">
+                  <div class="mlptc-accordion-overflow">
+                    <div class="mlptc-accordion-content" style="opacity:0;transform:translateY(-6px);transition:opacity 0.3s ease-in-out 0.05s, transform 0.3s ease-in-out 0.05s;">Unusual sounds like pops, clanks, or buzzes could mean trouble for your appliances. Buzzing might signal loose parts, popping could indicate ductwork issues, and clanking often points to a failing blower assembly. Our experts will resolve the issue quickly and keep your system running smoothly.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mlptc-accordion-item mlptc-accordion-item--bordered" data-index="3">
+                <button class="mlptc-accordion-btn" onclick="mlptcToggleAccordion(this)" aria-expanded="false">
+                  <span class="mlptc-accordion-title">Water leaks</span>
+                  <span class="mlptc-accordion-arrow" style="display:inline-block;transform:rotate(90deg);">&#8250;</span>
+                </button>
+                <div class="mlptc-accordion-panel" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.35s ease-in-out;">
+                  <div class="mlptc-accordion-overflow">
+                    <div class="mlptc-accordion-content" style="opacity:0;transform:translateY(-6px);transition:opacity 0.3s ease-in-out 0.05s, transform 0.3s ease-in-out 0.05s;">During the cooler months, your central air conditioning system produces a significant amount of condensation that clogs the drainage system, leading to water leaks inside your home. Contacting our HVAC repair specialist right away is highly recommended to address the issue safely and effectively.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mlptc-accordion-item mlptc-accordion-item--bordered" data-index="4">
+                <button class="mlptc-accordion-btn" onclick="mlptcToggleAccordion(this)" aria-expanded="false">
+                  <span class="mlptc-accordion-title">Dirty filters</span>
+                  <span class="mlptc-accordion-arrow" style="display:inline-block;transform:rotate(90deg);">&#8250;</span>
+                </button>
+                <div class="mlptc-accordion-panel" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.35s ease-in-out;">
+                  <div class="mlptc-accordion-overflow">
+                    <div class="mlptc-accordion-content" style="opacity:0;transform:translateY(-6px);transition:opacity 0.3s ease-in-out 0.05s, transform 0.3s ease-in-out 0.05s;">Air filters are essential for keeping your system running well. A dirty filter can cause many problems and increase your energy bills. That's why it's important to change your air filter regularly. Our team can easily replace filters and clean the system for the best performance.</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing / Cost -->
+        <div class="mlptc-section">
+          <h2 class="mlptc-heading mlptc-heading--narrow">What is the average HVAC repair cost?</h2>
+          <p class="mlptc-body-text mlptc-body-text--narrow mlptc-mb">The cost of our HVAC repair service can vary depending on several factors. Our company provides affordable service — our specialist will diagnose the issue first and provide a clear estimate before any work begins.</p>
+
+          <div class="mlptc-why-card">
+            <ul class="mlptc-why-list">
+              <li class="mlptc-why-item"><strong>Unit age</strong> — Repairing older HVAC systems can be costly, but our company stocks the most common parts to speed up the repairs.</li>
+              <li class="mlptc-why-item"><strong>Labour and materials</strong> — We offer a fixed price for each service, and all costs are communicated upfront with no surprises.</li>
+              <li class="mlptc-why-item"><strong>Restoration or replacement</strong> — Repairing is typically less expensive than replacing, and we'll help you choose the best option for your budget.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Schedule service -->
+        <div class="mlptc-section" id="mlptc-repair-contact">
+          <h2 class="mlptc-heading mlptc-heading--narrow">Schedule Your HVAC Repair Service Today</h2>
+          <p class="mlptc-body-text mlptc-body-text--narrow mlptc-mb">HVAC problems should never be ignored. Our professional repair services restore reliability, improve efficiency, and protect your system from future breakdowns.</p>
+
+          <div class="mlptc-schedule-row">
+            <p class="mlptc-body-text mlptc-schedule-text">Contact our team today to schedule service and ensure your HVAC system continues to operate safely, efficiently, and dependably for years to come.</p>
+            <div class="ph-img mlptc-schedule-logo" style="height:90px;border-radius:12px;">Company Logo</div>
+          </div>
+        </div>
+
+      </div><!-- /mlptc-main -->
+
+      <!-- ── Sticky sidebar form ─────────────────────────────────── -->
+      <aside class="mlph-sidebar">
+        <div class="mlph-sidebar-card">
+
+          <span class="mlph-sidebar-eyebrow">Get a Quote</span>
+          <h3 class="mlph-sidebar-title">Book Your<br><span class="mlph-sidebar-title-accent">Service Now</span></h3>
+          <p class="mlph-sidebar-desc">Fill in your details and our team will reach out within 24 hours.</p>
+
+          <div class="mlph-sidebar-body">
+            <div class="mlph-sidebar-field">
+              <label class="mlph-sidebar-label">Full name</label>
+              <input type="text" name="full_name" placeholder="Your Name" class="mlph-sidebar-input" autocomplete="name">
+            </div>
+            <div class="mlph-sidebar-field">
+              <label class="mlph-sidebar-label">Phone number*</label>
+              <div class="mlph-sidebar-phone-wrap">
+                <div class="mlph-sidebar-phone-flag">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="34" height="22">
+                    <rect x="0" y="0" width="15" height="40" fill="#D52B1E"/>
+                    <rect x="15" y="0" width="30" height="40" fill="#FFFFFF"/>
+                    <rect x="45" y="0" width="15" height="40" fill="#D52B1E"/>
+                    <path d="M30,6 l1.5,4.5 4.5-1.5-2.5,4 4,0.5-5.5,5 1,3.5-3-1.5 0,5 -1.5,0 0-5 -3,1.5 1,-3.5 -5.5,-5 4,-0.5 -2.5,-4 4.5,1.5 z" fill="#D52B1E"/>
+                  </svg>
+                </div>
+                <input type="tel" name="phone" placeholder="(__) __ - ____" class="mlph-sidebar-phone-input">
+              </div>
+            </div>
+            <div class="mlph-sidebar-field">
+              <label class="mlph-sidebar-label">E-mail*</label>
+              <input type="email" name="email" placeholder="Your e-mail" class="mlph-sidebar-input" autocomplete="email">
+            </div>
+            <label class="mlph-sidebar-consent-wrap">
+              <input type="checkbox" class="mlph-sidebar-checkbox">
+              <span class="mlph-sidebar-consent">I agree to the processing of my personal data</span>
+            </label>
+            <button type="submit" class="mlph-sidebar-btn">BOOK ONLINE</button>
+          </div>
+
+        </div>
+      </aside>
+
+    </div><!-- /mlptc-layout -->
+  </section>
+
+  <!-- ===== OFFERS (repeat) ===== -->
+  <!-- ===== ADDITIONAL BENEFITS ===== -->
+  <section class="add-benefits">
+    <div class="container">
+      <h2 class="page-section-title">Why choose Superior HVAC Service for heating and air conditioning repair?</h2>
+      <p class="page-section-sub">A few reasons why our customers have chosen us for many years</p>
+      <div class="add-benefits__grid">
+        <div class="add-benefit-card">
+          <div class="ph-img add-benefit-card__icon">Icon</div>
+          <h3>Government HVAC rebates</h3>
+          <p>We take great care to ensure that our company has all the necessary certificates to help our clients receive government discounts and benefits.</p>
+        </div>
+        <div class="add-benefit-card">
+          <div class="ph-img add-benefit-card__icon">Icon</div>
+          <h3>Comprehensive warranty</h3>
+          <p>We provide our customers with a warranty that covers labour and parts. If the problem recurs, we will resolve it quickly, without fuss or waiting.</p>
+        </div>
+        <div class="add-benefit-card">
+          <div class="ph-img add-benefit-card__icon">Icon</div>
+          <h3>Fair and transparent prices</h3>
+          <p>Our pricing policy is affordable and transparent, allowing our customers to know the cost of work and equipment in advance.</p>
+        </div>
+        <div class="add-benefit-card">
+          <div class="ph-img add-benefit-card__icon">Icon</div>
+          <h3>Experienced and licensed</h3>
+          <p>Our team receives regular training and holds all the necessary licenses and certificates to guarantee the quality of our services.</p>
+        </div>
+        <div class="add-benefit-card">
+          <div class="ph-img add-benefit-card__icon">Icon</div>
+          <h3>Positive feedback</h3>
+          <p>The quality of our work is confirmed by hundreds of positive reviews on Google and HomeStars, proving our high reputation and professional approach to each task.</p>
+        </div>
+        <div class="add-benefit-card">
+          <div class="ph-img add-benefit-card__icon">Icon</div>
+          <h3>Local company</h3>
+          <p>We have offices in many cities across Canada, so we can arrive at your location on the same day or at any other time that suits you.</p>
+        </div>
+      </div>
+      <p class="add-benefits__cta-line">Get even more benefits by working with us! <a href="#" class="add-benefits__cta-btn">Book a Certified Technician</a></p>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <h2 class="testimonials__title h2-t">See what people are saying about our professional HVAC service</h2>
+        <div class="testimonials__rating-wrap">
+          <div class="ph-img" style="width:9.3rem;height:5.4rem;border-radius:0.4rem;font-size:1rem;grid-area:img-1;">HomeStars</div>
+          <span class="testimonials__rating">
+            <span class="testimonials__rating-value h2-t">4.9/5</span>
+            <i class="icon-star"></i>
+            <i class="icon-star"></i>
+            <i class="icon-star"></i>
+            <i class="icon-star"></i>
+            <i class="icon-star"></i>
+          </span>
+          <p class="testimonials__subtitle s4-t">Hundreds of verified reviews</p>
+          <div class="ph-img" style="width:9.3rem;height:4rem;border-radius:0.4rem;font-size:1rem;margin-top:1.4rem;grid-area:img-2;">TrustPilot</div>
+        </div>
+      </div>
+
+      <div class="testimonials__wrap splide" id="splide-testimonials">
+        <div class="splide__track">
+          <ul class="splide__list">
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Jenna Setlock</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Excellent job done by Ryan recently. Not only did we receive exactly the service we intended to get, but he was by far the most productive and professional employee I've seen in this field of work. Keep the business rolling guys!</p>
+              <span class="testimonial__date body2-t">Feb 2, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Ruthe Lehner</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">We called Superior HVAC because our air conditioner was running constantly without cooling the house properly. The technician found a refrigerant leak and repaired it the same day. He recharged the system and checked all the airflow levels afterward. The cooling works perfectly now.</p>
+              <span class="testimonial__date body2-t">May 24, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Peter Albert</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Superior HVAC completed our air conditioner maintenance this week and the service was outstanding. The technician was polite, knowledgeable, and made sure everything was working perfectly before leaving.</p>
+              <span class="testimonial__date body2-t">May 11, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Raegan Ferrer</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Had a new central air installation completed with Superior HVAC. The crew was respectful, clean, and finished on schedule.</p>
+              <span class="testimonial__date body2-t">May 9, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Gemma Julien</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Ryan fixed my furnace.</p>
+              <span class="testimonial__date body2-t">Feb 1, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Jian Jon Manuel</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Good service.</p>
+              <span class="testimonial__date body2-t">Feb 16, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Mary Paul</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Superior HVAC Sarnia helped fix my furnace when it suddenly stopped heating the house. They responded quickly, diagnosed the issue right away, and explained what needed to be repaired before starting. The furnace was up and running the same day, and the pricing was fair.</p>
+              <span class="testimonial__date body2-t">Feb 3, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Kielan Hayward</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Excellent service, completely fixed my furnace. Will be a returning customer.</p>
+              <span class="testimonial__date body2-t">Jan 22, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Jody Adler</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Very positive experience. The staff was courteous, efficient, and clearly experienced with AC replacements. They made the process easy and hassle-free from start to finish. My new unit works perfectly and has made a noticeable difference already.</p>
+              <span class="testimonial__date body2-t">Apr 25, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Girish Vaidhya</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">Justin came and diagnosed my 15 year old furnace. The care was awesome and explained the new features that my furnace has! Thank you!</p>
+              <span class="testimonial__date body2-t">Dec 24, 2025</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Degala Sidhartha</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">One of the best HVAC service experiences I've had. The technician was friendly, experienced, and very efficient. They fixed the issue quickly and ensured everything was working properly. I would highly recommend them.</p>
+              <span class="testimonial__date body2-t">Apr 27, 2026</span>
+            </li>
+
+            <li class="testimonial splide__slide">
+              <div class="testimonial__header">
+                <div class="testimonial__logo">
+                  <div class="ph-img" style="width:7.8rem;height:4rem;border-radius:0.4rem;font-size:1rem;">HS</div>
+                </div>
+                <div class="testimonial__caption">
+                  <div class="testimonial__name s1-t">Janice Hurlbut</div>
+                  <div class="testimonial__rate">
+                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="testimonial__text body2-t">I would give Superior HVAC a 4.5 because the service was very good. Our furnace broke on one of the coldest days in the winter and they sent a technician as soon as they were able. Nick the technician was courteous, efficient, professional and provided a clear explanation about what he thought the problems could be and possible solutions. The furnace was about 20 years old so we opted to get a new furnace, installed during a snow storm by equally professional installers. Fortunately we had heat that evening before another freezing day.</p>
+              <span class="testimonial__date body2-t">Jan 26, 2026</span>
+            </li>
+
+          </ul>
+        </div>
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev"></button>
+          <button class="splide__arrow splide__arrow--next"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery">
+    <div class="container">
+      <h2 class="page-section-title">Our HVAC projects</h2>
+      <div class="gallery__grid">
+        <div class="ph-img gallery__item">Furnace Installation</div>
+        <div class="ph-img gallery__item">Water Heater Repair</div>
+        <div class="ph-img gallery__item">Water Softener Repair</div>
+        <div class="ph-img gallery__item">Boiler and Water Heater Replacement</div>
+        <div class="ph-img gallery__item">Air Conditioner Installation</div>
+        <div class="ph-img gallery__item">Furnace Install</div>
+        <div class="ph-img gallery__item">Heat Pump Repair</div>
+        <div class="ph-img gallery__item">Heat Pump Repair Service</div>
+        <div class="ph-img gallery__item">Heat Pump Installation Service</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT FORM 2 ===== -->
+  <section class="cform">
+    <div class="container">
+      <h2 class="cform__title">Get It Fixed Today</h2>
+      <form class="cform__form" novalidate>
+        <input class="cform__input" type="text" placeholder="Enter your name">
+        <input class="cform__input" type="tel" placeholder="Enter your phone number *" required>
+        <input class="cform__input" type="email" placeholder="Enter your e-mail *" required>
+        <label class="cform__check">
+          <input type="checkbox" required>
+          <span>I agree to the processing of my personal data</span>
+        </label>
+        <button class="cform__submit" type="submit">Schedule Now</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="page-section-title">Frequently asked questions about HVAC repair</h2>
+      <div class="faq__list">
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">What HVAC systems do you service, and which brands do you work with?</button>
+          <div class="faq-item__a">
+            <p>We service all types of HVAC systems and work with a wide range of brands to ensure that we can effectively and efficiently meet our customers' needs.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">Do you offer emergency service for urgent heating or cooling issues?</button>
+          <div class="faq-item__a">
+            <p>Yes, we offer emergency HVAC service to provide prompt assistance for urgent heating or cooling needs, ensuring your home remains comfortable year-round.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">Why is regular maintenance important for my HVAC system?</button>
+          <div class="faq-item__a">
+            <p>Regular maintenance helps ensure your HVAC system runs efficiently, prolongs its lifespan, and improves indoor air quality.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">What should I do if my furnace or air conditioner needs repair?</button>
+          <div class="faq-item__a">
+            <p>If your furnace or air conditioner needs repair, call a professional HVAC contractor to address the issue and ensure your home comfort quickly.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false">How can I avoid repairs to my HVAC system?</button>
+          <div class="faq-item__a">
+            <p>You can't guarantee that your system will never need repairs, but replacing air filters every 3-6 months, ensuring that the outdoor unit is easily accessible, and keeping indoor vents free of clogs are good ways to ensure that your HVAC system will work well for the long term.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE AREAS ===== -->
+  <section class="areas">
+    <div class="container">
+      <h2 class="page-section-title">Cities covered by Superior HVAC Service</h2>
+      <div class="areas__tabs">
+        <button class="areas__tab areas__tab--active" data-tab="ontario">Ontario</button>
+        <button class="areas__tab" data-tab="quebec">Quebec</button>
+      </div>
+      <div class="areas__panel areas__panel--active" id="tab-ontario">
+        <div class="areas__grid">
+          <a href="#">Ajax</a><a href="#">Ancaster</a><a href="#">Aurora</a><a href="#">Barrhaven</a><a href="#">Barrie</a><a href="#">Belleville</a><a href="#">Bolton</a><a href="#">Bowmanville</a><a href="#">Bradford</a><a href="#">Brampton</a><a href="#">Brantford</a><a href="#">Brighton</a><a href="#">Brockville</a><a href="#">Burlington</a><a href="#">Caledon</a><a href="#">Cambridge</a><a href="#">Chatham</a><a href="#">Clarington</a><a href="#">Cobourg</a><a href="#">Colborne</a><a href="#">Cornwall</a><a href="#">Courtice</a><a href="#">East Gwillimbury</a><a href="#">Elgin County</a><a href="#">Elmira</a><a href="#">Erin</a><a href="#">Essex</a><a href="#">Etobicoke</a><a href="#">Fergus</a><a href="#">Fort Erie</a><a href="#">Georgetown</a><a href="#">Georgina</a><a href="#">Gloucester</a><a href="#">Grimsby</a><a href="#">Guelph</a><a href="#">Haldimand County</a><a href="#">Halton Hills</a><a href="#">Hamilton</a><a href="#">Ingersoll</a><a href="#">Innisfil</a><a href="#">Kanata</a><a href="#">Kawartha Lakes</a><a href="#">Kingston</a><a href="#">Kitchener</a><a href="#">Lasalle</a><a href="#">Leamington</a><a href="#">Lincoln</a><a href="#">London</a><a href="#">Markham</a><a href="#">Milton</a><a href="#">Mississauga</a><a href="#">Napanee</a><a href="#">Nepean</a><a href="#">New Hamburg</a><a href="#">New Tecumseth</a><a href="#">Newmarket</a><a href="#">Niagara Falls</a><a href="#">North York</a><a href="#">Oakville</a><a href="#">Orangeville</a><a href="#">Orillia</a><a href="#">Orleans</a><a href="#">Oshawa</a><a href="#">Ottawa</a><a href="#">Peterborough</a><a href="#">Pickering</a><a href="#">Port Colborne</a><a href="#">Port Hope</a><a href="#">Quinte West</a><a href="#">Richmond Hill</a><a href="#">Sarnia</a><a href="#">Scarborough</a><a href="#">Simcoe</a><a href="#">St. Catharines</a><a href="#">St. Thomas</a><a href="#">Stittsville</a><a href="#">Stratford</a><a href="#">Strathroy</a><a href="#">Tecumseh</a><a href="#">Tillsonburg</a><a href="#">Toronto</a><a href="#">Trenton</a><a href="#">Uxbridge</a><a href="#">Vanier</a><a href="#">Vaughan</a><a href="#">Wallaceburg</a><a href="#">Wasaga Beach</a><a href="#">Waterdown</a><a href="#">Waterloo</a><a href="#">Welland</a><a href="#">West Gwillimbury</a><a href="#">Whitby</a><a href="#">Whitchurch-Stouffville</a><a href="#">Windsor</a><a href="#">Woodstock</a>
+        </div>
+      </div>
+      <div class="areas__panel" id="tab-quebec">
+        <div class="areas__grid">
+          <a href="#">Gatineau</a><a href="#">Laval</a><a href="#">Longueuil</a><a href="#">Montreal</a>
+        </div>
+      </div>
+      <div class="areas__foot">
+        <a href="#" class="areas__more">See all cities</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MASTER FORM ===== -->
+  <section class="master-form">
+    <div class="container">
+      <h2 class="master-form__title">Get Your Appliance Problem Solved Fast</h2>
+      <form class="master-form__form" novalidate>
+        <div class="master-form__row">
+          <select class="master-form__select">
+            <option value="">Choose a service</option>
+            <option>Repair</option>
+            <option>Install</option>
+            <option>Buy</option>
+          </select>
+          <select class="master-form__select">
+            <option value="">Choose your equipment</option>
+            <option>Furnace</option>
+            <option>Heat Pump</option>
+            <option>Boiler</option>
+            <option>Water Heater</option>
+            <option>Water softener</option>
+            <option>Air Handler</option>
+            <option>Air Conditioner</option>
+            <option>Reverse Osmosis</option>
+          </select>
+        </div>
+        <div class="master-form__row">
+          <input class="master-form__input" type="text" placeholder="Enter your name *" required>
+          <input class="master-form__input" type="tel" placeholder="Enter your phone number *" required>
+          <input class="master-form__input" type="email" placeholder="Enter your e-mail *" required>
+        </div>
+        <label class="master-form__check">
+          <input type="checkbox" required>
+          <span>I agree to the processing of my personal data</span>
+        </label>
+        <button class="master-form__submit" type="submit">Schedule a Visit</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+
+    <address class="footer__first-col">
+      <span class="custom-logo-link">
+        <a href="#">
+          <div class="footer-logo-ph">[ FOOTER LOGO ]</div>
+        </a>
+        <p class="logo-text">Plumbing the canadian way</p>
+      </span>
+      <div class="footer__locs h3-t">
+        <a href="tel:+14168774674" class="footer__loc">
+          <i class="icon-phone"></i>
+          +1 416-877-4674
+        </a>
+        <div class="footer__loc">
+          <i class="icon-location"></i>
+          Ontario
+        </div>
+      </div>
+      <p class="footer__address s3-t">123 Main Street, Toronto, ON M5V 3A8</p>
+      <a href="mailto:info@mapleleafplumber.com" class="footer__email s3-t">
+        <i class="icon-email"></i>
+        info@mapleleafplumber.com
+      </a>
+      <div class="footer__hours">
+        <span class="footer__hours-title h5-t">
+          <i class="icon-hours"></i> hours of operation:
+        </span>
+        <span class="footer__hours-text s3-t">Monday - Sunday 06:00 AM - 11:00 PM</span>
+      </div>
+      <div class="socials icomoon">
+        <a class="socials__item icomoon icon-facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook"><span class="sr-only">Facebook</span></a>
+        <a class="socials__item icomoon icon-linkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="sr-only">LinkedIn</span></a>
+        <a class="socials__item icomoon icon-instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram"><span class="sr-only">Instagram</span></a>
+        <a class="socials__item icomoon icon-pinterest" href="#" target="_blank" rel="noopener" aria-label="Pinterest"><span class="sr-only">Pinterest</span></a>
+      </div>
+    </address>
+
+    <div class="footer__second-col">
+      <div class="wrap-menu">
+        <span class="wrap-menu__header h5-t">About company <i class="icon-dropdown"></i></span>
+        <div class="footer__menu s3-t">
+          <ul class="menu-list main-menu-list">
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">About Us</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Reviews</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Contact Us</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Our Offices</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap-menu">
+        <span class="wrap-menu__header h5-t">Residential Service <i class="icon-dropdown"></i></span>
+        <div class="footer__menu s3-t">
+          <ul class="menu-list main-menu-list">
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Toilet Installation</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Sump Pump Replacement</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Shower repair</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Bathroom Faucet Installation</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Installing kitchen sink drain</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap-menu">
+        <span class="wrap-menu__header h5-t">Commercial Service <i class="icon-dropdown"></i></span>
+        <div class="footer__menu s3-t">
+          <ul class="menu-list main-menu-list">
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Drain and Sewer Cleaning</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Sewer Camera Inspections</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Leak Detection</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Toilet Installation</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Faucet Repair</a></li>
+            <li class="main-menu-item"><a href="#" class="menu-link main-menu-link">Sewer and Drain Repair</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="payments">
+      <div class="payments__item"><div class="pay-ph"></div></div>
+      <div class="payments__item"><div class="pay-ph"></div></div>
+      <div class="payments__item"><div class="pay-ph"></div></div>
+      <div class="payments__item"><div class="pay-ph"></div></div>
+      <div class="payments__item"><div class="pay-ph"></div></div>
+    </div>
+
+    <small class="rights s5-t">
+      <span>&#169; 2025 Maple Leaf Plumber. All rights reserved.</span>
+      <span>License #: ON-PLMB-001</span>
+      <a href="#" class="dmca-badge"><span style="color:#c4c4c4;font-size:1rem;">DMCA Protected</span></a>
+    </small>
+
+  </div>
+</footer>
+
+<!-- PAGE UP BUTTON -->
+<div class="pageup">
+  <i class="icon-dropdown"></i>
+</div>
+
+<!-- POPUP: REQUEST CALLBACK -->
+<dialog id="popup-callback" class="popup-overlay popup-callback" data-popup-name="callback">
+  <div class="popup-content">
+    <i class="popup-close icon-close" data-popup-close="callback"></i>
+    <div style="padding:2rem;text-align:center;color:#757a7f;">
+      <p style="font-weight:600;margin-bottom:0.8rem;">Request Service</p>
+      <p style="font-size:1.2rem;">(Replace with contact form)</p>
+    </div>
+  </div>
+</dialog>
+
+<!-- POPUP: CONTACT US -->
+<dialog id="popup-contactus" class="popup-contactus popup-overlay" data-popup-name="contactus" data-popup-overlay="contactus">
+  <div class="popup-content" data-form="wrap">
+    <i class="popup-close icon-close" data-popup-close="contactus"></i>
+    <div style="padding:2rem;text-align:center;color:#757a7f;">
+      <p style="font-weight:600;margin-bottom:0.8rem;">Contact Us</p>
+      <p style="font-size:1.2rem;">(Replace with contact form)</p>
+    </div>
+  </div>
+</dialog>
+
+<!-- QUICK ACTIONS (mobile sticky bar) -->
+<div class="quick-actions">
+  <a class="callus s2-t" href="tel:+14168774674">
+    <i class="icon-phone"></i>
+    <span class="s4-t">Call us now</span>
+    +1 416-877-4674
+  </a>
+</div>
+
+<script src="header-footer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  new Splide('#splide-testimonials', {
+    type      : 'loop',
+    perPage   : 3,
+    perMove   : 1,
+    gap       : '3rem',
+    arrows    : true,
+    pagination: false,
+    breakpoints: {
+      1139: { perPage: 2 },
+      576 : { perPage: 1 }
+    }
+  }).mount();
+});
+</script>
+</body>
+</html>
