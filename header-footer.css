@@ -2071,7 +2071,7 @@ dialog { border:none; }
   padding: 3rem 3rem 7rem;
   width: 35rem;
   min-height: 38rem;
-  border: 2px solid #999999;
+  border: 0.1rem solid #dde3ef;
   box-shadow: none;
   border-radius: 2rem;
   position: relative;
