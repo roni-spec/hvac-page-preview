@@ -270,29 +270,75 @@
 <!-- MAIN CONTENT PLACEHOLDER -->
 <main>
 
-  <!-- ===== HERO (promo design from template-home.php) ===== -->
-  <div class="promo">
-    <div class="promo__container container">
-      <div class="promo__info">
-        <h1 class="promo__title h1-t">Get Quality HVAC Repair Services in Canada</h1>
-        <p class="promo__subtitle">Buy &nbsp;&middot;&nbsp; Installation &nbsp;&middot;&nbsp; Replacement &nbsp;&middot;&nbsp; Repair</p>
-        <div class="promo__text">
-          <ul>
-            <li><span>Never an Overtime Charge</span></li>
-            <li><span>Licensed and Insured</span></li>
-            <li><span>Upfront Pricing</span></li>
-            <li><span>Locally Owned and Operated</span></li>
-            <li><span>Workmanship Parts Guaranteed</span></li>
-          </ul>
+  <!-- ===== HERO SLIDER ===== -->
+  <div class="hero-slider">
+
+    <!-- Slide 1: original promo -->
+    <div class="hero-slide active">
+      <div class="promo">
+        <div class="promo__container container">
+          <div class="promo__info">
+            <h1 class="promo__title h1-t">Get Quality HVAC Repair Services in Canada</h1>
+            <p class="promo__subtitle">Buy &nbsp;&middot;&nbsp; Installation &nbsp;&middot;&nbsp; Replacement &nbsp;&middot;&nbsp; Repair</p>
+            <div class="promo__text">
+              <ul>
+                <li><span>Never an Overtime Charge</span></li>
+                <li><span>Licensed and Insured</span></li>
+                <li><span>Upfront Pricing</span></li>
+                <li><span>Locally Owned and Operated</span></li>
+                <li><span>Workmanship Parts Guaranteed</span></li>
+              </ul>
+            </div>
+            <button class="promo__btn btn btn-t" type="button">
+              <i class="icon-book"></i> Schedule Your Service
+            </button>
+          </div>
+          <picture class="promo__img">
+            <div class="ph-img" style="width:100%;height:100%;border-radius:0;">Hero Image — HVAC Technician</div>
+          </picture>
         </div>
-        <button class="promo__btn btn btn-t" type="button">
-          <i class="icon-book"></i> Schedule Your Service
-        </button>
       </div>
-      <picture class="promo__img">
-        <div class="ph-img" style="width:100%;height:100%;border-radius:0;">Hero Image — HVAC Technician</div>
-      </picture>
     </div>
+
+    <!-- Slide 2: coupon banner -->
+    <div class="hero-slide hs-coupon-slide">
+      <div class="hs-left-panel">
+        <div class="hs-headline">
+          <div class="hs-save">save $30</div>
+          <div class="hs-main-text">
+            on the Diagnostics of<br>
+            your <span class="hs-hvac">HVAC Unit</span>
+          </div>
+        </div>
+        <div class="hs-price-card-wrapper">
+          <div class="hs-regular-price">
+            Regular Price: &nbsp;<span class="hs-crossed">$179</span>
+          </div>
+          <div class="hs-price-card-outer">
+            <div class="hs-price-card-stripes"></div>
+            <div class="hs-price-card">
+              <div class="hs-price-main">
+                <span class="hs-dollar-sign">$</span>
+                <span class="hs-amount">149</span>
+                <span class="hs-on-the">on the<br>diagnostics</span>
+              </div>
+            </div>
+            <div class="hs-special-offer-bar"></div>
+          </div>
+        </div>
+        <a href="#" class="hs-cta-btn">
+          <svg class="hs-gear-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Get a Discount
+        </a>
+      </div>
+      <div class="hs-right-panel"></div>
+    </div>
+
+    <!-- Shared arrows -->
+    <button class="hs-arrow hs-arrow--prev">&#8249;</button>
+    <button class="hs-arrow hs-arrow--next">&#8250;</button>
 
   </div>
 
@@ -409,47 +455,105 @@
       <div class="scat__grid">
         <div class="scat-card">
           <div class="ph-img scat-card__icon">Air Conditioner Icon</div>
-          <h3 class="scat-card__name">Air Conditioner Repair</h3>
-          <a href="#" class="scat-card__link">See more</a>
+          <h3 class="scat-card__name">Air Conditioner <span class="scat-card__name-repair">Repair</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
         </div>
         <div class="scat-card">
           <div class="ph-img scat-card__icon">Boiler Icon</div>
-          <h3 class="scat-card__name">Boiler Repair</h3>
-          <a href="#" class="scat-card__link">See more</a>
+          <h3 class="scat-card__name">Boiler <span class="scat-card__name-repair">Repair</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
         </div>
         <div class="scat-card">
           <div class="ph-img scat-card__icon">Furnace Icon</div>
-          <h3 class="scat-card__name">Furnace Repair</h3>
-          <a href="#" class="scat-card__link">See more</a>
+          <h3 class="scat-card__name">Furnace <span class="scat-card__name-repair">Repair</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
         </div>
         <div class="scat-card">
           <div class="ph-img scat-card__icon">Tankless WH Icon</div>
-          <h3 class="scat-card__name">Tankless Water Heater Repair</h3>
-          <a href="#" class="scat-card__link">See more</a>
+          <h3 class="scat-card__name">Tankless Water Heater <span class="scat-card__name-repair">Repair</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
         </div>
         <div class="scat-card">
           <div class="ph-img scat-card__icon">Air Handler Icon</div>
-          <h3 class="scat-card__name">Air Handler Repair</h3>
-          <a href="#" class="scat-card__link">See more</a>
+          <h3 class="scat-card__name">Air Handler <span class="scat-card__name-repair">Repair</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
         </div>
         <div class="scat-card">
           <div class="ph-img scat-card__icon">Heat Pump Icon</div>
-          <h3 class="scat-card__name">Heat Pump Repair</h3>
-          <a href="#" class="scat-card__link">See more</a>
+          <h3 class="scat-card__name">Heat Pump <span class="scat-card__name-repair">Repair</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
         </div>
         <div class="scat-card">
           <div class="ph-img scat-card__icon">Water Tank Icon</div>
-          <h3 class="scat-card__name">Water Heater Tank Repair</h3>
-          <a href="#" class="scat-card__link">See more</a>
+          <h3 class="scat-card__name">Water Heater Tank <span class="scat-card__name-repair">Repair</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
         </div>
         <div class="scat-card">
           <div class="ph-img scat-card__icon">Ductless AC Icon</div>
-          <h3 class="scat-card__name">Ductless Air Conditioner Repair</h3>
-          <a href="#" class="scat-card__link">See more</a>
+          <h3 class="scat-card__name">Ductless Air Conditioner <span class="scat-card__name-repair">Repair</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
         </div>
+      </div>
+
+      <!-- hidden Installation cards -->
+      <div class="scat__grid scat__grid--more" id="scat-more" style="display:none; margin-top:2.4rem;">
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Air Conditioner Icon</div>
+          <h3 class="scat-card__name">Air Conditioner <span class="scat-card__name-repair">Installation</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Boiler Icon</div>
+          <h3 class="scat-card__name">Boiler <span class="scat-card__name-repair">Installation</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Furnace Icon</div>
+          <h3 class="scat-card__name">Furnace <span class="scat-card__name-repair">Installation</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Tankless WH Icon</div>
+          <h3 class="scat-card__name">Tankless Water Heater <span class="scat-card__name-repair">Installation</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Air Handler Icon</div>
+          <h3 class="scat-card__name">Air Handler <span class="scat-card__name-repair">Installation</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Heat Pump Icon</div>
+          <h3 class="scat-card__name">Heat Pump <span class="scat-card__name-repair">Installation</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Water Tank Icon</div>
+          <h3 class="scat-card__name">Water Heater Tank <span class="scat-card__name-repair">Installation</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
+        </div>
+        <div class="scat-card">
+          <div class="ph-img scat-card__icon">Ductless AC Icon</div>
+          <h3 class="scat-card__name">Ductless Air Conditioner <span class="scat-card__name-repair">Installation</span></h3>
+          <button class="scat-card__link" type="button">See more</button>
+        </div>
+      </div>
+
+      <div class="scat__more-wrap">
+        <button class="scat__more-btn" id="scat-more-btn" type="button" onclick="scatToggleMore()">See more</button>
       </div>
     </div>
   </section>
+
+  <script>
+    function scatToggleMore() {
+      var grid = document.getElementById('scat-more');
+      var btn  = document.getElementById('scat-more-btn');
+      var open = grid.style.display !== 'none';
+      grid.style.display = open ? 'none' : 'grid';
+      btn.textContent = open ? 'See more' : 'See less';
+    }
+  </script>
 
   <!-- ===== PROCESS ===== -->
   <section id="mlpps-root">
@@ -1738,6 +1842,33 @@ document.addEventListener('DOMContentLoaded', function () {
       if (first) first.click();
     }
   });
+}());
+</script>
+
+<script>
+(function () {
+  var slides  = document.querySelectorAll('.hero-slide');
+  var current = 0;
+  var timer;
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function () { goTo(current + 1); }, 30000);
+  }
+
+  var prev = document.querySelector('.hs-arrow--prev');
+  var next = document.querySelector('.hs-arrow--next');
+  if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
+  if (next) next.addEventListener('click', function () { goTo(current + 1); });
+
+  resetTimer();
 }());
 </script>
 </body>
