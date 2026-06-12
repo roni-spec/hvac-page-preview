@@ -1752,18 +1752,22 @@ dialog { border:none; }
   flex-wrap: wrap;
 }
 .add-benefits__cta-btn {
-  display: inline-block;
-  background: #e53935;
+  display: inline-flex;
+  align-items: center;
+  background: #e1251b;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  padding: 1.2rem 2.8rem;
-  border-radius: 0.6rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1.5rem 3.6rem;
+  border-radius: 99px;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.15s;
 }
-.add-benefits__cta-btn:hover { background: #c62828; }
+.add-benefits__cta-btn:hover { background: #c41e14; transform: translateY(-2px); }
 
 /* --- REVIEWS --- */
 .reviews { padding: 8rem 0; background: #f7f8fc; }
