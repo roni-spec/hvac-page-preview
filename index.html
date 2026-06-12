@@ -1188,6 +1188,11 @@
         <button class="areas__tab-btn" data-province="ontario">Ontario</button>
         <button class="areas__tab-btn" data-province="quebec">Quebec</button>
       </div>
+      <div class="areas__search-wrap">
+        <svg class="areas__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="areas-search" class="areas__search-input" type="text" placeholder="Search a city…" autocomplete="off">
+        <div id="areas-search-dropdown" class="areas__search-dropdown" style="display:none"></div>
+      </div>
       <div class="areas__body">
         <div id="areas-map" class="areas__map"></div>
         <div class="areas__panel" id="areas-panel"></div>
@@ -1666,6 +1671,57 @@ document.addEventListener('DOMContentLoaded', function () {
         resetPanel();
       }
     });
+  });
+
+  /* ---- City search ---- */
+  var searchInput = document.getElementById('areas-search');
+  var searchDropdown = document.getElementById('areas-search-dropdown');
+
+  searchInput.addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    if (!q) { searchDropdown.style.display = 'none'; return; }
+    var matches = locations.filter(function (loc) {
+      return loc.name.toLowerCase().indexOf(q) !== -1;
+    }).slice(0, 7);
+    if (!matches.length) { searchDropdown.style.display = 'none'; return; }
+    searchDropdown.innerHTML = matches.map(function (loc) {
+      return '<div class="areas__search-item" data-name="' + loc.name + '">' +
+        loc.name +
+        '<span class="areas__search-prov">' + (loc.province === 'ontario' ? 'ON' : 'QC') + '</span>' +
+        '</div>';
+    }).join('');
+    searchDropdown.style.display = 'block';
+  });
+
+  searchDropdown.addEventListener('click', function (e) {
+    var item = e.target.closest('.areas__search-item');
+    if (!item) return;
+    var name = item.dataset.name;
+    var loc = locations.find(function (l) { return l.name === name; });
+    if (!loc) return;
+    searchDropdown.style.display = 'none';
+    searchInput.value = '';
+    map.setView([loc.lat, loc.lng], 12, { animate: true });
+    var marker = markers.find(function (m) { return m._loc.name === name; });
+    if (marker) {
+      map.addLayer(marker);
+      if (activeMarker && activeMarker !== marker) activeMarker.setIcon(makeIcon(false));
+      marker.setIcon(makeIcon(true));
+      activeMarker = marker;
+      showPanel(loc);
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.areas__search-wrap')) searchDropdown.style.display = 'none';
+  });
+
+  searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { searchDropdown.style.display = 'none'; searchInput.value = ''; }
+    if (e.key === 'Enter') {
+      var first = searchDropdown.querySelector('.areas__search-item');
+      if (first) first.click();
+    }
   });
 }());
 </script>
