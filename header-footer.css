@@ -2112,9 +2112,9 @@ dialog { border:none; }
 .testimonial__date { position: absolute; bottom: 2rem; left: 3rem; right: 3rem; color: #757a7f; text-transform: uppercase; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08); }
 
 /* Section wrapper */
-.testimonials { padding: 5rem 0 6rem; background: #fff; }
+.testimonials { padding: 2rem 0 3rem; background: #fff; }
 .testimonials__header {
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   display: flex;
   align-items: flex-start;
 }
