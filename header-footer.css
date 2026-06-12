@@ -2068,7 +2068,7 @@ dialog { border:none; }
 
 /* Individual card */
 .testimonial {
-  padding: 4rem 5.5rem 8rem;
+  padding: 3.5rem 3.5rem 9rem;
   width: 35rem;
   min-height: 38rem;
   border: none;
@@ -2118,7 +2118,7 @@ dialog { border:none; }
 .testimonial__text::-webkit-scrollbar-button { display: none; }
 .testimonial__text::-webkit-scrollbar-thumb { background-color: #c4c4c4; border-radius: 0.8rem; }
 .testimonial__text::-webkit-scrollbar-track-piece { background-color: #f3f3f3; border-radius: 0.8rem; }
-.testimonial__date { position: absolute; bottom: 2rem; left: 5.5rem; right: 5.5rem; color: #757a7f; text-transform: uppercase; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08); }
+.testimonial__date { position: absolute; bottom: 3.5rem; left: 3.5rem; right: 3.5rem; color: #757a7f; text-transform: uppercase; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08); }
 
 /* Section wrapper */
 .testimonials { padding: 2rem 0 3rem; background: #fff; }
