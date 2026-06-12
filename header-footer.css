@@ -1675,6 +1675,8 @@ dialog { border:none; }
 #mlptc-root .mlptc-prevention-row { display: flex; gap: 32px; align-items: flex-start; max-width: 714px; }
 #mlptc-root .mlptc-prevention-text { display: flex; flex-direction: column; gap: 20px; flex: 1; }
 #mlptc-root .mlptc-prevention-img { width: 220px; object-fit: cover; border-radius: 20px; flex-shrink: 0; align-self: stretch; }
+#mlptc-root .mlptc-fullwidth-img { width: 100%; height: 340px; object-fit: cover; border-radius: 20px; }
+#mlptc-root .mlptc-fullwidth-img--short { height: 310px; }
 #mlptc-root .mlptc-readmore-wrap { position: relative; cursor: pointer; max-width: 714px; }
 #mlptc-root .mlptc-readmore-clip { position: relative; overflow: hidden; }
 #mlptc-root .mlptc-readmore-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 90px; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
@@ -2287,13 +2289,7 @@ dialog { border:none; }
 /* --- MASTER FORM --- */
 /* --- MASTER FORM (split-panel booking section) --- */
 .master-form { padding: 9rem 0; background: #0c3447; position: relative; overflow: hidden; }
-.master-form::before {
-  content: 'BOOK';
-  position: absolute; top: 50%; left: -4rem; transform: translateY(-50%);
-  font-size: 30rem; font-weight: 900; font-style: italic; text-transform: uppercase;
-  letter-spacing: -0.05em; line-height: 1; white-space: nowrap;
-  color: #fff; opacity: 0.03; pointer-events: none; user-select: none;
-}
+.master-form::before { content: none; }
 .master-form .container { display: grid; grid-template-columns: 1fr 1.45fr; gap: 6rem; align-items: center; }
 
 /* Left info */
