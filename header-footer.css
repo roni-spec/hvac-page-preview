@@ -2077,15 +2077,6 @@ dialog { border:none; }
   position: relative;
   background: #ffffff !important;
 }
-.testimonial::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 0.07rem solid #c8cdd6;
-  border-radius: 2rem;
-  pointer-events: none;
-  z-index: 2;
-}
 .testimonial__header {
   margin-bottom: 2.5rem;
   display: flex;
