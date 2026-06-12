@@ -266,92 +266,76 @@
 
   </div>
 
-  <!-- ===== COUPONS (design from test.php) ===== -->
-  <section class="cards-section" aria-labelledby="cards-title">
-    <div class="cards-shell">
-      <h2 class="cards-section__title" id="cards-title">AVAILABLE COUPONS</h2>
-      <div class="cards-section__divider" aria-hidden="true"></div>
-      <h3 class="cards-section__subtitle">CHOOSE YOUR COUPON!</h3>
-      <div class="cards-grid">
+  <!-- ===== COUPONS ===== -->
+  <section class="hvc" aria-labelledby="hvc-title">
+    <div class="hvc__watermark" aria-hidden="true">SAVE</div>
+    <div class="container">
 
-        <article class="coupon-card coupon-card--red">
-          <div class="coupon-card__stub">
-            <div class="coupon-card__stub-inner"><span>REDEEMABLE</span></div>
-            <div class="coupon-card__perforation" aria-hidden="true"></div>
-          </div>
-          <div class="coupon-card__body">
-            <div class="coupon-card__top">
-              <div class="coupon-card__content">
-                <div class="coupon-card__amount">
-                  <span class="coupon-card__currency">$</span>
-                  <strong>50</strong>
-                  <span class="coupon-card__off">OFF</span>
-                </div>
-                <div class="coupon-card__amount-rule" aria-hidden="true"></div>
-                <p class="coupon-card__badge">OF ANY TYPE OF HVAC UNIT</p>
+      <div class="hvc__header">
+        <span class="hvc__eyebrow">Limited Time Offers</span>
+        <h2 class="hvc__title" id="hvc-title">Available <em>Coupons</em></h2>
+        <div class="hvc__badge">&#9988;&nbsp; Choose Your Coupon!</div>
+      </div>
+
+      <div class="hvc__grid">
+
+        <!-- Card 1 — $50 OFF Repair -->
+        <article class="hvc-card">
+          <div class="hvc-card__stub"><span>REDEEMABLE</span></div>
+          <div class="hvc-card__perf" aria-hidden="true"></div>
+          <div class="hvc-card__body" data-label="SAVE">
+            <div class="hvc-card__top">
+              <div class="hvc-card__amount">
+                <span class="hvc-card__currency">$</span>
+                <strong class="hvc-card__num">50</strong>
+                <span class="hvc-card__off">OFF</span>
               </div>
-              <div class="coupon-card__icon-wrap" aria-hidden="true">
-                <div class="ph-img" style="width:3.2rem;height:3.2rem;border-radius:0.4rem;font-size:1rem;">Logo</div>
-              </div>
+              <span class="hvc-card__tag">Repair</span>
             </div>
-            <div class="coupon-card__bottom">
-              <h4 class="coupon-card__title">On the Repair</h4>
-              <p class="coupon-card__terms">Get a discount &nbsp;&middot;&nbsp; contact our expert for more details (866) 545-6460</p>
-            </div>
+            <p class="hvc-card__service">On the Repair of<br>Any HVAC Unit</p>
+            <div class="hvc-card__rule"></div>
+            <p class="hvc-card__terms">Contact our expert &nbsp;&middot;&nbsp; (866) 545-6460</p>
+            <a href="tel:+18665456460" class="hvc-card__btn">Claim Offer &rarr;</a>
           </div>
         </article>
 
-        <article class="coupon-card coupon-card--teal">
-          <div class="coupon-card__stub">
-            <div class="coupon-card__stub-inner"><span>REDEEMABLE</span></div>
-            <div class="coupon-card__perforation" aria-hidden="true"></div>
-          </div>
-          <div class="coupon-card__body">
-            <div class="coupon-card__top">
-              <div class="coupon-card__content">
-                <div class="coupon-card__amount">
-                  <span class="coupon-card__currency">$</span>
-                  <strong>30</strong>
-                  <span class="coupon-card__off">OFF</span>
-                </div>
-                <div class="coupon-card__amount-rule" aria-hidden="true"></div>
-                <p class="coupon-card__badge">Save &nbsp;&middot;&nbsp; <s style="opacity:.6;">$179</s> &nbsp; $149</p>
+        <!-- Card 2 — $30 OFF Diagnostics -->
+        <article class="hvc-card hvc-card--navy">
+          <div class="hvc-card__stub"><span>REDEEMABLE</span></div>
+          <div class="hvc-card__perf" aria-hidden="true"></div>
+          <div class="hvc-card__body" data-label="SAVE">
+            <div class="hvc-card__top">
+              <div class="hvc-card__amount">
+                <span class="hvc-card__currency">$</span>
+                <strong class="hvc-card__num">30</strong>
+                <span class="hvc-card__off">OFF</span>
               </div>
-              <div class="coupon-card__icon-wrap" aria-hidden="true">
-                <div class="ph-img" style="width:3.2rem;height:3.2rem;border-radius:0.4rem;font-size:1rem;">Logo</div>
-              </div>
+              <span class="hvc-card__tag">Diagnostics</span>
             </div>
-            <div class="coupon-card__bottom">
-              <h4 class="coupon-card__title">on the Diagnostics of your HVAC Unit</h4>
-              <p class="coupon-card__terms">Get a discount &nbsp;&middot;&nbsp; contact us for more details (866) 545-6460</p>
-            </div>
+            <p class="hvc-card__service">On the Diagnostics<br>of Your HVAC Unit</p>
+            <div class="hvc-card__rule"></div>
+            <p class="hvc-card__terms">Was $179 &nbsp;&mdash;&nbsp; Now only $149 &nbsp;&middot;&nbsp; (866) 545-6460</p>
+            <a href="tel:+18665456460" class="hvc-card__btn">Claim Offer &rarr;</a>
           </div>
         </article>
 
-        <article class="coupon-card coupon-card--red">
-          <div class="coupon-card__stub">
-            <div class="coupon-card__stub-inner"><span>REDEEMABLE</span></div>
-            <div class="coupon-card__perforation" aria-hidden="true"></div>
-          </div>
-          <div class="coupon-card__body">
-            <div class="coupon-card__top">
-              <div class="coupon-card__content">
-                <div class="coupon-card__amount">
-                  <span class="coupon-card__currency" style="font-size:1.4rem;align-self:center;">get</span>
-                  <strong>3</strong>
-                  <span class="coupon-card__off">months</span>
-                </div>
-                <div class="coupon-card__amount-rule" aria-hidden="true"></div>
-                <p class="coupon-card__badge">Months for free</p>
+        <!-- Card 3 — 3 Months Free -->
+        <article class="hvc-card">
+          <div class="hvc-card__stub"><span>REDEEMABLE</span></div>
+          <div class="hvc-card__perf" aria-hidden="true"></div>
+          <div class="hvc-card__body" data-label="FREE">
+            <div class="hvc-card__top">
+              <div class="hvc-card__amount hvc-card__amount--word">
+                <span class="hvc-card__currency hvc-card__currency--word">GET</span>
+                <strong class="hvc-card__num">3</strong>
+                <span class="hvc-card__off">MO.</span>
               </div>
-              <div class="coupon-card__icon-wrap" aria-hidden="true">
-                <div class="ph-img" style="width:3.2rem;height:3.2rem;border-radius:0.4rem;font-size:1rem;">Logo</div>
-              </div>
+              <span class="hvc-card__tag">Protection</span>
             </div>
-            <div class="coupon-card__bottom">
-              <h4 class="coupon-card__title">of protection plan</h4>
-              <p class="coupon-card__terms">In addition to the warranty for repairs and spare part</p>
-            </div>
+            <p class="hvc-card__service">Free Months of<br>Protection Plan</p>
+            <div class="hvc-card__rule"></div>
+            <p class="hvc-card__terms">In addition to the warranty for repairs and spare parts</p>
+            <a href="tel:+18665456460" class="hvc-card__btn">Claim Offer &rarr;</a>
           </div>
         </article>
 

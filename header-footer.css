@@ -797,248 +797,67 @@ dialog { border:none; }
 .promo__img img,
 .promo__img > div { width: 100%; height: 100%; object-fit: cover; }
 
-/* --- COUPON CARDS (from test.php + map.css) --- */
-.cards-section {
-  --cards-primary-top: #001327;
-  --cards-primary-mid: #00264d;
-  --cards-primary-bottom: #0b4274;
-  --cards-accent-red: #ff1b1b;
-  --cards-accent-blue: #8cff00;
-  padding: 8.5rem 0 9rem;
-  background: #ffffff;
-}
-.cards-shell {
-  width: min(132rem, calc(100% - 8rem));
-  margin: 0 auto;
-  transform: scale(0.9);
-  transform-origin: top center;
-}
-.cards-section__title {
-  margin: 0;
-  color: #4a4d54;
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(3.4rem, 3.8vw, 4.9rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-.cards-section__description {
-  max-width: 120rem;
-  margin: 2rem 0 0;
-  color: #556270;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  line-height: 1.85;
-}
-.cards-section__divider {
-  height: 0.1rem;
-  margin: 4.2rem 0 3.8rem;
-  background: #d7dbe2;
-}
-.cards-section__subtitle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.4rem;
-  margin: 0 0 3.2rem;
-  padding: 1.4rem 4.8rem;
-  border-radius: 2.4rem;
-  background: linear-gradient(180deg, #eef8ff 0%, #dff0ff 100%);
-  color: #123a9b;
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.6rem, 1.6vw, 2rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  box-shadow: inset 0 0 0 0.1rem rgba(43,109,246,0.08), 0 1rem 2.4rem rgba(43,109,246,0.08);
-}
-.cards-section__subtitle::before {
-  content: "";
-  width: 1rem;
-  height: 1rem;
-  flex: 0 0 1rem;
-  border-radius: 999rem;
-  background: linear-gradient(180deg, #1a46c8 0%, #0d2f9b 100%);
-  box-shadow: 0 0 0 0.45rem rgba(43,109,246,0.12), 0 0.4rem 1rem rgba(13,47,155,0.24);
-}
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 3rem;
-}
-.coupon-card {
-  position: relative;
-  display: flex;
-  min-height: 19.8rem;
-  overflow: hidden;
-  border-radius: 1.8rem;
-  box-shadow: 0 1.6rem 3.4rem -1rem rgba(8,26,76,0.18), 0 0.8rem 1.8rem -0.8rem rgba(8,26,76,0.1);
-  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, filter 0.3s ease;
-}
-.coupon-card::after {
-  content: "";
-  position: absolute;
-  left: 7%; right: 7%; bottom: -1.2rem;
-  height: 2.6rem;
-  border-radius: 999rem;
-  background: radial-gradient(ellipse at center, rgba(24,52,133,0.2) 0%, rgba(24,52,133,0) 72%);
-  filter: blur(1rem);
-  z-index: -1;
-  pointer-events: none;
-}
-.coupon-card:hover {
-  transform: translateY(-0.7rem);
-  box-shadow: 0 2.4rem 4.6rem -1.4rem rgba(8,26,76,0.26), 0 1.2rem 2.2rem -1.1rem rgba(8,26,76,0.16);
-  filter: saturate(1.05);
-}
-.coupon-card__stub {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 7rem;
-  flex: 0 0 7rem;
-  background: var(--cards-accent-red);
-  -webkit-mask-image: radial-gradient(circle at -0.4rem 1rem, transparent 0, transparent 0.8rem, black 0.8rem);
-  -webkit-mask-size: 100% 2rem;
-  mask-image: radial-gradient(circle at -0.4rem 1rem, transparent 0, transparent 0.8rem, black 0.8rem);
-  mask-size: 100% 2rem;
-}
-.coupon-card--teal .coupon-card__stub { background: var(--cards-accent-blue); }
-.coupon-card__stub-inner {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(0,30,60,0.8);
-  white-space: nowrap;
-}
-.coupon-card__perforation {
-  position: absolute;
-  top: 0; right: 0; bottom: 0;
-  width: 0.1rem;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.14) 0.2rem, transparent 0.2rem);
-  background-size: 100% 0.8rem;
-  background-position: center;
-  opacity: 0.3;
-}
-.coupon-card__body {
-  position: relative;
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 2.2rem 2.4rem;
-  background: linear-gradient(180deg, var(--cards-primary-top) 0%, var(--cards-primary-mid) 48%, var(--cards-primary-bottom) 100%);
-  border-left: 0.1rem solid rgba(255,255,255,0.05);
-  -webkit-mask-image: radial-gradient(circle at calc(100% + 0.4rem) 1rem, transparent 0, transparent 0.8rem, black 0.8rem);
-  -webkit-mask-size: 100% 2rem;
-  mask-image: radial-gradient(circle at calc(100% + 0.4rem) 1rem, transparent 0, transparent 0.8rem, black 0.8rem);
-  mask-size: 100% 2rem;
-}
-.coupon-card__body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(120,204,255,0.12) 100%), radial-gradient(circle at 18% 12%, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 34%);
-  pointer-events: none;
-}
-.coupon-card__top {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.6rem;
-}
-.coupon-card__content { min-width: 0; }
-.coupon-card__amount {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--cards-accent-red);
-}
-.coupon-card--teal .coupon-card__amount { color: #8cff00; }
-.coupon-card__currency { font-size: 2.3rem; }
-.coupon-card__amount strong { font-size: 5.6rem; font-weight: 800; }
-.coupon-card__off { font-size: 2rem; font-weight: 800; }
-.coupon-card__amount-rule {
-  width: 12rem;
-  max-width: 100%;
-  height: 0.1rem;
-  margin-top: 1rem;
-  background: linear-gradient(90deg, rgba(131,177,255,0.75) 0%, rgba(131,177,255,0.08) 100%);
-}
-.coupon-card__badge {
-  margin: 1rem 0 0;
-  color: rgba(255,255,255,0.6);
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-}
-.coupon-card__icon-wrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 5.4rem;
-  height: 5.4rem;
-  border-radius: 1.4rem;
-  background: rgba(255,255,255,0.08);
-  box-shadow: inset 0 0 0 0.1rem rgba(255,255,255,0.03);
-  flex-shrink: 0;
-}
-.coupon-card--teal .coupon-card__icon-wrap { background: rgba(57,184,255,0.12); }
-.coupon-card__logo { width: 3.2rem; height: 3.2rem; object-fit: contain; display: block; }
-.coupon-card__bottom { position: relative; z-index: 1; padding-top: 1.2rem; }
-.coupon-card__title {
-  margin: 0;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-.coupon-card__terms {
-  margin: 0.7rem 0 0;
-  color: rgba(255,255,255,0.4);
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-@media (max-width: 1260px) {
-  .cards-shell { width: min(132rem, calc(100% - 6rem)); }
-  .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.6rem; }
-}
-@media (max-width: 860px) {
-  .cards-section { padding: 7rem 0 8rem; }
-  .cards-shell { width: min(132rem, calc(100% - 3.2rem)); }
-  .cards-section__description { font-size: 1.7rem; line-height: 1.75; }
-  .cards-grid { grid-template-columns: 1fr; gap: 2.2rem; }
-  .cards-section__subtitle { padding: 1.3rem 3rem; letter-spacing: 0.24em; gap: 1.1rem; }
-}
-@media (max-width: 520px) {
-  .coupon-card { min-height: 18rem; }
-  .coupon-card__stub { width: 5.8rem; flex-basis: 5.8rem; }
-  .coupon-card__body { padding: 2rem 1.8rem; }
-  .coupon-card__amount strong { font-size: 4.8rem; }
-  .coupon-card__currency { font-size: 2rem; }
-  .coupon-card__off { font-size: 1.7rem; }
-  .coupon-card__title { font-size: 1.8rem; }
-  .cards-section__subtitle { width: 100%; padding: 1.2rem 1.8rem; font-size: 1.4rem; letter-spacing: 0.16em; gap: 0.9rem; text-align: center; }
-  .cards-section__subtitle::before { width: 0.8rem; height: 0.8rem; flex-basis: 0.8rem; }
-}
+/* --- COUPONS --- */
+.hvc { padding: 9rem 0; background: #0c3447; position: relative; overflow: hidden; }
+.hvc::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-55deg, transparent, transparent 18px, rgba(255,255,255,0.022) 18px, rgba(255,255,255,0.022) 36px); pointer-events: none; }
+.hvc__watermark { position: absolute; top: 50%; left: -4rem; transform: translateY(-50%); font-family: 'Montserrat', sans-serif; font-size: 30rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.05em; line-height: 1; white-space: nowrap; color: #fff; opacity: 0.03; pointer-events: none; user-select: none; }
+.hvc .container { position: relative; }
+.hvc__header { text-align: center; margin-bottom: 5.6rem; display: flex; flex-direction: column; align-items: center; gap: 1.6rem; }
+.hvc__eyebrow { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #e1251b; }
+.hvc__title { font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 900; font-style: italic; text-transform: uppercase; color: #fff; line-height: 1.05; letter-spacing: -0.01em; margin: 0; }
+.hvc__title em { color: #e1251b; font-style: italic; }
+.hvc__badge { display: inline-flex; align-items: center; gap: 1rem; padding: 0.9rem 2.8rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 99px; font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+.hvc__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.8rem; }
+
+/* ---- Card shell ---- */
+.hvc-card { display: flex; background: #fff; border-radius: 2rem; overflow: hidden; box-shadow: 0 2.4rem 6rem rgba(0,0,0,0.45), 0 0.8rem 2rem rgba(0,0,0,0.2); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease; }
+.hvc-card:hover { transform: translateY(-1rem) scale(1.01); box-shadow: 0 3.6rem 8rem rgba(0,0,0,0.6), 0 1.2rem 3rem rgba(0,0,0,0.25); }
+
+/* ---- Stub (left tear-off strip) ---- */
+.hvc-card__stub { width: 5.6rem; flex-shrink: 0; background: #e1251b; display: flex; align-items: center; justify-content: center; position: relative; }
+.hvc-card__stub span { writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 800; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.6); white-space: nowrap; }
+.hvc-card--navy .hvc-card__stub { background: #0c3447; }
+
+/* ---- Perforation line ---- */
+.hvc-card__perf { width: 0; flex-shrink: 0; border-left: 2px dashed rgba(0,0,0,0.1); margin: 2.4rem 0; }
+
+/* ---- Card body ---- */
+.hvc-card__body { flex: 1; padding: 2.8rem 2.4rem 2.4rem; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.hvc-card__body::after { content: attr(data-label); position: absolute; right: -1.2rem; bottom: -0.5rem; font-family: 'Montserrat', sans-serif; font-size: 8rem; font-weight: 900; font-style: italic; text-transform: uppercase; color: #e1251b; opacity: 0.05; line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.05em; }
+
+/* ---- Top row: amount + service tag ---- */
+.hvc-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.2rem; margin-bottom: 1rem; }
+.hvc-card__tag { display: inline-block; padding: 0.5rem 1.2rem; background: rgba(225,37,27,0.08); color: #e1251b; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 99px; white-space: nowrap; flex-shrink: 0; margin-top: 0.4rem; }
+.hvc-card--navy .hvc-card__tag { background: rgba(12,52,71,0.08); color: #0c3447; }
+
+/* ---- Discount number ---- */
+.hvc-card__amount { display: flex; align-items: baseline; gap: 0.3rem; font-family: 'Montserrat', sans-serif; font-weight: 900; color: #e1251b; line-height: 1; }
+.hvc-card--navy .hvc-card__amount { color: #0c3447; }
+.hvc-card__currency { font-size: 2.2rem; font-style: italic; }
+.hvc-card__num { font-size: 7.2rem; font-style: italic; letter-spacing: -0.04em; line-height: 0.9; }
+.hvc-card__off { font-size: 2rem; font-style: italic; font-weight: 900; align-self: center; padding-bottom: 0.4rem; }
+.hvc-card__amount--word { align-items: center; }
+.hvc-card__currency--word { font-size: 1.6rem; font-style: italic; font-weight: 900; letter-spacing: 0.04em; align-self: center; padding-bottom: 0; }
+
+/* ---- Service description ---- */
+.hvc-card__service { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: #222; line-height: 1.4; margin: 0.4rem 0 1.6rem; }
+
+/* ---- Separator ---- */
+.hvc-card__rule { height: 1px; background: linear-gradient(90deg, #e0e4ec 0%, transparent 100%); margin-bottom: 1.4rem; }
+
+/* ---- Terms ---- */
+.hvc-card__terms { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; color: #aaa; margin: 0 0 2rem; line-height: 1.6; flex: 1; }
+
+/* ---- CTA button ---- */
+.hvc-card__btn { display: inline-flex; align-items: center; gap: 0.6rem; background: #e1251b; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 800; font-style: italic; letter-spacing: 0.07em; text-transform: uppercase; padding: 1.15rem 2.4rem; border-radius: 99px; text-decoration: none; align-self: flex-start; transition: background 0.2s, transform 0.15s; }
+.hvc-card__btn:hover { background: #c41e14; transform: translateX(4px); }
+.hvc-card--navy .hvc-card__btn { background: #0c3447; }
+.hvc-card--navy .hvc-card__btn:hover { background: #0a2535; }
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) { .hvc__grid { grid-template-columns: repeat(2, 1fr); } .hvc__title { font-size: 4rem; } }
+@media (max-width: 700px) { .hvc { padding: 6rem 0; } .hvc__grid { grid-template-columns: 1fr; gap: 2rem; } .hvc__title { font-size: 3.2rem; } .hvc-card__num { font-size: 5.6rem; } .hvc-card__body { padding: 2.2rem 2rem 2rem; } }
+@media (max-width: 400px) { .hvc-card__stub { width: 4.8rem; } .hvc-card__num { font-size: 4.8rem; } }
 
 /* --- OFFERS --- */
 .offers { padding: 6rem 0; background: #fff; }
