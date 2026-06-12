@@ -2068,7 +2068,7 @@ dialog { border:none; }
 
 /* Individual card */
 .testimonial {
-  padding: 3rem 3rem 7rem;
+  padding: 4rem 4rem 8rem;
   width: 35rem;
   min-height: 38rem;
   border: none;
@@ -2081,7 +2081,7 @@ dialog { border:none; }
   content: '';
   position: absolute;
   inset: 0;
-  border: 0.15rem solid #c8cdd6;
+  border: 0.07rem solid #c8cdd6;
   border-radius: 2rem;
   pointer-events: none;
   z-index: 2;
