@@ -2014,15 +2014,23 @@ dialog { border:none; }
 .review-card__stars { color: #f5a623; font-size: 1.5rem; letter-spacing: 0.1em; }
 .review-card__text { font-size: 1.3rem; color: #555; line-height: 1.7; margin: 0; }
 
-/* --- GALLERY --- */
-.gallery { padding: 8rem 0; background: #fff; }
-.gallery .page-section-title { text-align: center; margin-bottom: 4rem; }
-.gallery__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.6rem;
-}
-.gallery__item { height: 24rem; font-size: 1.3rem; }
+/* --- GALLERY (before-after Splide style) --- */
+.gallery { padding: 8rem 0 4rem; background: #fff; }
+.gallery .before-after__title { margin: 0 auto 3.2rem; max-width: 80rem; text-align: center; text-transform: uppercase; color: #484848; }
+.gallery .before-after__list { align-items: center; }
+.gallery .before-after__list-wrap { overflow: visible; }
+.gallery .before-after__img { width: 36.5rem; height: 38rem; }
+.gallery .before-after__img .gallery__item { width: 100%; height: 100%; border-radius: 2.4rem; font-size: 1.3rem; transform: scale(.789); transition: transform .2s, height .3s ease-in-out, width .3s ease-in-out; }
+.gallery .before-after__img.is-active { padding: 0; }
+.gallery .before-after__img.is-active .gallery__item { transform: scale(1); }
+.gallery .before-after__img.is-next + .before-after__img,
+.gallery .before-after__img.is-prev { margin-left: -4.7rem; }
+.gallery .splide__slide { filter: grayscale(0); transition: filter .5s; }
+.gallery .splide__slide:not(.is-active) { filter: grayscale(1); }
+.gallery .splide__pagination { margin: 4rem 0 0; display: flex !important; position: relative; bottom: 1rem; }
+.gallery .splide__arrow { bottom: -0.2rem; }
+.gallery .splide__arrow--prev { left: 39rem; }
+.gallery .splide__arrow--next { right: 39rem; }
 
 /* --- FAQ --- */
 .faq { padding: 8rem 0; background: #f7f8fc; }
@@ -2194,7 +2202,9 @@ dialog { border:none; }
   .benefits__grid { grid-template-columns: repeat(2, 1fr); }
   .add-benefits__grid { grid-template-columns: repeat(2, 1fr); }
   .reviews__grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery .before-after__img { width: 28rem; height: 30rem; }
+  .gallery .splide__arrow--prev { left: 20rem; }
+  .gallery .splide__arrow--next { right: 20rem; }
 .page-split__inner { grid-template-columns: 1fr; gap: 4rem; }
   .hero__title { font-size: 3.4rem; }
   .master-form__row:nth-child(2) { grid-template-columns: 1fr 1fr; }
@@ -2216,7 +2226,12 @@ dialog { border:none; }
   .benefits__grid { grid-template-columns: 1fr; }
   .add-benefits__grid { grid-template-columns: 1fr; }
   .reviews__grid { grid-template-columns: 1fr; }
-  .gallery__grid { grid-template-columns: 1fr; }
+  .gallery .before-after__img { width: 100% !important; height: 28rem !important; }
+  .gallery .before-after__img .gallery__item { transform: scale(1) !important; }
+  .gallery .before-after__img.is-next + .before-after__img,
+  .gallery .before-after__img.is-prev { margin-left: 0; }
+  .gallery .splide__arrow--prev { left: 1rem; }
+  .gallery .splide__arrow--next { right: 1rem; }
   .master-form__row { grid-template-columns: 1fr !important; }
   .page-section-title { font-size: 2.4rem; }
 }

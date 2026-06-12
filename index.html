@@ -1065,20 +1065,42 @@
   </section>
 
   <!-- ===== GALLERY ===== -->
-  <section class="gallery">
-    <div class="container">
-      <h2 class="page-section-title">Our HVAC projects</h2>
-      <div class="gallery__grid">
-        <div class="ph-img gallery__item">Furnace Installation</div>
-        <div class="ph-img gallery__item">Water Heater Repair</div>
-        <div class="ph-img gallery__item">Water Softener Repair</div>
-        <div class="ph-img gallery__item">Boiler and Water Heater Replacement</div>
-        <div class="ph-img gallery__item">Air Conditioner Installation</div>
-        <div class="ph-img gallery__item">Furnace Install</div>
-        <div class="ph-img gallery__item">Heat Pump Repair</div>
-        <div class="ph-img gallery__item">Heat Pump Repair Service</div>
-        <div class="ph-img gallery__item">Heat Pump Installation Service</div>
+  <section class="gallery splide" id="splide-gallery">
+    <h2 class="page-section-title before-after__title">Our HVAC projects</h2>
+    <div class="before-after__list-wrap splide__track">
+      <div class="before-after__list splide__list">
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Furnace Installation</div>
+        </figure>
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Water Heater Repair</div>
+        </figure>
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Water Softener Repair</div>
+        </figure>
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Boiler and Water Heater Replacement</div>
+        </figure>
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Air Conditioner Installation</div>
+        </figure>
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Furnace Install</div>
+        </figure>
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Heat Pump Repair</div>
+        </figure>
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Heat Pump Repair Service</div>
+        </figure>
+        <figure class="before-after__img splide__slide">
+          <div class="ph-img gallery__item">Heat Pump Installation Service</div>
+        </figure>
       </div>
+    </div>
+    <div class="splide__arrows">
+      <button class="splide__arrow splide__arrow--prev"></button>
+      <button class="splide__arrow splide__arrow--next"></button>
     </div>
   </section>
 
@@ -1355,6 +1377,19 @@ document.addEventListener('DOMContentLoaded', function () {
     breakpoints: {
       1139: { perPage: 2 },
       576 : { perPage: 1 }
+    }
+  }).mount();
+
+  new Splide('#splide-gallery', {
+    type      : 'loop',
+    perPage   : 3,
+    focus     : 'center',
+    gap       : '0',
+    trimSpace : false,
+    arrows    : true,
+    pagination: true,
+    breakpoints: {
+      900: { perPage: 1 }
     }
   }).mount();
 });
