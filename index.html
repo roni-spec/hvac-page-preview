@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
 
@@ -1167,25 +1168,21 @@
   </section>
 
   <!-- ===== SERVICE AREAS ===== -->
-  <section class="areas">
+  <section class="areas" id="areas">
     <div class="container">
-      <h2 class="page-section-title">Cities covered by Superior HVAC Service</h2>
-      <div class="areas__tabs">
-        <button class="areas__tab areas__tab--active" data-tab="ontario">Ontario</button>
-        <button class="areas__tab" data-tab="quebec">Quebec</button>
+      <div class="areas__header">
+        <span class="areas__eyebrow">Service Areas</span>
+        <h2 class="areas__heading">Cities covered by <span>Superior HVAC Service</span></h2>
+        <p class="areas__sub">Serving 99+ cities across Ontario and Quebec. Click a pin to explore your area.</p>
       </div>
-      <div class="areas__panel areas__panel--active" id="tab-ontario">
-        <div class="areas__grid">
-          <a href="#">Ajax</a><a href="#">Ancaster</a><a href="#">Aurora</a><a href="#">Barrhaven</a><a href="#">Barrie</a><a href="#">Belleville</a><a href="#">Bolton</a><a href="#">Bowmanville</a><a href="#">Bradford</a><a href="#">Brampton</a><a href="#">Brantford</a><a href="#">Brighton</a><a href="#">Brockville</a><a href="#">Burlington</a><a href="#">Caledon</a><a href="#">Cambridge</a><a href="#">Chatham</a><a href="#">Clarington</a><a href="#">Cobourg</a><a href="#">Colborne</a><a href="#">Cornwall</a><a href="#">Courtice</a><a href="#">East Gwillimbury</a><a href="#">Elgin County</a><a href="#">Elmira</a><a href="#">Erin</a><a href="#">Essex</a><a href="#">Etobicoke</a><a href="#">Fergus</a><a href="#">Fort Erie</a><a href="#">Georgetown</a><a href="#">Georgina</a><a href="#">Gloucester</a><a href="#">Grimsby</a><a href="#">Guelph</a><a href="#">Haldimand County</a><a href="#">Halton Hills</a><a href="#">Hamilton</a><a href="#">Ingersoll</a><a href="#">Innisfil</a><a href="#">Kanata</a><a href="#">Kawartha Lakes</a><a href="#">Kingston</a><a href="#">Kitchener</a><a href="#">Lasalle</a><a href="#">Leamington</a><a href="#">Lincoln</a><a href="#">London</a><a href="#">Markham</a><a href="#">Milton</a><a href="#">Mississauga</a><a href="#">Napanee</a><a href="#">Nepean</a><a href="#">New Hamburg</a><a href="#">New Tecumseth</a><a href="#">Newmarket</a><a href="#">Niagara Falls</a><a href="#">North York</a><a href="#">Oakville</a><a href="#">Orangeville</a><a href="#">Orillia</a><a href="#">Orleans</a><a href="#">Oshawa</a><a href="#">Ottawa</a><a href="#">Peterborough</a><a href="#">Pickering</a><a href="#">Port Colborne</a><a href="#">Port Hope</a><a href="#">Quinte West</a><a href="#">Richmond Hill</a><a href="#">Sarnia</a><a href="#">Scarborough</a><a href="#">Simcoe</a><a href="#">St. Catharines</a><a href="#">St. Thomas</a><a href="#">Stittsville</a><a href="#">Stratford</a><a href="#">Strathroy</a><a href="#">Tecumseh</a><a href="#">Tillsonburg</a><a href="#">Toronto</a><a href="#">Trenton</a><a href="#">Uxbridge</a><a href="#">Vanier</a><a href="#">Vaughan</a><a href="#">Wallaceburg</a><a href="#">Wasaga Beach</a><a href="#">Waterdown</a><a href="#">Waterloo</a><a href="#">Welland</a><a href="#">West Gwillimbury</a><a href="#">Whitby</a><a href="#">Whitchurch-Stouffville</a><a href="#">Windsor</a><a href="#">Woodstock</a>
-        </div>
+      <div class="areas__tabs-wrap">
+        <button class="areas__tab-btn is-active" data-province="all">All</button>
+        <button class="areas__tab-btn" data-province="ontario">Ontario</button>
+        <button class="areas__tab-btn" data-province="quebec">Quebec</button>
       </div>
-      <div class="areas__panel" id="tab-quebec">
-        <div class="areas__grid">
-          <a href="#">Gatineau</a><a href="#">Laval</a><a href="#">Longueuil</a><a href="#">Montreal</a>
-        </div>
-      </div>
-      <div class="areas__foot">
-        <a href="#" class="areas__more">See all cities</a>
+      <div class="areas__body">
+        <div id="areas-map" class="areas__map"></div>
+        <div class="areas__panel" id="areas-panel"></div>
       </div>
     </div>
   </section>
@@ -1365,6 +1362,7 @@
 
 <script src="header-footer.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   new Splide('#splide-testimonials', {
@@ -1393,6 +1391,223 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }).mount();
 });
+</script>
+<script>
+(function () {
+  var locations = [
+    /* ---- Ontario ---- */
+    { name: 'Ajax',                   province: 'ontario', lat: 43.8509, lng: -79.0204 },
+    { name: 'Ancaster',               province: 'ontario', lat: 43.2205, lng: -79.9831 },
+    { name: 'Aurora',                 province: 'ontario', lat: 44.0065, lng: -79.4503 },
+    { name: 'Barrhaven',              province: 'ontario', lat: 45.2766, lng: -75.7382 },
+    { name: 'Barrie',                 province: 'ontario', lat: 44.3894, lng: -79.6903 },
+    { name: 'Belleville',             province: 'ontario', lat: 44.1628, lng: -77.3832 },
+    { name: 'Bolton',                 province: 'ontario', lat: 43.8784, lng: -79.7344 },
+    { name: 'Bowmanville',            province: 'ontario', lat: 43.9119, lng: -78.6893 },
+    { name: 'Bradford',               province: 'ontario', lat: 44.1156, lng: -79.5617 },
+    { name: 'Brampton',               province: 'ontario', lat: 43.7315, lng: -79.7624 },
+    { name: 'Brantford',              province: 'ontario', lat: 43.1394, lng: -80.2644 },
+    { name: 'Brighton',               province: 'ontario', lat: 44.0394, lng: -77.7332 },
+    { name: 'Brockville',             province: 'ontario', lat: 44.5895, lng: -75.6861 },
+    { name: 'Burlington',             province: 'ontario', lat: 43.3255, lng: -79.7990 },
+    { name: 'Caledon',                province: 'ontario', lat: 43.8676, lng: -79.8647 },
+    { name: 'Cambridge',              province: 'ontario', lat: 43.3616, lng: -80.3144 },
+    { name: 'Chatham',                province: 'ontario', lat: 42.4048, lng: -82.1910 },
+    { name: 'Clarington',             province: 'ontario', lat: 43.9352, lng: -78.5973 },
+    { name: 'Cobourg',                province: 'ontario', lat: 43.9593, lng: -78.1676 },
+    { name: 'Colborne',               province: 'ontario', lat: 44.0097, lng: -77.8863 },
+    { name: 'Cornwall',               province: 'ontario', lat: 45.0186, lng: -74.7284 },
+    { name: 'Courtice',               province: 'ontario', lat: 43.9154, lng: -78.7432 },
+    { name: 'East Gwillimbury',       province: 'ontario', lat: 44.1078, lng: -79.4497 },
+    { name: 'Elgin County',           province: 'ontario', lat: 42.7781, lng: -81.0954 },
+    { name: 'Elmira',                 province: 'ontario', lat: 43.5984, lng: -80.5589 },
+    { name: 'Erin',                   province: 'ontario', lat: 43.7681, lng: -80.0656 },
+    { name: 'Essex',                  province: 'ontario', lat: 42.1742, lng: -82.8256 },
+    { name: 'Etobicoke',              province: 'ontario', lat: 43.6205, lng: -79.5132 },
+    { name: 'Fergus',                 province: 'ontario', lat: 43.7036, lng: -80.3747 },
+    { name: 'Fort Erie',              province: 'ontario', lat: 42.9178, lng: -79.0145 },
+    { name: 'Georgetown',             province: 'ontario', lat: 43.6518, lng: -79.9199 },
+    { name: 'Georgina',               province: 'ontario', lat: 44.3021, lng: -79.4373 },
+    { name: 'Gloucester',             province: 'ontario', lat: 45.3505, lng: -75.5839 },
+    { name: 'Grimsby',                province: 'ontario', lat: 43.1956, lng: -79.5636 },
+    { name: 'Guelph',                 province: 'ontario', lat: 43.5448, lng: -80.2482 },
+    { name: 'Haldimand County',       province: 'ontario', lat: 42.9881, lng: -79.8713 },
+    { name: 'Halton Hills',           province: 'ontario', lat: 43.6329, lng: -79.9476 },
+    { name: 'Hamilton',               province: 'ontario', lat: 43.2557, lng: -79.8711 },
+    { name: 'Ingersoll',              province: 'ontario', lat: 43.0399, lng: -80.8844 },
+    { name: 'Innisfil',               province: 'ontario', lat: 44.2956, lng: -79.6624 },
+    { name: 'Kanata',                 province: 'ontario', lat: 45.3490, lng: -75.9172 },
+    { name: 'Kawartha Lakes',         province: 'ontario', lat: 44.3594, lng: -78.7392 },
+    { name: 'Kingston',               province: 'ontario', lat: 44.2312, lng: -76.4860 },
+    { name: 'Kitchener',              province: 'ontario', lat: 43.4516, lng: -80.4925 },
+    { name: 'Lasalle',                province: 'ontario', lat: 42.2145, lng: -83.0583 },
+    { name: 'Leamington',             province: 'ontario', lat: 42.0539, lng: -82.5974 },
+    { name: 'Lincoln',                province: 'ontario', lat: 43.1482, lng: -79.4315 },
+    { name: 'London',                 province: 'ontario', lat: 42.9849, lng: -81.2453 },
+    { name: 'Markham',                province: 'ontario', lat: 43.8561, lng: -79.3370 },
+    { name: 'Milton',                 province: 'ontario', lat: 43.5183, lng: -79.8774 },
+    { name: 'Mississauga',            province: 'ontario', lat: 43.5890, lng: -79.6441 },
+    { name: 'Napanee',                province: 'ontario', lat: 44.2494, lng: -76.9529 },
+    { name: 'Nepean',                 province: 'ontario', lat: 45.2892, lng: -75.7474 },
+    { name: 'New Hamburg',            province: 'ontario', lat: 43.3793, lng: -80.7096 },
+    { name: 'New Tecumseth',          province: 'ontario', lat: 44.0834, lng: -79.7667 },
+    { name: 'Newmarket',              province: 'ontario', lat: 44.0596, lng: -79.4610 },
+    { name: 'Niagara Falls',          province: 'ontario', lat: 43.0896, lng: -79.0849 },
+    { name: 'North York',             province: 'ontario', lat: 43.7615, lng: -79.4111 },
+    { name: 'Oakville',               province: 'ontario', lat: 43.4675, lng: -79.6877 },
+    { name: 'Orangeville',            province: 'ontario', lat: 43.9192, lng: -80.0956 },
+    { name: 'Orillia',                province: 'ontario', lat: 44.5990, lng: -79.4190 },
+    { name: 'Orleans',                province: 'ontario', lat: 45.4611, lng: -75.5113 },
+    { name: 'Oshawa',                 province: 'ontario', lat: 43.8971, lng: -78.8658 },
+    { name: 'Ottawa',                 province: 'ontario', lat: 45.4215, lng: -75.6972 },
+    { name: 'Peterborough',           province: 'ontario', lat: 44.3091, lng: -78.3197 },
+    { name: 'Pickering',              province: 'ontario', lat: 43.8384, lng: -79.0868 },
+    { name: 'Port Colborne',          province: 'ontario', lat: 42.8862, lng: -79.2513 },
+    { name: 'Port Hope',              province: 'ontario', lat: 43.9503, lng: -78.2997 },
+    { name: 'Quinte West',            province: 'ontario', lat: 44.1806, lng: -77.5635 },
+    { name: 'Richmond Hill',          province: 'ontario', lat: 43.8828, lng: -79.4403 },
+    { name: 'Sarnia',                 province: 'ontario', lat: 42.9994, lng: -82.3090 },
+    { name: 'Scarborough',            province: 'ontario', lat: 43.7764, lng: -79.2318 },
+    { name: 'Simcoe',                 province: 'ontario', lat: 42.8353, lng: -80.3045 },
+    { name: 'St. Catharines',         province: 'ontario', lat: 43.1594, lng: -79.2469 },
+    { name: 'St. Thomas',             province: 'ontario', lat: 42.7762, lng: -81.1963 },
+    { name: 'Stittsville',            province: 'ontario', lat: 45.2590, lng: -75.9192 },
+    { name: 'Stratford',              province: 'ontario', lat: 43.3702, lng: -80.9823 },
+    { name: 'Strathroy',              province: 'ontario', lat: 42.9583, lng: -81.6169 },
+    { name: 'Tecumseh',               province: 'ontario', lat: 42.3032, lng: -82.9143 },
+    { name: 'Tillsonburg',            province: 'ontario', lat: 42.8594, lng: -80.7286 },
+    { name: 'Toronto',                province: 'ontario', lat: 43.6532, lng: -79.3832 },
+    { name: 'Trenton',                province: 'ontario', lat: 44.0994, lng: -77.5786 },
+    { name: 'Uxbridge',               province: 'ontario', lat: 44.1073, lng: -79.1222 },
+    { name: 'Vanier',                 province: 'ontario', lat: 45.4324, lng: -75.6622 },
+    { name: 'Vaughan',                province: 'ontario', lat: 43.8361, lng: -79.4985 },
+    { name: 'Wallaceburg',            province: 'ontario', lat: 42.5955, lng: -82.3855 },
+    { name: 'Wasaga Beach',           province: 'ontario', lat: 44.5200, lng: -80.0192 },
+    { name: 'Waterdown',              province: 'ontario', lat: 43.3299, lng: -79.9025 },
+    { name: 'Waterloo',               province: 'ontario', lat: 43.4643, lng: -80.5204 },
+    { name: 'Welland',                province: 'ontario', lat: 42.9923, lng: -79.2483 },
+    { name: 'West Gwillimbury',       province: 'ontario', lat: 44.1547, lng: -79.5756 },
+    { name: 'Whitby',                 province: 'ontario', lat: 43.8975, lng: -78.9429 },
+    { name: 'Whitchurch-Stouffville', province: 'ontario', lat: 43.9717, lng: -79.2507 },
+    { name: 'Windsor',                province: 'ontario', lat: 42.3149, lng: -83.0364 },
+    { name: 'Woodstock',              province: 'ontario', lat: 43.1308, lng: -80.7469 },
+    /* ---- Quebec ---- */
+    { name: 'Gatineau',   province: 'quebec', lat: 45.4765, lng: -75.7013 },
+    { name: 'Laval',      province: 'quebec', lat: 45.6066, lng: -73.7124 },
+    { name: 'Longueuil',  province: 'quebec', lat: 45.5312, lng: -73.5185 },
+    { name: 'Montreal',   province: 'quebec', lat: 45.5017, lng: -73.5673 }
+  ];
+
+  var map = L.map('areas-map', {
+    center: [44.0, -79.0],
+    zoom: 7,
+    zoomControl: true,
+    scrollWheelZoom: false
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    maxZoom: 19
+  }).addTo(map);
+
+  var panel = document.getElementById('areas-panel');
+  var activeMarker = null;
+  var markers = [];
+
+  function makeIcon(active) {
+    var cls = 'areas__pin' + (active ? ' areas__pin--active' : '');
+    return L.divIcon({
+      className: '',
+      html: '<div class="' + cls + '"><div class="areas__pin-ring"></div></div>',
+      iconSize: [36, 36],
+      iconAnchor: [18, 18]
+    });
+  }
+
+  function showPanel(loc) {
+    var prov = loc.province === 'ontario' ? 'ON' : 'QC';
+    panel.innerHTML =
+      '<div class="areas__panel-card">' +
+        '<h3 class="areas__panel-name">' + loc.name + '</h3>' +
+        '<div class="areas__panel-divider"></div>' +
+        '<div class="areas__panel-row">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>' +
+          '<span>Superior HVAC Service serves ' + loc.name + ', ' + prov + '</span>' +
+        '</div>' +
+        '<div class="areas__panel-row">' +
+          '<svg viewBox="0 0 38 38" fill="none" width="14" height="14"><path d="M35.1469 26.8668V31.8668C35.1487 32.331 35.0537 32.7904 34.8677 33.2157C34.6818 33.641 34.409 34.0228 34.067 34.3366C33.725 34.6504 33.3212 34.8893 32.8814 35.038C32.4417 35.1867 31.9758 35.2419 31.5135 35.2002C26.3849 34.6429 21.4585 32.8904 17.1302 30.0835C13.1032 27.5246 9.68909 24.1104 7.1302 20.0835C4.31349 15.7355 2.5606 10.7852 2.01353 5.63349C1.97188 5.17261 2.02665 4.7081 2.17436 4.26954C2.32207 3.83098 2.55948 3.42798 2.87147 3.0862C3.18346 2.74442 3.5632 2.47134 3.98651 2.28436C4.40982 2.09739 4.86743 2.0006 5.33019 2.00016H10.3302C11.139 1.9922 11.9232 2.27863 12.5365 2.80605C13.1497 3.33347 13.5503 4.06591 13.6635 4.86683C13.8746 6.46694 14.2659 8.03804 14.8302 9.55016C15.0544 10.1467 15.103 10.795 14.97 11.4183C14.8371 12.0416 14.5283 12.6137 14.0802 13.0668L11.9635 15.1835C14.3361 19.3561 17.791 22.8109 21.9635 25.1835L24.0802 23.0668C24.5333 22.6187 25.1055 22.3099 25.7287 22.177C26.352 22.0441 27.0003 22.0926 27.5969 22.3168C29.109 22.8811 30.6801 23.2725 32.2802 23.4835C33.0898 23.5977 33.8292 24.0055 34.3577 24.6293C34.8863 25.2531 35.1671 26.0495 35.1469 26.8668Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+          '<a href="tel:+14168774674">+1 416-877-4674</a>' +
+        '</div>' +
+        '<a href="#" class="areas__panel-btn">Schedule Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>' +
+      '</div>';
+  }
+
+  function resetPanel() {
+    panel.innerHTML =
+      '<div class="areas__panel-default">' +
+        '<div class="areas__panel-default-icon">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>' +
+        '</div>' +
+        '<p>Click a pin to see service availability in that city.</p>' +
+      '</div>';
+  }
+
+  resetPanel();
+
+  locations.forEach(function (loc) {
+    var marker = L.marker([loc.lat, loc.lng], { icon: makeIcon(false) }).addTo(map);
+    marker._loc = loc;
+    marker.bindTooltip(
+      '<strong>' + loc.name + '</strong>',
+      { direction: 'top', offset: [0, -10], className: 'areas__tooltip' }
+    );
+    marker.on('click', function () {
+      if (activeMarker && activeMarker !== marker) {
+        activeMarker.setIcon(makeIcon(false));
+      }
+      if (activeMarker === marker) {
+        marker.setIcon(makeIcon(false));
+        activeMarker = null;
+        resetPanel();
+        return;
+      }
+      marker.setIcon(makeIcon(true));
+      activeMarker = marker;
+      showPanel(loc);
+    });
+    markers.push(marker);
+  });
+
+  /* fit map to all markers on load */
+  var allGroup = L.featureGroup(markers);
+  map.fitBounds(allGroup.getBounds().pad(0.08));
+
+  /* tab filtering */
+  document.querySelectorAll('.areas__tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.areas__tab-btn').forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      var province = btn.dataset.province;
+      var visible = [];
+      markers.forEach(function (m) {
+        if (province === 'all' || m._loc.province === province) {
+          map.addLayer(m);
+          visible.push(m);
+        } else {
+          map.removeLayer(m);
+        }
+      });
+      if (visible.length > 0) {
+        map.fitBounds(L.featureGroup(visible).getBounds().pad(0.08));
+      }
+      if (activeMarker && province !== 'all' && activeMarker._loc.province !== province) {
+        activeMarker.setIcon(makeIcon(false));
+        activeMarker = null;
+        resetPanel();
+      }
+    });
+  });
+}());
 </script>
 </body>
 </html>
