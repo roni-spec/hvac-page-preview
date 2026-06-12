@@ -2069,10 +2069,11 @@ dialog { border:none; }
 .testimonial {
   padding: 3rem 3rem 7rem;
   width: 35rem;
+  min-height: 36rem;
   box-shadow: 0 0 1.5rem rgba(196,196,196,0.3);
   border-radius: 2rem;
   position: relative;
-  background: #fff;
+  background-color: #fff;
 }
 .testimonial__header {
   margin-bottom: 2.5rem;
