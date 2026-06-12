@@ -100,25 +100,7 @@ function mlptcToggleAccordion(btn) {
   var track = document.querySelector('.rv-certs__track');
   var set   = document.querySelector('.rv-certs__set');
   if (!track || !set) return;
-  var pos   = 0;
-  var speed = 0.6;
-  function step() {
-    pos -= speed;
-    var w = set.offsetWidth;
-    if (pos <= -w) pos += w;
-    track.style.transform = 'translateX(' + pos + 'px)';
-    requestAnimationFrame(step);
-  }
-  var imgs   = track.querySelectorAll('img');
-  var loaded = 0;
-  function onLoad() {
-    loaded++;
-    if (loaded >= imgs.length) requestAnimationFrame(step);
-  }
-  imgs.forEach(function (img) {
-    if (img.complete) onLoad();
-    else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
-  });
+  /* marquee disabled — logos display static */
 }());
 
 /* FAQ accordion */
