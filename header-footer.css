@@ -2109,7 +2109,7 @@ dialog { border:none; }
 .testimonial__date { position: absolute; bottom: 2rem; left: 3rem; right: 3rem; color: #757a7f; text-transform: uppercase; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08); }
 
 /* Section wrapper */
-.testimonials { padding: 4rem 0 9rem; background: #fff; }
+.testimonials { padding: 4rem 0 9rem; background: linear-gradient(155deg, #ffd4cf 0%, #ffe8e6 45%, #fff2f2 100%); }
 .testimonials__header {
   padding-top: 7rem;
   display: flex;
