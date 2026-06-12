@@ -1972,19 +1972,26 @@ dialog { border:none; }
   grid-template-columns: repeat(4, 1fr);
   gap: 3.2rem;
 }
-.benefit-card { text-align: center; }
+.benefit-card { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .benefit-card__icon {
   width: 6.4rem;
   height: 6.4rem;
   border-radius: 50%;
   margin: 0 auto 1.6rem;
   background: #1a3460;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .benefit-card__title {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
+  min-height: 5.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 0 1rem;
 }
 .benefit-card p {
@@ -2110,6 +2117,9 @@ dialog { border:none; }
   border-radius: 50%;
   background: #f0f3fb;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .add-benefit-card h3 {
   font-family: 'Montserrat', sans-serif;
