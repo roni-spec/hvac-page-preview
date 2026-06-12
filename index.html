@@ -1190,38 +1190,77 @@
   <!-- ===== MASTER FORM ===== -->
   <section class="master-form">
     <div class="container">
-      <h2 class="master-form__title">Get Your Appliance Problem Solved Fast</h2>
-      <form class="master-form__form" novalidate>
-        <div class="master-form__row">
-          <select class="master-form__select">
-            <option value="">Choose a service</option>
-            <option>Repair</option>
-            <option>Install</option>
-            <option>Buy</option>
-          </select>
-          <select class="master-form__select">
-            <option value="">Choose your equipment</option>
-            <option>Furnace</option>
-            <option>Heat Pump</option>
-            <option>Boiler</option>
-            <option>Water Heater</option>
-            <option>Water softener</option>
-            <option>Air Handler</option>
-            <option>Air Conditioner</option>
-            <option>Reverse Osmosis</option>
-          </select>
-        </div>
-        <div class="master-form__row">
-          <input class="master-form__input" type="text" placeholder="Enter your name *" required>
-          <input class="master-form__input" type="tel" placeholder="Enter your phone number *" required>
-          <input class="master-form__input" type="email" placeholder="Enter your e-mail *" required>
-        </div>
-        <label class="master-form__check">
-          <input type="checkbox" required>
-          <span>I agree to the processing of my personal data</span>
-        </label>
-        <button class="master-form__submit" type="submit">Schedule a Visit</button>
-      </form>
+
+      <!-- Left: trust + branding -->
+      <div class="master-form__info">
+        <span class="master-form__eyebrow">Book Online</span>
+        <h2 class="master-form__title">
+          Get Your<br>
+          <span>Appliance<br>Problem</span><br>
+          Solved Fast
+        </h2>
+        <ul class="master-form__bullets">
+          <li class="master-form__bullet">Never an Overtime Charge</li>
+          <li class="master-form__bullet">Same-Day Service Available</li>
+          <li class="master-form__bullet">Upfront Pricing — No Surprises</li>
+          <li class="master-form__bullet">Workmanship &amp; Parts Guaranteed</li>
+        </ul>
+        <a href="tel:+14168774674" class="master-form__tel">
+          <i class="icon-phone"></i> +1 416-877-4674
+        </a>
+      </div>
+
+      <!-- Right: form card -->
+      <div class="master-form__card">
+        <h3 class="master-form__card-title">Schedule Your Service</h3>
+        <p class="master-form__card-sub">Tell us what you need — we'll handle the rest.</p>
+        <form class="master-form__form" novalidate>
+
+          <div class="book-pill-group">
+            <span class="book-pill-group__label">What do you need?</span>
+            <div class="book-pill-group__pills">
+              <button type="button" class="book-pill is-active" data-group="service" data-value="Repair">Repair</button>
+              <button type="button" class="book-pill" data-group="service" data-value="Install">Install</button>
+              <button type="button" class="book-pill" data-group="service" data-value="Buy">Buy</button>
+            </div>
+            <input type="hidden" name="service" value="Repair">
+          </div>
+
+          <div class="book-pill-group">
+            <span class="book-pill-group__label">Which unit?</span>
+            <div class="book-pill-group__pills">
+              <button type="button" class="book-pill" data-group="equipment" data-value="Furnace">Furnace</button>
+              <button type="button" class="book-pill" data-group="equipment" data-value="Heat Pump">Heat Pump</button>
+              <button type="button" class="book-pill" data-group="equipment" data-value="Boiler">Boiler</button>
+              <button type="button" class="book-pill" data-group="equipment" data-value="Water Heater">Water Heater</button>
+              <button type="button" class="book-pill" data-group="equipment" data-value="Water Softener">Water Softener</button>
+              <button type="button" class="book-pill" data-group="equipment" data-value="Air Handler">Air Handler</button>
+              <button type="button" class="book-pill" data-group="equipment" data-value="Air Conditioner">Air Conditioner</button>
+              <button type="button" class="book-pill" data-group="equipment" data-value="Reverse Osmosis">Reverse Osmosis</button>
+            </div>
+            <input type="hidden" name="equipment" value="">
+          </div>
+
+          <div class="master-form__row">
+            <input class="master-form__input" type="text" placeholder="Your name" required>
+            <input class="master-form__input" type="tel" placeholder="Phone number *" required>
+          </div>
+          <div class="master-form__row full">
+            <input class="master-form__input" type="email" placeholder="Email address *" required>
+          </div>
+
+          <label class="master-form__check">
+            <input type="checkbox" required>
+            <span>I agree to the processing of my personal data</span>
+          </label>
+
+          <button class="master-form__submit" type="submit">
+            <i class="icon-book"></i> Schedule a Visit
+          </button>
+
+        </form>
+      </div>
+
     </div>
   </section>
 
@@ -1377,6 +1416,19 @@ document.addEventListener('DOMContentLoaded', function () {
       576 : { perPage: 1 }
     }
   }).mount();
+
+  // Pill selectors
+  document.querySelectorAll('.book-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      var group = pill.dataset.group;
+      document.querySelectorAll('.book-pill[data-group="' + group + '"]').forEach(function(p) {
+        p.classList.remove('is-active');
+      });
+      pill.classList.add('is-active');
+      var hidden = pill.closest('.book-pill-group').querySelector('input[type="hidden"]');
+      if (hidden) hidden.value = pill.dataset.value;
+    });
+  });
 
   new Splide('#splide-gallery', {
     type      : 'loop',
