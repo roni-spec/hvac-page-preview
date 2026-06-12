@@ -2071,11 +2071,20 @@ dialog { border:none; }
   padding: 3rem 3rem 7rem;
   width: 35rem;
   min-height: 38rem;
-  border: 0.1rem solid #dde3ef;
+  border: none;
   box-shadow: none;
   border-radius: 2rem;
   position: relative;
   background: #ffffff !important;
+}
+.testimonial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 0.15rem solid #c8cdd6;
+  border-radius: 2rem;
+  pointer-events: none;
+  z-index: 2;
 }
 .testimonial__header {
   margin-bottom: 2.5rem;
