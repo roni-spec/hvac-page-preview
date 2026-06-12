@@ -1829,7 +1829,7 @@ dialog { border:none; }
 .review-card__text { font-size: 1.3rem; color: #555; line-height: 1.7; margin: 0; }
 
 /* --- GALLERY (before-after Splide style) --- */
-.gallery { padding: 8rem 0 4rem; background: #fff; overflow: hidden; }
+.gallery { padding: 2rem 0 4rem; background: #fff; overflow: hidden; }
 .gallery .before-after__title { margin: 0 auto 3.2rem; max-width: 80rem; text-align: center; text-transform: uppercase; color: #484848; }
 .gallery .before-after__list { align-items: center; }
 .gallery .before-after__list-wrap { overflow: visible; }
