@@ -2169,7 +2169,9 @@ dialog { border:none; }
 .master-form__input { width: 100%; padding: 1.4rem 1.8rem; border: 1.5px solid #c8d4e8; border-radius: 1rem; font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #0c3447; background: #f7f8fc; outline: none; box-sizing: border-box; transition: border-color 0.2s, background 0.2s; }
 .master-form__input:focus { border-color: #e1251b; background: #fff; }
 .master-form__check { display: flex; align-items: center; gap: 1rem; cursor: pointer; color: #757a7f; font-size: 1.2rem; }
-.master-form__check input { width: 1.6rem; height: 1.6rem; flex-shrink: 0; cursor: pointer; }
+.master-form__check input[type="checkbox"] { width: 1.8rem; height: 1.8rem; flex-shrink: 0; cursor: pointer; appearance: none; -webkit-appearance: none; border: 1.5px solid #c8d4e8; border-radius: 0.4rem; background: #f7f8fc; position: relative; transition: background 0.2s, border-color 0.2s; }
+.master-form__check input[type="checkbox"]:checked { background: #e1251b; border-color: #e1251b; }
+.master-form__check input[type="checkbox"]:checked::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%) rotate(45deg); width: 0.4rem; height: 0.75rem; border: 2px solid #fff; border-top: none; border-left: none; }
 .master-form__submit { background: #e1251b; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 1.7rem; font-weight: 800; font-style: italic; padding: 1.6rem 2rem; border: none; border-radius: 1.6rem; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 1rem; text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; }
 .master-form__submit i { font-style: normal; }
 .master-form__submit:hover { background: #c41e14; transform: translateY(-2px); }
