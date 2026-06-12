@@ -453,6 +453,8 @@ dialog { border:none; }
    ============================================================ */
 .logo-ph { width:100%; height:70px; background:#f0f0f0; border:1px dashed #ccc; display:flex; align-items:center; justify-content:center; color:#E1251B; font-size:13px; font-weight:bold; }
 .footer-logo-ph { width:175px; height:30px; background:rgba(255,255,255,0.2); border:1px dashed rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; }
+.header-logo-img { height: 70px; width: auto; display: block; }
+.footer-logo-img { height: 50px; width: auto; display: block; }
 .pay-ph { width:75px; height:35px; background:rgba(255,255,255,0.15); border:1px dashed rgba(255,255,255,0.3); border-radius:3px; }
 
 /* ============================================================
