@@ -1987,7 +1987,7 @@ dialog { border:none; }
 .review-card__text { font-size: 1.3rem; color: #555; line-height: 1.7; margin: 0; }
 
 /* --- GALLERY (before-after Splide style) --- */
-.gallery { padding: 8rem 0 4rem; background: #fff; }
+.gallery { padding: 8rem 0 4rem; background: #fff; overflow: hidden; }
 .gallery .before-after__title { margin: 0 auto 3.2rem; max-width: 80rem; text-align: center; text-transform: uppercase; color: #484848; }
 .gallery .before-after__list { align-items: center; }
 .gallery .before-after__list-wrap { overflow: visible; }
@@ -2173,6 +2173,17 @@ dialog { border:none; }
   .master-form .container { grid-template-columns: 1fr; gap: 4rem; }
   .master-form__title { font-size: 3.4rem; }
 }
+@media (max-width: 900px) {
+  .gallery { padding: 6rem 0 3rem; }
+  .gallery .before-after__img { width: 100% !important; height: 28rem !important; }
+  .gallery .before-after__img .gallery__item { transform: scale(1) !important; }
+  .gallery .before-after__img.is-next + .before-after__img,
+  .gallery .before-after__img.is-prev { margin-left: 0; }
+  .gallery .splide__slide:not(.is-active) { filter: grayscale(0); }
+  .gallery .splide__arrow--prev { left: 1.5rem; }
+  .gallery .splide__arrow--next { right: 1.5rem; }
+  .gallery .splide__pagination { margin: 2.8rem 0 0; }
+}
 @media (max-width: 576px) {
   .promo { padding-bottom: 2.5rem; }
   .promo__container { padding-top: 4rem; }
@@ -2190,12 +2201,13 @@ dialog { border:none; }
   .benefits__grid { grid-template-columns: 1fr; }
   .add-benefits__grid { grid-template-columns: 1fr; }
   .reviews__grid { grid-template-columns: 1fr; }
-  .gallery .before-after__img { width: 100% !important; height: 28rem !important; }
-  .gallery .before-after__img .gallery__item { transform: scale(1) !important; }
+  .gallery { padding: 5rem 0 2.5rem; }
+  .gallery .before-after__img { width: 100% !important; height: 24rem !important; }
   .gallery .before-after__img.is-next + .before-after__img,
   .gallery .before-after__img.is-prev { margin-left: 0; }
-  .gallery .splide__arrow--prev { left: 1rem; }
-  .gallery .splide__arrow--next { right: 1rem; }
+  .gallery .splide__arrow--prev { left: 0.6rem; }
+  .gallery .splide__arrow--next { right: 0.6rem; }
+  .gallery .splide__pagination { margin: 2rem 0 0; }
   .master-form__card { padding: 2.8rem 2rem; }
   .master-form__row { grid-template-columns: 1fr !important; }
   .page-section-title { font-size: 2.4rem; }

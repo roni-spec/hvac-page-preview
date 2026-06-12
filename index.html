@@ -1452,7 +1452,9 @@ document.addEventListener('DOMContentLoaded', function () {
     arrows    : true,
     pagination: true,
     breakpoints: {
-      900: { perPage: 1 }
+      1139: { perPage: 3 },
+      900 : { perPage: 1, padding: { left: '9%', right: '9%' }, gap: '1.6rem' },
+      576 : { perPage: 1, padding: { left: '0',  right: '0'  }, gap: '0'      }
     }
   }).mount();
 });
