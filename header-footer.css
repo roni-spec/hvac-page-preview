@@ -645,15 +645,15 @@ dialog { border:none; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-    width: 7rem;
+    gap: 0.3rem;
+    width: 12rem;
     cursor: default;
   }
   .mega-cat__img {
-    width: 7rem;
-    height: 11rem;
+    width: 12rem;
+    height: 16rem;
     border-radius: 0.8rem;
-    object-fit: cover;
+    object-fit: contain;
   }
   .mega-cat__label {
     font-family: 'Montserrat', sans-serif;
@@ -1348,21 +1348,23 @@ dialog { border:none; }
 .scat-card {
   border: 0.1rem solid #dde3ef;
   border-radius: 1.2rem;
-  padding: 3.2rem 2.4rem;
+  padding: 1.6rem 2.4rem 2.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.6rem;
+  gap: 0.6rem;
   transition: box-shadow 0.2s, border-color 0.2s;
   background: #fff;
 }
 .scat-card:hover { box-shadow: 0 0.8rem 2.4rem rgba(10,31,68,.12); border-color: #c8d4e8; }
 .scat-card__icon {
-  width: 65%;
-  height: 19rem;
+  width: 85%;
+  height: 18rem;
   border-radius: 0.8rem;
   flex-shrink: 0;
+  object-fit: contain;
+  padding: 0.4rem;
 }
 .scat-card__name {
   font-family: 'Montserrat', sans-serif;
