@@ -1841,53 +1841,25 @@ dialog { border:none; }
 .page-split--dark .pricing-factor p { color: #8da6cc; }
 
 /* --- CONTACT FORM --- */
-.cform { padding: 7rem 0; background: #e53935; }
-.cform .container { max-width: 64rem; }
-.cform__title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3.2rem;
-  font-weight: 800;
-  color: #fff;
-  text-align: center;
-  margin: 0 0 3.2rem;
-}
-.cform__form { display: flex; flex-direction: column; gap: 1.6rem; }
-.cform__input {
-  width: 100%;
-  padding: 1.4rem 1.8rem;
-  border: none;
-  border-radius: 0.6rem;
-  font-size: 1.5rem;
-  font-family: 'Montserrat', sans-serif;
-  background: rgba(255,255,255,.18);
-  color: #fff;
-  outline: none;
-  box-sizing: border-box;
-}
-.cform__input::placeholder { color: rgba(255,255,255,.75); }
-.cform__input:focus { background: rgba(255,255,255,.28); }
-.cform__check {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-  color: rgba(255,255,255,.9);
-  font-size: 1.3rem;
-}
-.cform__check input { width: 1.6rem; height: 1.6rem; flex-shrink: 0; cursor: pointer; }
-.cform__submit {
-  background: #0a1f44;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  padding: 1.6rem;
-  border: none;
-  border-radius: 0.6rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.cform__submit:hover { background: #132e60; }
+.cform { padding: 7rem 0; background: #fff; }
+.cform__box { background: #e1251b; border-radius: 2.4rem; padding: 5.2rem 6rem; position: relative; overflow: hidden; }
+.cform__box-circle { position: absolute; width: 50rem; height: 50rem; border-radius: 50%; background: rgba(255,255,255,0.05); right: -12rem; top: -18rem; pointer-events: none; }
+.cform__inner { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 5.6rem; }
+.cform__text { flex: 1; min-width: 26rem; display: flex; flex-direction: column; gap: 1.2rem; padding-top: 0.4rem; }
+.cform__title { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.15; margin: 0; text-align: left; }
+.cform__sub { font-size: 1.5rem; color: rgba(255,255,255,0.75); line-height: 1.65; margin: 0; }
+.cform__form { flex: 1.2; display: flex; flex-direction: column; gap: 1.2rem; }
+.cform__input { width: 100%; padding: 1.3rem 1.6rem; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 1rem; font-family: 'Montserrat', sans-serif; font-size: 1.4rem; background: rgba(255,255,255,0.12); color: #fff; outline: none; box-sizing: border-box; transition: border-color 0.2s, background 0.2s; }
+.cform__input::placeholder { color: rgba(255,255,255,0.65); }
+.cform__input:focus { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.2); }
+.cform__check { display: flex; align-items: center; gap: 0.9rem; cursor: pointer; color: rgba(255,255,255,0.75); font-size: 1.2rem; }
+.cform__check input[type="checkbox"] { width: 1.7rem; height: 1.7rem; flex-shrink: 0; cursor: pointer; appearance: none; -webkit-appearance: none; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 0.4rem; background: rgba(255,255,255,0.12); position: relative; transition: background 0.2s, border-color 0.2s; }
+.cform__check input[type="checkbox"]:checked { background: #fff; border-color: #fff; }
+.cform__check input[type="checkbox"]:checked::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%) rotate(45deg); width: 0.4rem; height: 0.75rem; border: 2px solid #e1251b; border-top: none; border-left: none; }
+.cform__submit { display: inline-flex; align-items: center; justify-content: center; gap: 1rem; background: #fff; color: #e1251b; font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; padding: 1.8rem 3.6rem; border: none; border-radius: 99px; cursor: pointer; width: 100%; transition: background 0.2s, color 0.2s; }
+.cform__submit:hover { background: #0c3447; color: #fff; }
+@media (max-width: 900px) { .cform__inner { flex-direction: column; gap: 3.2rem; } .cform__box { padding: 3.2rem 2.4rem; } }
+@media (max-width: 560px) { .cform { padding: 5rem 0; } .cform__title { font-size: 2.4rem; } }
 
 /* --- ADDITIONAL BENEFITS --- */
 .add-benefits { padding: 8rem 0; background: #fff; }
