@@ -1329,15 +1329,15 @@ dialog { border:none; }
   align-items: flex-start;
 }
 #mlptc-root .mlptc-main { flex: 1; min-width: 0; }
-#mlptc-root .mlptc-section { padding: 64px 32px; }
-#mlptc-root .mlptc-mb { margin-bottom: 32px; }
+#mlptc-root .mlptc-section { padding: 28px 32px; }
+#mlptc-root .mlptc-mb { margin-bottom: 20px; }
 #mlptc-root .mlptc-heading {
   font-size: 35px;
   font-weight: 900;
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1.25;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 #mlptc-root .mlptc-heading--narrow { max-width: 714px; }
 #mlptc-root .mlptc-body-text { font-size: 22px; color: #ffffff; line-height: 1.625; }
@@ -1558,7 +1558,7 @@ dialog { border:none; }
 
 /* Responsive */
 @media (min-width: 641px) and (max-width: 1023px) {
-  #mlptc-root .mlptc-section       { padding: 48px 24px; }
+  #mlptc-root .mlptc-section       { padding: 20px 24px; }
   #mlptc-root .mlptc-heading       { font-size: 28px; }
   #mlptc-root .mlptc-body-text     { font-size: 18px; }
   #mlptc-root .mlptc-emergency-img { width: 240px; }
@@ -1567,8 +1567,8 @@ dialog { border:none; }
   #mlptc-root .mlptc-readmore-label{ font-size: 20px; }
 }
 @media (max-width: 640px) {
-  #mlptc-root .mlptc-section        { padding: 40px 16px; }
-  #mlptc-root .mlptc-heading        { font-size: 24px; margin-bottom: 24px; }
+  #mlptc-root .mlptc-section        { padding: 16px 16px; }
+  #mlptc-root .mlptc-heading        { font-size: 24px; margin-bottom: 12px; }
   #mlptc-root .mlptc-body-text      { font-size: 16px; }
   #mlptc-root .mlptc-readmore-label { font-size: 18px; }
   #mlptc-root .mlptc-prevention-row { flex-direction: column; }
@@ -2073,7 +2073,7 @@ dialog { border:none; }
   box-shadow: 0 0 1.5rem rgba(196,196,196,0.3);
   border-radius: 2rem;
   position: relative;
-  background-color: #fff;
+  background: #ffffff !important;
 }
 .testimonial__header {
   margin-bottom: 2.5rem;
@@ -2155,7 +2155,8 @@ dialog { border:none; }
 /* Splide wrapper */
 .testimonials__wrap { margin: 4.7rem -1.5rem 0; position: relative; }
 .testimonials__wrap .splide__arrows { margin-bottom: 3.75rem; }
-.testimonials .splide__track { padding: 1.7rem 0 6rem; }
+.testimonials .splide__track { padding: 1.7rem 0 6rem; background: transparent; }
+.testimonials .splide__list { background: transparent; }
 .testimonials .splide__arrow { bottom: -1rem; }
 .testimonials .splide__arrow--prev { left: 30.9rem; }
 .testimonials .splide__arrow--next { right: 30.9rem; }
