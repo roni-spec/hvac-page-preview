@@ -851,6 +851,7 @@ dialog { border:none; }
 .hvc-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.2rem; margin-bottom: 1rem; }
 .hvc-card__tag { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.2rem; background: rgba(225,37,27,0.08); color: #e1251b; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 99px; white-space: nowrap; flex-shrink: 0; margin-top: 0.4rem; }
 .hvc-card--navy .hvc-card__tag { background: rgba(12,52,71,0.08); color: #0c3447; }
+.hvc-card__tag svg { width: 20px; height: 20px; }
 
 /* ---- Discount number ---- */
 .hvc-card__amount { display: flex; align-items: baseline; gap: 0.3rem; font-family: 'Montserrat', sans-serif; font-weight: 900; color: #e1251b; line-height: 1; }
@@ -2070,6 +2071,7 @@ dialog { border:none; }
   padding: 3rem 3rem 7rem;
   width: 35rem;
   min-height: 36rem;
+  border: 1px solid #e8e8e8;
   box-shadow: 0 0 1.5rem rgba(196,196,196,0.3);
   border-radius: 2rem;
   position: relative;
@@ -2110,7 +2112,7 @@ dialog { border:none; }
 .testimonial__date { position: absolute; bottom: 2rem; left: 3rem; right: 3rem; color: #757a7f; text-transform: uppercase; padding-top: 1.2rem; border-top: 1px solid rgba(0,0,0,0.08); }
 
 /* Section wrapper */
-.testimonials { padding: 4rem 0 9rem; background: linear-gradient(155deg, #ffd4cf 0%, #ffe8e6 45%, #fff2f2 100%); }
+.testimonials { padding: 4rem 0 9rem; background: #fff; }
 .testimonials__header {
   padding-top: 7rem;
   display: flex;
