@@ -2067,7 +2067,7 @@ dialog { border:none; }
 
 /* Individual card */
 .testimonial {
-  padding: 3rem 3rem 5.5rem;
+  padding: 3rem 3rem 7rem;
   width: 35rem;
   box-shadow: 0 0 1.5rem rgba(196,196,196,0.3);
   border-radius: 2rem;
@@ -2096,7 +2096,7 @@ dialog { border:none; }
 .testimonial__rate i { font-size: 1.4rem; }
 .testimonial__rate .icon-star:before { color: #f5b434; }
 .testimonial__text {
-  margin-bottom: 5rem;
+  margin-bottom: 6.5rem;
   padding-right: 2.6rem;
   height: 8rem;
   color: #484848;
