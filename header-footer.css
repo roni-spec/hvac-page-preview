@@ -1048,11 +1048,13 @@ dialog { border:none; }
 .rv-certs {
   position: relative;
   background: #fff;
-  padding: 40px 0 80px;
+  padding: 30px 0 8px;
   border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
-  min-height: 304px;
+  min-height: unset;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .rv-certs::before,
 .rv-certs::after {
@@ -1065,19 +1067,23 @@ dialog { border:none; }
 }
 .rv-certs::before { left: 0; background: linear-gradient(to right, #fff 0%, transparent 100%); }
 .rv-certs::after  { right: 0; background: linear-gradient(to left,  #fff 0%, transparent 100%); }
-.rv-certs__track-wrap { overflow: visible; }
-.rv-certs__track { display: flex; width: 100%; justify-content: center; flex-wrap: wrap; }
+.rv-certs__track-wrap { overflow: visible; flex: 1; }
+.rv-certs__track { display: flex; width: 100%; justify-content: flex-start; flex-wrap: wrap; padding-left: 3rem; }
 .rv-certs__set { display: flex; align-items: center; gap: 0; padding-right: 0; flex-shrink: 0; }
 .rv-certs__item { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .rv-certs__item img {
-  height: 144px; width: 240px; object-fit: contain; display: block;
-  filter: saturate(0.3);
+  height: 130px; width: 220px; object-fit: contain; display: block;
+  filter: grayscale(1) opacity(0.45);
   transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), filter 0.3s ease;
   -webkit-user-drag: none;
 }
-.rv-certs__item img:hover { transform: scale(1.15); filter: saturate(1); }
+.rv-certs__item img:hover { transform: scale(1.15); filter: grayscale(0); }
 .rv-certs__item--lg img { transform: scale(1.25); }
 .rv-certs__item--lg img:hover { transform: scale(1.4); }
+.rv-certs__more-wrap { display: flex; align-items: center; padding: 0 14rem; flex-shrink: 0; }
+.rv-certs__more-btn { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #4a5568; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+.rv-certs__more-btn span { font-size: 1.6rem; font-weight: 400; }
+.rv-certs__more-btn:hover { color: #1a3460; }
 @media (max-width: 768px) {
   .rv-certs__item img { width: 140px; height: 90px; }
   .rv-certs__item { margin-right: -16px; }
