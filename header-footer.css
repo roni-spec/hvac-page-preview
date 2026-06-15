@@ -453,8 +453,8 @@ dialog { border:none; }
    ============================================================ */
 .logo-ph { width:100%; height:70px; background:#f0f0f0; border:1px dashed #ccc; display:flex; align-items:center; justify-content:center; color:#E1251B; font-size:13px; font-weight:bold; }
 .footer-logo-ph { width:175px; height:30px; background:rgba(255,255,255,0.2); border:1px dashed rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; }
-.header-logo-img { height: 70px; width: auto; display: block; }
-.footer-logo-img { height: 50px; width: auto; display: block; }
+.header-logo-img { height: 70px; width: auto; display: block; filter: drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff); }
+.footer-logo-img { height: 50px; width: auto; display: block; filter: drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff); }
 .pay-ph { width:75px; height:35px; background:rgba(255,255,255,0.15); border:1px dashed rgba(255,255,255,0.3); border-radius:3px; }
 
 /* ============================================================
@@ -2142,8 +2142,8 @@ dialog { border:none; }
 .cform__text { flex: 1; min-width: 26rem; display: flex; flex-direction: column; gap: 1.2rem; padding-top: 0.4rem; }
 .cform__title { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.15; margin: 0; text-align: left; }
 .cform__sub { font-size: 1.5rem; color: rgba(255,255,255,0.75); line-height: 1.65; margin: 0; }
-.cform__img { width: 100%; height: 18rem; border-radius: 1.2rem; margin-top: 0.8rem; }
-.cform__form { flex: 1.2; display: flex; flex-direction: column; gap: 1.2rem; }
+.cform__img { width: 100%; max-height: 30rem; object-fit: contain; object-position: bottom center; display: block; margin-top: 0.8rem; border-radius: 0; }
+.cform__form { flex: 1.2; display: flex; flex-direction: column; gap: 1.2rem; align-self: center; }
 .cform__input { width: 100%; padding: 1.3rem 1.6rem; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 1rem; font-family: 'Montserrat', sans-serif; font-size: 1.4rem; background: rgba(255,255,255,0.12); color: #fff; outline: none; box-sizing: border-box; transition: border-color 0.2s, background 0.2s; }
 .cform__input::placeholder { color: rgba(255,255,255,0.65); }
 .cform__input:focus { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.2); }
