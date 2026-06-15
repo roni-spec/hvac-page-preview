@@ -2160,6 +2160,7 @@ dialog { border:none; }
 .add-benefits { padding: 8rem 0; background: #fff; }
 .add-benefits .page-section-title,
 .add-benefits .page-section-sub { text-align: center; margin-left: auto; margin-right: auto; }
+.add-benefits .page-section-title { text-transform: uppercase; font-weight: 800; font-style: italic; }
 .add-benefits__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
