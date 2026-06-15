@@ -1215,6 +1215,8 @@ dialog { border:none; }
 .hs4-btn:hover { background: #b83030; }
 .hs4-phone { position: absolute; left: 50px; top: 630px; color: #3d4652; font-size: 1.6rem; font-family: 'Montserrat', sans-serif; }
 .hs4-phone strong { margin-left: 15px; font-size: 1.8rem; }
+.hs4-phone-link { color: inherit; text-decoration: none; }
+.hs4-phone-link:hover { text-decoration: none; }
 .hs4-img { position: absolute; right: 30px; top: 20px; width: 480px; height: 680px; border-radius: 0; object-fit: contain; mix-blend-mode: multiply; animation: hs4-slide-up 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s both; }
 
 /* shared arrows */
