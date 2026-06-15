@@ -1133,26 +1133,43 @@ dialog { border:none; }
 .hero-slide:first-child .promo__container { min-height: unset; padding-top: 3rem; height: 100%; }
 
 /* --- Slide 3: $50 banner --- */
-.hs3-slide { position: relative; display: none; align-items: center; justify-content: center; }
+@keyframes hs3-corner-draw {
+  from { width: 0; height: 0; opacity: 0; }
+  to   { width: 24px; height: 24px; opacity: 1; }
+}
+@keyframes hs3-zoom-in {
+  0%   { transform: scale(0.4); opacity: 0; }
+  70%  { transform: scale(1.06); opacity: 1; }
+  85%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+@keyframes hs3-bookmark-drop {
+  0%   { transform: translateY(-110%); }
+  65%  { transform: translateY(8px); }
+  80%  { transform: translateY(-4px); }
+  90%  { transform: translateY(3px); }
+  100% { transform: translateY(0); }
+}
+.hs3-slide { position: relative; display: none; align-items: center; justify-content: center; padding-top: 6rem; }
 .hs3-slide.active { display: flex; }
-.hs3-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600&q=80') center/cover no-repeat; filter: brightness(0.45); }
-.hs3-top-bar { position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: #1e90ff; z-index: 2; }
-.hs3-save-badge { position: absolute; top: 0; left: 5rem; z-index: 3; background: #607080; color: #fff; font-size: 1.6rem; font-weight: 800; letter-spacing: 4px; padding: 1rem 3.6rem 2.8rem; clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%); line-height: 1; font-family: 'Montserrat', sans-serif; }
-.hs3-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 0 2rem; max-width: 90rem; }
-.hs3-price-line { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin: 0 0 2rem; line-height: 1; }
-.hs3-dollar { font-size: 2.6rem; font-weight: 800; font-family: 'Montserrat', sans-serif; }
-.hs3-amount { font-size: 7rem; font-weight: 800; line-height: 1; font-family: 'Montserrat', sans-serif; }
-.hs3-on-the { font-size: 2.2rem; font-weight: 700; margin-left: 8px; font-family: 'Montserrat', sans-serif; }
-.hs3-repair { font-size: 2.2rem; font-weight: 700; color: #1e90ff; margin-left: 6px; font-family: 'Montserrat', sans-serif; }
-.hs3-subtitle-box { position: relative; display: inline-block; padding: 1.6rem 4rem; }
+.hs3-bg { position: absolute; inset: 0; background: url('HVCA_image/air.jpeg') center/cover no-repeat; filter: brightness(0.45) blur(2px); }
+.hs3-top-bar { display: none; }
+.hs3-save-badge { position: absolute; top: 0; left: 22rem; z-index: 3; background: #607080; color: #fff; font-size: 3rem; font-weight: 800; letter-spacing: 4px; padding: 3.5rem 2.4rem 6rem; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 83%, 0 100%); line-height: 1; font-family: 'Montserrat', sans-serif; animation: hs3-bookmark-drop 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s both; }
+.hs3-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 0 2rem; max-width: 90rem; display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.hs3-price-line { display: flex; align-items: center; justify-content: center; gap: 0; line-height: 1; position: relative; top: -6rem; }
+.hs3-dollar { font-size: 5rem; font-weight: 800; font-family: 'Montserrat', sans-serif; font-style: italic; align-self: flex-start; margin-top: 0.5em; }
+.hs3-amount { font-size: 16rem; font-weight: 800; line-height: 1; font-family: 'Montserrat', sans-serif; font-style: italic; }
+.hs3-on-repair { display: flex; flex-direction: column; align-items: flex-start; margin-left: 20px; }
+.hs3-on-the { font-size: 3.6rem; font-weight: 800; font-style: italic; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+.hs3-repair { font-size: 3.6rem; font-weight: 800; font-style: italic; text-transform: uppercase; color: #1e90ff; font-family: 'Montserrat', sans-serif; }
+.hs3-subtitle-box { position: relative; display: inline-block; padding: 1.6rem 4rem; background: rgba(0,0,0,0.55); top: -3rem; }
 .hs3-subtitle-box::before { content: ''; position: absolute; top: 0; left: 0; width: 24px; height: 24px; border-top: 3px solid #3ddc84; border-left: 3px solid #3ddc84; }
 .hs3-subtitle-box::after  { content: ''; position: absolute; bottom: 0; right: 0; width: 24px; height: 24px; border-bottom: 3px solid #3ddc84; border-right: 3px solid #3ddc84; }
 .hs3-corner-tr { position: absolute; top: 0; right: 0; width: 24px; height: 24px; border-top: 3px solid #3ddc84; border-right: 3px solid #3ddc84; }
 .hs3-corner-bl { position: absolute; bottom: 0; left: 0; width: 24px; height: 24px; border-bottom: 3px solid #3ddc84; border-left: 3px solid #3ddc84; }
-.hs3-subtitle-box h2 { font-size: 2.4rem; font-weight: 800; color: #3ddc84; letter-spacing: 2px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
-.hs3-bottom-left { position: absolute; bottom: 3.5rem; left: 5rem; z-index: 3; display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-.hs3-cta-btn { display: inline-flex; align-items: center; gap: 10px; background: #e03030; color: #fff; font-size: 1.05rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 1.4rem 3.6rem; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; transition: background 0.2s; font-family: 'Montserrat', sans-serif; }
-.hs3-cta-btn:hover { background: #c02020; }
+.hs3-subtitle-box h2 { font-size: 2.6rem; font-weight: 800; color: #3ddc84; letter-spacing: 2px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+.hs3-cta-btn { display: inline-flex; align-items: center; gap: 10px; background: #e1251b; color: #fff; font-size: 1.6rem; font-weight: 800; font-style: italic; letter-spacing: 0.06em; text-transform: uppercase; padding: 1.5rem 3.6rem; border: none; border-radius: 99px; cursor: pointer; text-decoration: none; box-shadow: 0 4px 18px rgba(225,37,27,0.4); transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; font-family: 'Montserrat', sans-serif; }
+.hs3-cta-btn:hover { background: #c01010; transform: translateY(-3px) scale(1.04); box-shadow: 0 8px 28px rgba(225,37,27,0.5); }
 .hs3-contact-line { font-size: 0.95rem; color: #ddd; display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; }
 .hs3-phone { font-weight: 800; font-size: 1.05rem; color: #fff; }
 
