@@ -1174,6 +1174,10 @@ dialog { border:none; }
 .hs3-phone { font-weight: 800; font-size: 1.3rem; color: #fff; }
 
 /* --- Slide 4: 3-month protection plan --- */
+@keyframes hs4-zoom-in {
+  0%   { transform: rotate(10deg) scale(0.6); opacity: 0; }
+  100% { transform: rotate(10deg) scale(1); opacity: 1; }
+}
 @keyframes hs4-slide-up {
   from { transform: translateY(120%); opacity: 0; }
   to   { transform: translateY(0);    opacity: 1; }
@@ -1181,11 +1185,11 @@ dialog { border:none; }
 .hs4-slide { position: relative; overflow: hidden; background: #f6f6f6; }
 .hs4-slide::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: rgba(0,0,0,0.12); z-index: 1; }
 .hs4-bg { position: absolute; inset: 0; background: url('HVCA_image/last back.jpg') center/cover no-repeat; opacity: 1; }
-.hs4-container { position: relative; z-index: 2; width: 100%; height: 600px; max-width: 1600px; margin: auto; }
-.hs4-title { position: absolute; top: 28px; left: 50px; font-size: 2.6rem; line-height: 1.2; font-weight: 800; color: #2f3742; font-family: 'Montserrat', sans-serif; }
-.hs4-offer { position: absolute; left: 0; top: 120px; width: 580px; height: 200px; background: #003a73; display: flex; align-items: center; padding-left: 50px; }
-.hs4-offer-content { color: #fff; font-family: 'Montserrat', sans-serif; }
-.hs4-get { display: block; font-size: 3.8rem; font-weight: 800; font-style: italic; }
+.hs4-container { position: relative; z-index: 5; width: 100%; height: 600px; max-width: 1600px; margin: auto; }
+.hs4-title { position: absolute; top: 100px; left: -110px; font-size: 2.6rem; line-height: 1.2; font-weight: 800; color: #2f3742; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
+.hs4-offer { position: absolute; left: 0; top: 200px; width: 780px; height: 200px; background: #0d1e3d; display: flex; align-items: center; padding-left: 120px; z-index: 3; }
+.hs4-offer-content { color: #fff; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; gap: 16px; }
+.hs4-get { font-size: 3.8rem; font-weight: 800; font-style: italic; align-self: flex-start; margin-top: 1rem; }
 .hs4-offer-row { display: flex; align-items: flex-end; }
 .hs4-number { font-size: 9.5rem; font-weight: 900; line-height: 1; }
 .hs4-offer-text { margin-left: 12px; margin-bottom: 14px; }
@@ -1196,19 +1200,20 @@ dialog { border:none; }
   50%       { transform: rotate(14deg) scale(1.04); }
 }
 .hs4-starburst {
-  position: absolute; top: 55px; left: 580px;
+  position: absolute; top: 130px; left: 460px;
   width: 310px; height: 310px;
   filter: drop-shadow(5px 6px 0px rgba(0,0,0,0.28));
-  transform: rotate(10deg);
+  z-index: 4;
+  animation: hs4-zoom-in 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) 0.4s both;
 }
-.hs4-starburst svg { width: 100%; height: 100%; }
+.hs4-starburst-svg { width: 100%; height: 100%; }
 .hs4-starburst polygon { fill: #ffd100; stroke: #d47800; stroke-width: 7; stroke-linejoin: round; }
 .hs4-starburst-text { position: absolute; inset: 0; transform: rotate(12deg); color: #1a2540; }
 .hs4-starburst-text span { position: absolute; top: 20%; left: 50%; transform: translateX(-50%); font-size: 2.6rem; font-style: italic; font-weight: 700; font-family: 'Montserrat', sans-serif; white-space: nowrap; letter-spacing: 2px; }
 .hs4-starburst-text strong { position: absolute; top: 46%; left: 50%; transform: translate(-50%, -40%); font-size: 6.8rem; font-weight: 900; font-style: italic; font-family: 'Montserrat', sans-serif; white-space: nowrap; line-height: 1; text-shadow: 3px 3px 0 rgba(0,0,0,0.12); }
-.hs4-btn { position: absolute; left: 50px; top: 385px; background: #d44747; color: #fff; text-decoration: none; padding: 1.4rem 6rem; border-radius: 1.6rem; font-size: 1.8rem; font-weight: 700; font-family: 'Montserrat', sans-serif; transition: background 0.2s; }
+.hs4-btn { position: absolute; left: 50px; top: 520px; background: #e1251b; color: #fff; text-decoration: none; padding: 1.5rem 3.6rem; border-radius: 99px; font-size: 1.6rem; font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: 0.06em; font-family: 'Montserrat', sans-serif; box-shadow: 0 4px 18px rgba(212,71,71,0.4); transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; display: inline-flex; align-items: center; gap: 10px; }
 .hs4-btn:hover { background: #b83030; }
-.hs4-phone { position: absolute; left: 50px; top: 470px; color: #3d4652; font-size: 1.6rem; font-family: 'Montserrat', sans-serif; }
+.hs4-phone { position: absolute; left: 50px; top: 630px; color: #3d4652; font-size: 1.6rem; font-family: 'Montserrat', sans-serif; }
 .hs4-phone strong { margin-left: 15px; font-size: 1.8rem; }
 .hs4-img { position: absolute; right: 30px; top: 20px; width: 480px; height: 680px; border-radius: 0; object-fit: contain; mix-blend-mode: multiply; animation: hs4-slide-up 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s both; }
 
