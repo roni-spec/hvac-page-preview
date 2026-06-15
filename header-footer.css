@@ -1218,8 +1218,9 @@ dialog { border:none; }
 /* --- Coupon slide (px values, exact match to original) --- */
 .hs-coupon-slide {
   display: none;
+  position: relative;
   width: 100%;
-  height: 600px;
+  height: 680px;
   align-items: stretch;
   overflow: hidden;
   background: #fff;
@@ -1230,7 +1231,7 @@ dialog { border:none; }
 
 .hs-left-panel {
   position: relative;
-  width: 55%;
+  width: 44%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1238,111 +1239,84 @@ dialog { border:none; }
   background: #fff;
   z-index: 2;
 }
-.hs-left-panel::after {
+.hs-left-panel::before {
   content: '';
   position: absolute;
-  left: 36px;
-  top: 8%;
-  bottom: 8%;
-  width: 4px;
-  background: #e8e8e8;
-  border-radius: 2px;
-  z-index: -1;
+  top: 42%;
+  left: 0;
+  right: -70px;
+  height: 160px;
+  background: #ececec;
+  transform: translateY(-50%);
+  z-index: 0;
 }
 
-.hs-headline { margin-bottom: 28px; display: flex; align-items: flex-start; gap: 18px; }
+.hs-headline { margin-bottom: 28px; margin-top: -80px; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; position: relative; z-index: 3; }
 
-/* "save $30" — circular red stamp */
 .hs-save {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 84px;
-  height: 84px;
-  background: radial-gradient(circle at 35% 30%, #f03030 0%, #b81512 100%);
-  color: #fff;
-  font-size: 1.05rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 50%;
-  border: 2.5px dashed rgba(255,255,255,0.52);
-  box-shadow: 0 5px 20px rgba(225,37,27,0.42), inset 0 1px 4px rgba(255,255,255,0.12);
-  transform: rotate(-10deg);
-  line-height: 1.15;
-  text-align: center;
-  margin-top: 4px;
+  display: block;
+  color: #e03030;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
-/* headline text — navy + red left-bar accent */
 .hs-main-text {
-  font-size: 1.65rem;
+  font-size: 2.4rem;
   font-weight: 800;
-  color: #0a1f44;
-  line-height: 1.3;
-  border-left: 5px solid #E1251B;
-  padding-left: 14px;
+  color: #222;
+  line-height: 1.2;
+  border-left: none;
+  padding-left: 0;
 }
 .hs-hvac { color: #1e70c8; }
 
-.hs-price-card-wrapper { position: relative; margin-bottom: 30px; padding-top: 32px; }
-/* Regular Price — red-tinted tag */
-.hs-regular-price {
+.hs-price-card-wrapper { align-self: center; margin-top: 60px; margin-bottom: 30px; margin-left: 40px; position: relative; z-index: 1; }
+.hs-price-svg-wrap { position: relative; display: block; max-width: 560px; }
+.hs-price-svg { display: block; width: 100%; height: auto; }
+.hs-regular-overlay {
   position: absolute;
-  top: 0; right: 10px;
-  background: linear-gradient(to bottom, #fffafa 0%, #fff0f0 100%);
-  border: 1px solid rgba(225,37,27,0.22);
-  border-bottom: 2px solid rgba(225,37,27,0.4);
-  border-radius: 6px 6px 0 0;
-  padding: 8px 20px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  top: 9%;
+  left: 50%;
   color: #c00;
-  box-shadow: 0 -3px 14px rgba(225,37,27,0.1);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 5;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  pointer-events: none;
   white-space: nowrap;
 }
-.hs-crossed { color: #1a1a1a; text-decoration: line-through; text-decoration-color: #e03030; text-decoration-thickness: 2.5px; }
-.hs-price-card-outer { position: relative; }
-.hs-price-card-stripes { display: none; }
-/* $149 price card */
-.hs-price-card {
-  position: relative;
-  background: #1b3f7a;
-  border-radius: 16px;
-  padding: 20px 40px 18px 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: visible;
-  box-shadow: 0 8px 32px rgba(13,35,80,0.28);
+.hs-regular-crossed {
+  color: #1a1a1a;
+  text-decoration: line-through;
+  text-decoration-color: #c00;
+  text-decoration-thickness: 2px;
 }
-.hs-price-main { display: flex; align-items: baseline; gap: 2px; color: #fff; padding-top: 4px; }
-.hs-dollar-sign { font-size: 1.7rem; font-weight: 800; align-self: flex-start; padding-top: 10px; }
-.hs-amount { font-size: 5.2rem; font-weight: 800; line-height: 1; }
-.hs-on-the { font-size: 0.9rem; font-weight: 700; color: #b0c4de; line-height: 1.4; margin-left: 10px; align-self: center; }
-
-/* Special Offer bar — blue speech-bubble shape as background image */
-.hs-special-offer-bar {
-  background: url('offer-shape.png') no-repeat left top / 100% 100%;
-  margin: 4px 0 0 0;
-  padding: 18px 50px 30px 40px;
-  font-size: 0.92rem;
-  font-weight: 900;
-  letter-spacing: 4px;
+.hs-price-overlay {
+  position: absolute;
+  top: 58%;
+  left: 8%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
   color: #fff;
-  text-transform: uppercase;
-  font-style: italic;
-  position: relative;
-  min-height: 75px;
-  display: flex;
-  align-items: center;
+  pointer-events: none;
+  font-family: 'Poppins', sans-serif;
 }
-.hs-special-offer-bar::after { display: none; }
+.hs-po-dollar { font-size: 2.4rem; font-weight: 800; align-self: flex-start; margin-top: 0.45em; }
+.hs-po-amount { font-size: 7.2rem; font-weight: 800; line-height: 1; }
+.hs-po-label { font-size: 1.3rem; font-weight: 700; line-height: 1.4; margin-left: 12px; align-self: center; }
 .hs-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -1366,9 +1340,10 @@ dialog { border:none; }
 .hs-gear-icon { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; flex-shrink: 0; }
 
 .hs-right-panel {
-  width: 45%;
+  width: 56%;
   position: relative;
   overflow: hidden;
+  z-index: 3;
 }
 .hs-right-panel::before {
   content: '';
@@ -2791,9 +2766,6 @@ dialog { border:none; }
   .hs-right-panel                { display: none; }
   .hs-save                       { width: 58px; height: 58px; font-size: 0.78rem; }
   .hs-main-text                  { font-size: 1.3rem; }
-  .hs-amount                     { font-size: 3.6rem; }
-  .hs-price-card                 { padding: 14px 20px 14px 22px; }
-  .hs-special-offer-bar          { padding: 12px 20px 20px; font-size: 0.8rem; letter-spacing: 2px; min-height: 60px; }
   .hs-cta-btn                    { padding: 12px 22px; font-size: 0.82rem; width: 100%; justify-content: center; }
 
   /* Slide 3: $50 off — reduce fonts, tighten spacing */
