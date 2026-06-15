@@ -2646,52 +2646,59 @@ dialog { border:none; }
 .hs5-navy {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, #152a52 0%, #0d1e40 100%);
-  clip-path: polygon(0 0, 47% 0, 37% 100%, 0 100%);
+  clip-path: polygon(0 0, 53% 0, 43% 100%, 0 100%);
   z-index: 2; display: flex; align-items: center;
 }
 
 .hs5-content {
   color: #fff; padding: 0 32px 0 64px; max-width: 620px;
   font-family: 'Poppins', 'Montserrat', sans-serif;
+  margin-top: -8rem;
 }
 
 .hs5-title {
-  font-size: clamp(1.4rem, 2.6vw, 2.5rem);
+  font-size: clamp(1.6rem, 3vw, 3.2rem);
   font-weight: 800; line-height: 1.25; margin-bottom: 1.6em;
-  color: #fff; font-family: inherit; text-transform: none; letter-spacing: normal;
+  color: #fff; font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase; letter-spacing: 0.02em;
+  margin-left: 5rem; margin-top: 0; position: relative; top: 10rem;
 }
 .hs5-highlight { color: #5fa8e6; }
 
 .hs5-quote-btn {
   display: inline-flex; align-items: center; gap: 10px;
-  background: #df5e58; color: #fff; text-decoration: none;
+  background: #e1251b; color: #fff; text-decoration: none;
   font-weight: 800; font-style: italic;
-  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
-  text-transform: uppercase; letter-spacing: 0.5px;
-  padding: 0.9em 2em; border-radius: 999px;
-  box-shadow: 0 6px 0 #b8453f;
-  transition: transform .15s ease, box-shadow .15s ease;
-  font-family: inherit;
+  font-size: 1.6rem;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 1.5rem 3.6rem; border-radius: 99px;
+  box-shadow: 0 4px 18px rgba(225,37,27,0.4);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  align-self: flex-end;
+  margin-top: 12rem;
+  position: relative;
+  right: -10rem;
 }
-.hs5-quote-btn:hover { transform: translateY(2px); box-shadow: 0 4px 0 #b8453f; }
+.hs5-quote-btn:hover { background: #c01010; transform: translateY(-3px) scale(1.04); box-shadow: 0 8px 28px rgba(225,37,27,0.5); }
 .hs5-quote-btn svg { width: 1.2em; height: 1.2em; fill: #fff; flex-shrink: 0; }
 
 .hs5-or {
-  text-align: center; margin: 1.6em 0 1em;
-  font-weight: 600; font-size: clamp(0.85rem, 1vw, 1rem);
+  text-align: center; margin: 2em 0 1em;
+  font-weight: 600; font-size: 1.5rem;
   color: #fff; font-family: inherit;
 }
 
 .hs5-call { text-align: center; }
 .hs5-call-label {
   font-weight: 600; margin-bottom: 0.5em;
-  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-size: 1.5rem;
   color: #fff; font-family: inherit;
 }
 .hs5-phone-link {
   display: inline-flex; align-items: center; gap: 10px;
   color: #fff; text-decoration: none;
-  font-weight: 800; font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-weight: 800; font-size: 2.4rem;
   font-family: inherit;
 }
 .hs5-phone-link svg { width: 1.1em; height: 1.1em; fill: #34d27a; flex-shrink: 0; }
@@ -2709,7 +2716,7 @@ dialog { border:none; }
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  padding-left: 3%;
+  padding-left: 10%;
   pointer-events: none;
 }
 .hs5-units-img {
