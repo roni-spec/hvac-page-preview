@@ -2604,3 +2604,197 @@ dialog { border:none; }
   .testimonials .splide__arrow--prev { left: 2rem; }
   .testimonials .splide__arrow--next { right: 2rem; }
 }
+
+/* ============================================================
+   SLIDE 5 — HVAC REBATES
+   ============================================================ */
+.hs5-slide { position: relative; overflow: hidden; background: #14305f; }
+.hs5-slide.active { display: block; }
+
+.hs5-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  background-color: #d8dde6; background-size: cover; background-position: center;
+  display: flex; align-items: center; justify-content: center;
+  color: #7a8aa3; font-size: 14px; text-align: center; padding: 10px; z-index: 1;
+}
+
+.hs5-navy {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1c3f78 0%, #0d2347 100%);
+  clip-path: polygon(0 0, 66% 0, 52% 100%, 0 100%);
+  z-index: 2; display: flex; align-items: center;
+}
+
+.hs5-content {
+  color: #fff; padding: 0 32px 0 64px; max-width: 620px;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+}
+
+.hs5-title {
+  font-size: clamp(1.4rem, 2.6vw, 2.5rem);
+  font-weight: 800; line-height: 1.25; margin-bottom: 1.6em;
+  color: #fff; font-family: inherit; text-transform: none; letter-spacing: normal;
+}
+.hs5-highlight { color: #5fa8e6; }
+
+.hs5-quote-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #df5e58; color: #fff; text-decoration: none;
+  font-weight: 800; font-style: italic;
+  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 0.9em 2em; border-radius: 999px;
+  box-shadow: 0 6px 0 #b8453f;
+  transition: transform .15s ease, box-shadow .15s ease;
+  font-family: inherit;
+}
+.hs5-quote-btn:hover { transform: translateY(2px); box-shadow: 0 4px 0 #b8453f; }
+.hs5-quote-btn svg { width: 1.2em; height: 1.2em; fill: #fff; flex-shrink: 0; }
+
+.hs5-or {
+  text-align: center; margin: 1.6em 0 1em;
+  font-weight: 600; font-size: clamp(0.85rem, 1vw, 1rem);
+  color: #fff; font-family: inherit;
+}
+
+.hs5-call { text-align: center; }
+.hs5-call-label {
+  font-weight: 600; margin-bottom: 0.5em;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  color: #fff; font-family: inherit;
+}
+.hs5-phone-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: #fff; text-decoration: none;
+  font-weight: 800; font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-family: inherit;
+}
+.hs5-phone-link svg { width: 1.1em; height: 1.1em; fill: #34d27a; flex-shrink: 0; }
+
+.hs5-unit {
+  position: absolute; z-index: 3;
+  background-size: contain; background-repeat: no-repeat; background-position: center;
+  border: 2px dashed rgba(120,120,120,0.5);
+  display: flex; align-items: center; justify-content: center;
+  color: #666; font-size: 12px; text-align: center; padding: 6px;
+}
+.hs5-unit-1 { width: 18%; height: 42%; left: 34%; top: 38%; }
+.hs5-unit-2 { width: 21%; height: 34%; left: 40%; bottom: 0; }
+
+/* ============================================================
+   HERO SLIDER BANNERS — RESPONSIVE
+   ============================================================ */
+
+/* --- Tablet landscape (≤900px) -------------------------------- */
+@media (max-width: 900px) {
+
+  /* Slide 2: coupon — reduce padding */
+  .hs-left-panel { padding: 28px 28px 28px 44px; }
+
+  /* Slide 4: 3-month plan — scale down absolute-positioned elements */
+  .hs4-title  { font-size: 2rem; left: 30px; }
+  .hs4-offer  { width: 380px; top: 100px; padding-left: 30px; }
+  .hs4-get    { font-size: 2.8rem; }
+  .hs4-number { font-size: 7rem; }
+  .hs4-month  { font-size: 2.8rem; }
+  .hs4-plan   { font-size: 1.4rem; }
+  .hs4-starburst { left: 390px; top: 60px; width: 220px; height: 220px; }
+  .hs4-btn    { left: 30px; top: 340px; padding: 1.2rem 4rem; font-size: 1.6rem; }
+  .hs4-phone  { left: 30px; top: 415px; font-size: 1.4rem; }
+  .hs4-img    { width: 180px; height: 360px; right: 20px; top: 60px; }
+}
+
+/* --- Tablet portrait (≤768px) -------------------------------- */
+@media (max-width: 768px) {
+
+  /* Slide 2: coupon — widen left panel, shrink right panel */
+  .hs-left-panel  { width: 65%; padding: 28px 20px 28px 36px; }
+  .hs-right-panel { width: 35%; }
+  .hs-save        { width: 68px; height: 68px; font-size: 0.88rem; }
+  .hs-main-text   { font-size: 1.4rem; }
+  .hs-amount      { font-size: 4rem; }
+
+  /* Slide 4: further scale down */
+  .hs4-offer     { width: 300px; height: 180px; top: 90px; padding-left: 24px; }
+  .hs4-get       { font-size: 2.2rem; }
+  .hs4-number    { font-size: 5.5rem; }
+  .hs4-month     { font-size: 2.2rem; }
+  .hs4-plan      { font-size: 1.2rem; }
+  .hs4-starburst { left: 308px; top: 50px; width: 190px; height: 190px; }
+  .hs4-btn       { left: 20px; top: 310px; padding: 1rem 3rem; font-size: 1.5rem; }
+  .hs4-phone     { left: 20px; top: 385px; font-size: 1.3rem; }
+  .hs4-phone strong { font-size: 1.5rem; }
+  .hs4-img       { width: 140px; height: 280px; right: 16px; top: 80px; }
+}
+
+/* --- Mobile (≤576px) ----------------------------------------- */
+@media (max-width: 576px) {
+
+  /* Hero slider — fixed 500px on all slides so arrows stay level */
+  .hero-slider                   { height: 500px; }
+  .hero-slide                    { height: 500px; }
+  .hero-slide:first-child .promo { height: 500px; }
+
+  /* Slide 2: coupon — stack vertically, hide photo panel */
+  .hs-coupon-slide               { flex-direction: column; }
+  .hs-left-panel                 { width: 100%; padding: 2.8rem 2rem 2.4rem; }
+  .hs-left-panel::after          { display: none; }
+  .hs-right-panel                { display: none; }
+  .hs-save                       { width: 58px; height: 58px; font-size: 0.78rem; }
+  .hs-main-text                  { font-size: 1.3rem; }
+  .hs-amount                     { font-size: 3.6rem; }
+  .hs-price-card                 { padding: 14px 20px 14px 22px; }
+  .hs-special-offer-bar          { padding: 12px 20px 20px; font-size: 0.8rem; letter-spacing: 2px; min-height: 60px; }
+  .hs-cta-btn                    { padding: 12px 22px; font-size: 0.82rem; width: 100%; justify-content: center; }
+
+  /* Slide 3: $50 off — reduce fonts, tighten spacing */
+  .hs3-save-badge                { left: 1.5rem; font-size: 1.1rem; padding: 0.8rem 1.8rem 2rem; letter-spacing: 2px; }
+  .hs3-amount                    { font-size: 4.4rem; }
+  .hs3-dollar                    { font-size: 2rem; }
+  .hs3-on-the,
+  .hs3-repair                    { font-size: 1.5rem; }
+  .hs3-subtitle-box              { padding: 1rem 2rem; }
+  .hs3-subtitle-box h2           { font-size: 1.5rem; letter-spacing: 1px; }
+  .hs3-bottom-left               { left: 1.5rem; bottom: 2rem; gap: 0.8rem; }
+  .hs3-cta-btn                   { font-size: 0.85rem; padding: 1.1rem 2rem; }
+  .hs3-contact-line              { font-size: 0.82rem; flex-wrap: wrap; gap: 6px; }
+  .hs3-phone                     { font-size: 0.9rem; }
+
+  /* Slide 4: 3-month plan — convert absolute layout to flex column.
+     IMPORTANT: use .hs4-slide.active (not .hs4-slide) so the slide
+     stays display:none when inactive (avoids content leaking below
+     the slider). */
+  .hs4-slide.active              { display: flex; align-items: center; justify-content: center; }
+  .hs4-container                 {
+    height: 100%;
+    padding: 1.6rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  .hs4-title                     { position: static; font-size: 1.6rem; line-height: 1.3; }
+  .hs4-offer                     { position: static; width: 100%; height: auto; padding: 1.4rem 1.6rem; top: auto; left: auto; }
+  .hs4-number                    { font-size: 5rem; }
+  .hs4-get                       { font-size: 2rem; }
+  .hs4-month                     { font-size: 2rem; }
+  .hs4-plan                      { font-size: 1.1rem; }
+  .hs4-starburst                 { position: static; width: 130px; height: 130px; align-self: center; }
+  .hs4-starburst-text span       { font-size: 1.8rem; }
+  .hs4-starburst-text strong     { font-size: 3.2rem; }
+  .hs4-btn                       { position: static; top: auto; left: auto; padding: 1rem 2.4rem; font-size: 1.4rem; border-radius: 1rem; }
+  .hs4-phone                     { position: static; top: auto; left: auto; font-size: 1.2rem; }
+  .hs4-phone strong              { font-size: 1.3rem; margin-left: 6px; }
+  .hs4-img                       { display: none; }
+
+  /* Slide 5: HVAC Rebates — mobile layout */
+  .hs5-navy                      { clip-path: none; background: rgba(13,35,71,0.88); }
+  .hs5-content                   { padding: 2rem 1.5rem; max-width: none; text-align: center; }
+  .hs5-title                     { font-size: 1.4rem; margin-bottom: 1.2em; }
+  .hs5-quote-btn                 { font-size: 0.9rem; width: 100%; justify-content: center; }
+  .hs5-unit                      { display: none; }
+
+  /* Hide decorative banner images on mobile */
+  .promo__img                    { display: none; }
+}
