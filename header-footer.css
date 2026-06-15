@@ -1174,8 +1174,13 @@ dialog { border:none; }
 .hs3-phone { font-weight: 800; font-size: 1.3rem; color: #fff; }
 
 /* --- Slide 4: 3-month protection plan --- */
+@keyframes hs4-slide-up {
+  from { transform: translateY(120%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
 .hs4-slide { position: relative; overflow: hidden; background: #f6f6f6; }
-.hs4-bg { position: absolute; inset: 0; background: url('YOUR-BACKGROUND.jpg') center/cover no-repeat; opacity: .18; }
+.hs4-slide::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: rgba(0,0,0,0.12); z-index: 1; }
+.hs4-bg { position: absolute; inset: 0; background: url('HVCA_image/last back.jpg') center/cover no-repeat; opacity: 1; }
 .hs4-container { position: relative; z-index: 2; width: 100%; height: 600px; max-width: 1600px; margin: auto; }
 .hs4-title { position: absolute; top: 28px; left: 50px; font-size: 2.6rem; line-height: 1.2; font-weight: 800; color: #2f3742; font-family: 'Montserrat', sans-serif; }
 .hs4-offer { position: absolute; left: 0; top: 120px; width: 580px; height: 200px; background: #003a73; display: flex; align-items: center; padding-left: 50px; }
@@ -1205,7 +1210,7 @@ dialog { border:none; }
 .hs4-btn:hover { background: #b83030; }
 .hs4-phone { position: absolute; left: 50px; top: 470px; color: #3d4652; font-size: 1.6rem; font-family: 'Montserrat', sans-serif; }
 .hs4-phone strong { margin-left: 15px; font-size: 1.8rem; }
-.hs4-img { position: absolute; right: 50px; top: 40px; width: 260px; height: 520px; border-radius: 1.6rem; }
+.hs4-img { position: absolute; right: 30px; top: 20px; width: 480px; height: 680px; border-radius: 0; object-fit: contain; mix-blend-mode: multiply; animation: hs4-slide-up 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s both; }
 
 /* shared arrows */
 .hs-arrow {
