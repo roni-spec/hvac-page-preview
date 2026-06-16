@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+}
+
+.promo-banner{
+    position:relative;
+    width:100%;
+    min-height:720px;
+    overflow:hidden;
+    background:#f6f6f6;
+}
+
+/* BACKGROUND IMAGE */
+.promo-bg{
+    position:absolute;
+    inset:0;
+    background:url('YOUR-BACKGROUND.jpg') center center/cover no-repeat;
+    opacity:.18;
+}
+
+/* CONTAINER */
+.promo-container{
+    position:relative;
+    z-index:2;
+    max-width:1600px;
+    margin:auto;
+    min-height:720px;
+}
+
+/* TITLE */
+.promo-title{
+    position:absolute;
+    top:35px;
+    left:210px;
+
+    font-size:34px;
+    line-height:1.1;
+    font-weight:800;
+    color:#2f3742;
+}
+
+/* BLUE BAR */
+.promo-offer{
+    position:absolute;
+    left:0;
+    top:215px;
+
+    width:780px;
+    height:205px;
+
+    background:#003a73;
+
+    display:flex;
+    align-items:center;
+}
+
+/* LEFT ARROW */
+.promo-arrow-left{
+    width:82px;
+    height:82px;
+
+    border-radius:50%;
+    border:none;
+
+    background:#fff;
+
+    margin-left:38px;
+
+    font-size:68px;
+    color:#8c949d;
+
+    cursor:pointer;
+}
+
+/* OFFER CONTENT */
+.promo-offer-content{
+    margin-left:90px;
+    color:#fff;
+}
+
+.get{
+    display:block;
+    font-size:56px;
+    font-weight:800;
+    font-style:italic;
+}
+
+.offer-row{
+    display:flex;
+    align-items:flex-end;
+}
+
+.number{
+    font-size:155px;
+    font-weight:900;
+    line-height:1;
+}
+
+.offer-text{
+    margin-left:10px;
+    margin-bottom:22px;
+}
+
+.month{
+    display:block;
+    font-size:62px;
+    font-weight:900;
+}
+
+.plan{
+    display:block;
+    color:#4c89d4;
+    font-size:26px;
+    font-weight:700;
+}
+
+/* STARBURST */
+.promo-starburst{
+    position:absolute;
+
+    top:165px;
+    left:640px;
+
+    width:320px;
+    height:320px;
+}
+
+.promo-starburst svg{
+    width:100%;
+    height:100%;
+}
+
+.promo-starburst polygon{
+    fill:#ffd100;
+    stroke:#606873;
+    stroke-width:5;
+}
+
+.starburst-text{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    transform:rotate(8deg);
+
+    color:#33445c;
+}
+
+.starburst-text span{
+    font-size:42px;
+    font-style:italic;
+}
+
+.starburst-text strong{
+    font-size:86px;
+    font-weight:900;
+    font-style:italic;
+}
+
+/* BUTTON */
+.promo-btn{
+    position:absolute;
+
+    left:210px;
+    top:500px;
+
+    background:#d44747;
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:18px 85px;
+
+    border-radius:16px;
+
+    font-size:22px;
+    font-weight:700;
+}
+
+/* PHONE */
+.promo-phone{
+    position:absolute;
+
+    left:210px;
+    top:620px;
+
+    color:#3d4652;
+
+    font-size:18px;
+}
+
+.promo-phone strong{
+    margin-left:15px;
+    font-size:22px;
+}
+
+/* EQUIPMENT IMAGE */
+.promo-equipment{
+    position:absolute;
+
+    right:140px;
+    bottom:0;
+
+    width:700px;
+}
+
+.promo-equipment img{
+    width:100%;
+    display:block;
+}
+
+/* RIGHT ARROW */
+.promo-arrow-right{
+    position:absolute;
+
+    right:35px;
+    top:305px;
+
+    width:82px;
+    height:82px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#fff;
+
+    font-size:68px;
+    color:#8c949d;
+
+    cursor:pointer;
+}
+
+/* DOTS */
+.promo-dots{
+    position:absolute;
+
+    bottom:14px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.promo-dots span{
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:#ddd;
+
+    display:inline-block;
+
+    margin:0 5px;
+}
+
+.promo-dots .active{
+    background:#4c89d4;
+}
+
+</style>
+</head>
+<body>
+
+<section class="promo-banner">
+
+    <div class="promo-bg"></div>
+
+    <div class="promo-container">
+
+        <h2 class="promo-title">
+            In addition to the warranty<br>
+            for repairs and spare part
+        </h2>
+
+        <div class="promo-offer">
+
+            <button class="promo-arrow-left">
+                &#8249;
+            </button>
+
+            <div class="promo-offer-content">
+
+                <span class="get">GET</span>
+
+                <div class="offer-row">
+
+                    <span class="number">3</span>
+
+                    <div class="offer-text">
+                        <span class="month">MONTH</span>
+                        <span class="plan">OF PROTECTION PLAN</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="promo-starburst">
+
+            <svg viewBox="0 0 300 300">
+
+                <polygon points="
+                150,10
+                170,35
+                205,15
+                210,50
+                245,40
+                235,75
+                275,80
+                250,110
+                290,130
+                255,150
+                290,175
+                250,190
+                270,225
+                230,225
+                235,265
+                200,250
+                180,290
+                150,265
+                120,290
+                100,250
+                65,265
+                70,225
+                30,225
+                50,190
+                10,175
+                45,150
+                10,130
+                50,110
+                25,80
+                65,75
+                55,40
+                90,50
+                95,15
+                130,35
+                " />
+
+            </svg>
+
+            <div class="starburst-text">
+                <span>FOR</span>
+                <strong>FREE</strong>
+            </div>
+
+        </div>
+
+        <a href="#" class="promo-btn">
+            MAKE A DEAL
+        </a>
+
+        <div class="promo-phone">
+            Or you can contact our expert for more details
+            <strong>(866) 540-3616</strong>
+        </div>
+
+        <div class="promo-equipment">
+            <img src="YOUR-EQUIPMENT-IMAGE.png" alt="">
+        </div>
+
+        <button class="promo-arrow-right">
+            &#8250;
+        </button>
+
+    </div>
+
+    <div class="promo-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="active"></span>
+        <span></span>
+    </div>
+
+</section>
+
+</body>
+</html>
