@@ -2831,7 +2831,7 @@ dialog { border:none; }
 
 @media (min-width: 577px) and (max-width: 1439px) {
   .promo__info { padding-left: 6rem; padding-right: 6rem; }
-  .promo__btn  { margin-top: 2.5rem; }
+  .promo__btn  { margin-top: 1rem; }
 }
 
 /* ─── Laptop (≤1200px) ─────────────────────────────────────── */
