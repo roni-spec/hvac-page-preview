@@ -126,8 +126,8 @@
       text-transform: uppercase;
     }
     .grev__slider { margin-bottom: 5.6rem; margin-top: 4rem; }
-    #splide-grev .splide__track { padding-bottom: 8rem; }
-    #splide-grev .splide__arrow { bottom: -2rem; top: auto; }
+    #splide-grev .splide__track { padding-bottom: 6.5rem; }
+    #splide-grev .splide__arrow { bottom: -1rem; top: auto; }
     #splide-grev .splide__arrow--prev { left: 30rem; }
     #splide-grev .splide__arrow--next { right: 30rem; }
     #splide-grev .splide__slide { display: flex; }
@@ -1377,7 +1377,7 @@
             <i class="icon-star"></i>
             <p class="testimonials__subtitle s4-t" style="margin-top:0.6rem;">Hundreds of verified reviews</p>
           </span>
-          <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:24rem;height:10rem;object-fit:contain;margin-top:1.4rem;grid-area:img-2;">
+          <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:30rem;height:13rem;object-fit:contain;margin-top:1.4rem;grid-area:img-2;">
         </div>
       </div>
 
@@ -1902,7 +1902,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }).mount();
   }
 
-  new Splide('#splide-grev', {
+  const grevSplide = new Splide('#splide-grev', {
     type      : 'loop',
     perPage   : 3,
     perMove   : 1,
@@ -1913,7 +1913,29 @@ document.addEventListener('DOMContentLoaded', function () {
       1139: { perPage: 2 },
       576 : { perPage: 1 }
     }
-  }).mount();
+  });
+
+  grevSplide.on('mounted', function() {
+    const total = grevSplide.length;
+    const paginationEl = document.createElement('ul');
+    paginationEl.className = 'splide__pagination';
+    for (let i = 0; i < total; i++) {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.className = 'splide__pagination__page' + (i === 0 ? ' is-active' : '');
+      btn.addEventListener('click', function() { grevSplide.go(i); });
+      li.appendChild(btn);
+      paginationEl.appendChild(li);
+    }
+    document.querySelector('#splide-grev').appendChild(paginationEl);
+  });
+
+  grevSplide.on('move', function(newIndex) {
+    document.querySelectorAll('#splide-grev .splide__pagination .splide__pagination__page')
+      .forEach(function(dot, i) { dot.classList.toggle('is-active', i === newIndex); });
+  });
+
+  grevSplide.mount();
 
   // Pill selectors
   document.querySelectorAll('.book-pill').forEach(function(pill) {

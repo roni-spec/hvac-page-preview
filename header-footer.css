@@ -2615,7 +2615,7 @@ dialog { border:none; }
 
 /* Rating grid */
 .testimonials__rating-wrap {
-  width: 35.6rem;
+  width: 52rem;
   display: inline-grid;
   grid-template-areas: "img-1 rating img-2" "subtitle subtitle subtitle";
   gap: 0 2.4rem;
@@ -2650,7 +2650,9 @@ dialog { border:none; }
 .testimonials .splide__arrow { bottom: -1rem; }
 .testimonials .splide__arrow--prev { left: 30.9rem; }
 .testimonials .splide__arrow--next { right: 30.9rem; }
-.testimonials .splide__pagination { bottom: -0.2rem; }
+.testimonials .splide__pagination { bottom: -0.2rem; display: flex !important; justify-content: center; align-items: center; gap: 0.8rem; padding: 0 5rem; }
+.testimonials .splide__pagination__page { width: 1.2rem; height: 1.2rem; border-radius: 50%; background: rgba(12,52,71,0.22); border: none; padding: 0; cursor: pointer; transition: background 0.2s, transform 0.2s; flex-shrink: 0; }
+.testimonials .splide__pagination__page.is-active { background: #0c3447; transform: scale(1.35); }
 
 /* Splide core layout (theme-style, uses icomoon arrows) */
 .splide__track--draggable { -webkit-user-select: none; user-select: none; }
@@ -2794,6 +2796,39 @@ dialog { border:none; }
 /* ============================================================
    HERO SLIDER BANNERS — RESPONSIVE
    ============================================================ */
+
+/* ─── Tablet + Laptop: shorter section + image raised (below 1440px) ─── */
+@media (max-width: 1439px) {
+  .hero-slider                        { height: 520px; }
+  .hero-slide                         { height: 520px; }
+  .hero-slide:first-child .promo      { height: 520px; }
+  .hs-coupon-slide                    { height: 520px; }
+  .hero-slide:first-child .promo__img { bottom: 0; }
+
+  /* Slide 1 — promo content left margin */
+  .promo__info                        { padding-left: 6rem; padding-right: 6rem; }
+
+  /* Slide 2 — SVG raised + smaller, reduce gap to button */
+  .hs-price-card-wrapper              { top: 40px; margin-left: 80px; }
+  .hs-price-svg-wrap                  { transform: scale(0.75); transform-origin: left center; }
+  .hs-cta-btn                         { margin-top: 60px; }
+  .hs-left-panel::before              { height: 100px; top: 58%; }
+
+  /* Slide 4 — shrink offer block + move title/phone up */
+  .hs4-offer                          { width: 620px; height: 160px; padding-left: 80px; }
+  .hs4-number                         { font-size: 7rem; }
+  .hs4-get                            { font-size: 2.8rem; }
+  .hs4-month                          { font-size: 2.8rem; }
+  .hs4-title                          { top: 15px; }
+  .hs4-phone                          { top: 465px; }
+  .hs4-btn                            { top: 390px; }
+  .hs4-img                            { width: 360px; height: 520px; right: 40px; top: 40px; }
+
+  /* Slide 5 — title shift left, call section centered + nudged right */
+  .hs5-title                          { margin-left: 0; }
+  .hs5-or                             { text-align: center; margin-left: -3rem; }
+  .hs5-call                           { text-align: center; margin-left: -3rem; }
+}
 
 /* ─── Laptop (≤1200px) ─────────────────────────────────────── */
 @media (max-width: 1200px) {
