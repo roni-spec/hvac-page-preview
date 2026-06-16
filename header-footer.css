@@ -2805,8 +2805,7 @@ dialog { border:none; }
   .hs-coupon-slide                    { height: 520px; }
   .hero-slide:first-child .promo__img { bottom: 0; }
 
-  /* Slide 1 — promo content left margin */
-  .promo__info                        { padding-left: 6rem; padding-right: 6rem; }
+  /* Slide 1 — promo content left margin (tablets only, not mobile) */
 
   /* Slide 2 — SVG raised + smaller, reduce gap to button */
   .hs-price-card-wrapper              { top: 40px; margin-left: 80px; }
@@ -2828,6 +2827,10 @@ dialog { border:none; }
   .hs5-title                          { margin-left: 0; }
   .hs5-or                             { text-align: center; margin-left: -3rem; }
   .hs5-call                           { text-align: center; margin-left: -3rem; }
+}
+
+@media (min-width: 577px) and (max-width: 1439px) {
+  .promo__info { padding-left: 6rem; padding-right: 6rem; }
 }
 
 /* ─── Laptop (≤1200px) ─────────────────────────────────────── */
