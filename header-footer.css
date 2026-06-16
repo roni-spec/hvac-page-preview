@@ -1186,7 +1186,7 @@ dialog { border:none; }
 .hs4-slide::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: rgba(0,0,0,0.12); z-index: 1; }
 .hs4-bg { position: absolute; inset: 0; background: url('HVCA_image/last back.jpg') center/cover no-repeat; opacity: 1; }
 .hs4-container { position: relative; z-index: 5; width: 100%; height: 600px; max-width: 1600px; margin: auto; }
-.hs4-title { position: absolute; top: 100px; left: -110px; font-size: 2.6rem; line-height: 1.2; font-weight: 800; color: #2f3742; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
+.hs4-title { position: absolute; top: 100px; left: 50px; font-size: 2.6rem; line-height: 1.2; font-weight: 800; color: #2f3742; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
 .hs4-offer { position: absolute; left: 0; top: 200px; width: 780px; height: 200px; background: #0d1e3d; display: flex; align-items: center; padding-left: 120px; z-index: 3; }
 .hs4-offer-content { color: #fff; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; gap: 16px; }
 .hs4-get { font-size: 3.8rem; font-weight: 800; font-style: italic; align-self: flex-start; margin-top: 1rem; }
@@ -1243,6 +1243,31 @@ dialog { border:none; }
 .hs-arrow:hover { background: #eee; }
 .hs-arrow--prev { left: 20px; }
 .hs-arrow--next { right: 20px; }
+
+/* --- Hero pagination dots --- */
+.hero-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 0 1rem;
+  background: #fff;
+}
+.hero-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(12, 52, 71, 0.22);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+.hero-dot.is-active {
+  background: #0c3447;
+  transform: scale(1.35);
+}
 
 /* --- Coupon slide (px values, exact match to original) --- */
 @keyframes slideInFromLeft {
@@ -2304,8 +2329,13 @@ dialog { border:none; }
 .gallery .before-after__img.is-next { margin-left: -3rem; }
 .gallery .splide__slide { filter: grayscale(0); transition: filter .5s; }
 .gallery .splide__slide:not(.is-active) { filter: grayscale(1); }
-.gallery .splide__pagination { margin: 4rem 0 0; display: flex !important; position: relative; bottom: 1rem; }
-.gallery .splide__arrow { bottom: -0.2rem; }
+.gallery .splide__arrows { position: relative; height: 4rem; margin-top: 3.2rem; }
+.gallery .splide__pagination { margin: -2.5rem 0 2rem; display: flex !important; justify-content: center; align-items: center; position: relative; z-index: 2; padding: 0 44rem; gap: 1rem; }
+.gallery .splide__pagination__page { width: 1.2rem; height: 1.2rem; border-radius: 50%; background: rgba(12,52,71,0.22); border: none; padding: 0; cursor: pointer; transition: background 0.2s, transform 0.2s; flex-shrink: 0; }
+.gallery .splide__pagination__page.is-active { background: #0c3447; transform: scale(1.35); }
+.gallery .splide__arrow { top: 0; bottom: auto; background: #fff; border-radius: 50%; width: 4rem; height: 4rem; box-shadow: 0 2px 12px rgba(12,52,71,0.13); border: 1px solid rgba(12,52,71,0.10); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.gallery .splide__arrow:hover { background: #0c3447; }
+.gallery .splide__arrow:hover::before { color: #fff; }
 .gallery .splide__arrow--prev { left: 39rem; }
 .gallery .splide__arrow--next { right: 39rem; }
 
@@ -2467,6 +2497,7 @@ dialog { border:none; }
   .gallery .before-after__img { width: 28rem; height: 30rem; }
   .gallery .splide__arrow--prev { left: 20rem; }
   .gallery .splide__arrow--next { right: 20rem; }
+  .gallery .splide__pagination { padding: 0 25rem; }
 .page-split__inner { grid-template-columns: 1fr; gap: 4rem; }
   .hero__title { font-size: 3.4rem; }
   .master-form .container { grid-template-columns: 1fr; gap: 4rem; }
@@ -2483,7 +2514,7 @@ dialog { border:none; }
   .gallery .splide__slide:not(.is-active) { filter: grayscale(0); }
   .gallery .splide__arrow--prev { left: 1.5rem; }
   .gallery .splide__arrow--next { right: 1.5rem; }
-  .gallery .splide__pagination { margin: 2.8rem 0 0; }
+  .gallery .splide__pagination { margin: -2.5rem 0 2rem; padding: 0 6.5rem; }
 }
 @media (max-width: 576px) {
   .promo { padding-bottom: 2.5rem; }
@@ -2510,7 +2541,7 @@ dialog { border:none; }
   .gallery .before-after__img.is-next { margin-left: 0; }
   .gallery .splide__arrow--prev { left: 0.6rem; }
   .gallery .splide__arrow--next { right: 0.6rem; }
-  .gallery .splide__pagination { margin: 2rem 0 0; }
+  .gallery .splide__pagination { margin: -2.5rem 0 2rem; padding: 0 5.5rem; }
   .master-form__card { padding: 2.8rem 2rem; }
   .master-form__row { grid-template-columns: 1fr !important; }
   .page-section-title { font-size: 2.4rem; }
@@ -2541,6 +2572,7 @@ dialog { border:none; }
 }
 .testimonial__logo { width: 12rem; height: 5rem; display: flex; align-items: center; }
 .testimonial__logo img { width: 100%; height: 100%; object-fit: contain; }
+.testimonial__caption { flex: 1; min-width: 0; }
 .testimonial__name {
   max-width: 17rem;
   margin-bottom: 0.4rem;
@@ -2763,113 +2795,156 @@ dialog { border:none; }
    HERO SLIDER BANNERS — RESPONSIVE
    ============================================================ */
 
-/* --- Tablet landscape (≤900px) -------------------------------- */
+/* ─── Laptop (≤1200px) ─────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .hs4-title     { left: 40px; font-size: 2.2rem; }
+  .hs4-starburst { left: 400px; top: 110px; width: 250px; height: 250px; }
+  .hs4-img       { width: 370px; }
+}
+
+/* ─── Tablet landscape (≤900px) ────────────────────────────── */
 @media (max-width: 900px) {
+  .hero-slider                   { height: 560px; }
+  .hero-slide                    { height: 560px; }
+  .hero-slide:first-child .promo { height: 560px; }
 
-  /* Slide 2: coupon — reduce padding */
-  .hs-left-panel { padding: 28px 28px 28px 44px; }
+  /* Slide 1 */
+  .promo__info                   { width: 100%; }
+  .promo__img                    { width: 38rem; }
 
-  /* Slide 4: 3-month plan — scale down absolute-positioned elements */
-  .hs4-title  { font-size: 2rem; left: 30px; }
-  .hs4-offer  { width: 380px; top: 100px; padding-left: 30px; }
-  .hs4-get    { font-size: 2.8rem; }
-  .hs4-number { font-size: 7rem; }
-  .hs4-month  { font-size: 2.8rem; }
-  .hs4-plan   { font-size: 1.4rem; }
-  .hs4-starburst { left: 390px; top: 60px; width: 220px; height: 220px; }
-  .hs4-btn    { left: 30px; top: 340px; padding: 1.2rem 4rem; font-size: 1.6rem; }
-  .hs4-phone  { left: 30px; top: 415px; font-size: 1.4rem; }
-  .hs4-img    { width: 180px; height: 360px; right: 20px; top: 60px; }
+  /* Slide 2 */
+  .hs-left-panel                 { width: 58%; padding: 30px 20px 30px 40px; }
+  .hs-right-panel                { width: 42%; }
+  .hs-main-text                  { font-size: 2.6rem; }
+
+  /* Slide 4 */
+  .hs4-title                     { font-size: 1.9rem; left: 24px; top: 90px; }
+  .hs4-offer                     { width: 340px; top: 130px; padding-left: 24px; }
+  .hs4-get                       { font-size: 2.6rem; }
+  .hs4-number                    { font-size: 7rem; }
+  .hs4-month                     { font-size: 2.6rem; }
+  .hs4-plan                      { font-size: 1.3rem; }
+  .hs4-starburst                 { left: 340px; top: 55px; width: 200px; height: 200px; }
+  .hs4-btn                       { left: 24px; top: 330px; }
+  .hs4-phone                     { left: 24px; top: 405px; font-size: 1.4rem; }
+  .hs4-img                       { width: 190px; height: 380px; right: 20px; top: 40px; }
+
+  /* Slide 5 */
+  .hs5-title                     { top: 4rem; margin-left: 2rem; font-size: 2.2rem; }
+  .hs5-quote-btn                 { margin-top: 6rem; right: -4rem; }
 }
 
-/* --- Tablet portrait (≤768px) -------------------------------- */
+/* ─── Tablet portrait (≤768px) ─────────────────────────────── */
 @media (max-width: 768px) {
+  .hero-slider                   { height: 520px; }
+  .hero-slide                    { height: 520px; }
+  .hero-slide:first-child .promo { height: 520px; }
 
-  /* Slide 2: coupon — widen left panel, shrink right panel */
-  .hs-left-panel  { width: 65%; padding: 28px 20px 28px 36px; }
-  .hs-right-panel { width: 35%; }
-  .hs-save        { width: 68px; height: 68px; font-size: 0.88rem; }
-  .hs-main-text   { font-size: 1.4rem; }
-  .hs-amount      { font-size: 4rem; }
+  /* Slide 1 */
+  .promo__img                    { width: 26rem; opacity: 0.55; }
 
-  /* Slide 4: further scale down */
-  .hs4-offer     { width: 300px; height: 180px; top: 90px; padding-left: 24px; }
-  .hs4-get       { font-size: 2.2rem; }
-  .hs4-number    { font-size: 5.5rem; }
-  .hs4-month     { font-size: 2.2rem; }
-  .hs4-plan      { font-size: 1.2rem; }
-  .hs4-starburst { left: 308px; top: 50px; width: 190px; height: 190px; }
-  .hs4-btn       { left: 20px; top: 310px; padding: 1rem 3rem; font-size: 1.5rem; }
-  .hs4-phone     { left: 20px; top: 385px; font-size: 1.3rem; }
-  .hs4-phone strong { font-size: 1.5rem; }
-  .hs4-img       { width: 140px; height: 280px; right: 16px; top: 80px; }
+  /* Slide 2 */
+  .hs-left-panel                 { width: 70%; padding: 26px 18px 26px 32px; }
+  .hs-right-panel                { width: 30%; }
+  .hs-main-text                  { font-size: 2rem; }
+  .hs-price-card-wrapper         { margin-left: 0; top: 70px; margin-top: 40px; }
+
+  /* Slide 4 */
+  .hs4-starburst                 { left: 280px; top: 50px; width: 175px; height: 175px; }
+  .hs4-offer                     { width: 270px; top: 115px; }
+  .hs4-btn                       { top: 305px; }
+  .hs4-phone                     { top: 375px; font-size: 1.3rem; }
+  .hs4-img                       { width: 145px; height: 290px; right: 16px; top: 65px; }
+
+  /* Slide 5 */
+  .hs5-navy                      { clip-path: polygon(0 0, 60% 0, 50% 100%, 0 100%); }
+  .hs5-title                     { font-size: 1.9rem; top: 2rem; margin-left: 1.5rem; }
+  .hs5-quote-btn                 { margin-top: 4rem; right: -2rem; font-size: 1.3rem; }
+  .hs5-units-wrap                { inset: 0 0 0 32%; }
 }
 
-/* --- Mobile (≤576px) ----------------------------------------- */
+/* ─── Mobile (≤576px) ──────────────────────────────────────── */
 @media (max-width: 576px) {
+  .hero-slider                   { height: 340px; }
+  .hero-slide                    { height: 340px; }
+  .hero-slide:first-child .promo { height: 340px; }
 
-  /* Hero slider — fixed 500px on all slides so arrows stay level */
-  .hero-slider                   { height: 500px; }
-  .hero-slide                    { height: 500px; }
-  .hero-slide:first-child .promo { height: 500px; }
+  /* Hero arrows — hidden on mobile */
+  .hs-arrow                                         { display: none; }
 
-  /* Slide 2: coupon — stack vertically, hide photo panel */
+  /* Slide 1 — compact for 340px height */
+  .promo__img                                       { display: none; }
+  .hero-slide:first-child .promo__container         { padding-top: 2rem !important; }
+  .hero-slide:first-child .promo__info              { margin-bottom: 0; }
+  .promo__title                                     { font-size: 1.8rem; line-height: 1.25; margin-bottom: 0.9rem; }
+  .hero-slide:first-child .promo__subtitle          { margin-bottom: 0.9rem; font-size: 1.1rem; }
+  .hero-slide:first-child .promo__text ul           { margin-top: 0.8rem; gap: 1.1rem; font-size: 1.2rem; line-height: 1.4; }
+  .promo__btn                                       { width: 85%; justify-content: center; margin-top: 2.2rem; margin-left: auto; margin-right: auto; padding: 1rem 2rem; font-size: 1.4rem; display: flex; }
+
+  /* Slide 2 — stack, hide photo, reset all the big offset values */
   .hs-coupon-slide               { flex-direction: column; }
-  .hs-left-panel                 { width: 100%; padding: 2.8rem 2rem 2.4rem; }
-  .hs-left-panel::after          { display: none; }
+  .hs-left-panel                 { width: 100%; padding: 3.2rem 2.4rem 2.4rem; }
   .hs-right-panel                { display: none; }
-  .hs-save                       { width: 58px; height: 58px; font-size: 0.78rem; }
-  .hs-main-text                  { font-size: 1.3rem; }
-  .hs-cta-btn                    { padding: 12px 22px; font-size: 0.82rem; width: 100%; justify-content: center; }
+  .hs-headline                   { margin-top: 0; margin-bottom: 1.6rem; gap: 6px; }
+  .hs-save                       { top: 0; font-size: 2.2rem; }
+  .hs-main-text                  { top: 0; font-size: 2rem; }
+  .hs-price-card-wrapper         { top: 0; margin-top: 1.6rem; margin-left: 0; }
+  .hs-cta-btn                    { margin-top: 2rem; width: 100%; justify-content: center; font-size: 1.4rem; }
 
-  /* Slide 3: $50 off — reduce fonts, tighten spacing */
-  .hs3-save-badge                { left: 1.5rem; font-size: 1.1rem; padding: 0.8rem 1.8rem 2rem; letter-spacing: 2px; }
-  .hs3-amount                    { font-size: 4.4rem; }
+  /* Slide 3 — fit in 340px mobile */
+  .hs3-slide                     { padding-top: 2rem; }
+  .hs3-save-badge                { left: 0.5rem; font-size: 1rem; padding: 0.8rem 1.4rem 2.2rem; letter-spacing: 1px; }
+  .hs3-content                   { gap: 0.4rem; }
+  .hs3-price-line                { top: -2.5rem; }
+  .hs3-amount                    { font-size: 6rem; }
   .hs3-dollar                    { font-size: 2rem; }
+  .hs3-on-repair                 { margin-left: 6px; }
   .hs3-on-the,
-  .hs3-repair                    { font-size: 1.5rem; }
-  .hs3-subtitle-box              { padding: 1rem 2rem; }
-  .hs3-subtitle-box h2           { font-size: 1.5rem; letter-spacing: 1px; }
-  .hs3-bottom-left               { left: 1.5rem; bottom: 2rem; gap: 0.8rem; }
-  .hs3-cta-btn                   { font-size: 0.85rem; padding: 1.1rem 2rem; }
-  .hs3-contact-line              { font-size: 0.82rem; flex-wrap: wrap; gap: 6px; }
-  .hs3-phone                     { font-size: 0.9rem; }
+  .hs3-repair                    { font-size: 1.4rem; }
+  .hs3-subtitle-box              { top: 0; padding: 0.6rem 1.4rem; }
+  .hs3-subtitle-box h2           { font-size: 1.1rem; letter-spacing: 1px; }
+  .hs3-cta-btn                   { width: 85%; justify-content: center; padding: 0.9rem 1.6rem; font-size: 1.3rem; white-space: nowrap; margin-top: 5rem; }
+  .hs3-contact-line              { font-size: 0.9rem; flex-direction: column; align-items: center; gap: 0.1rem; justify-content: center; margin-top: 3rem; }
+  .hs3-contact-line svg          { display: none; }
 
-  /* Slide 4: 3-month plan — convert absolute layout to flex column.
-     IMPORTANT: use .hs4-slide.active (not .hs4-slide) so the slide
-     stays display:none when inactive (avoids content leaking below
-     the slider). */
-  .hs4-slide.active              { display: flex; align-items: center; justify-content: center; }
+  /* Slide 4 — title full-width bar on top, blue left | bg right below */
+  .hs4-slide.active              { display: flex; align-items: stretch; }
+  .hs4-title                     { position: absolute !important; top: 3.5rem; left: 0; right: 0; width: 100%; z-index: 10; font-size: 1.7rem; line-height: 1.3; padding: 0.6rem 1.4rem; margin: 0; background: linear-gradient(to right, #fff 50%, #0d1e3d 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hs4-offer                     { position: static !important; width: 50% !important; height: 100% !important; padding: 1.2rem 1rem !important; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+  .hs4-offer-content             { flex-direction: column; align-items: center; gap: 0.2rem; }
+  .hs4-offer-row                 { align-items: center; }
+  .hs4-offer-text                { margin-bottom: 0; margin-left: 6px; }
+  .hs4-get                       { font-size: 1.3rem; margin-top: 0; align-self: center; }
+  .hs4-number                    { font-size: 4.5rem; line-height: 1; }
+  .hs4-month                     { font-size: 1.3rem; }
+  .hs4-plan                      { font-size: 0.9rem; }
   .hs4-container                 {
+    position: relative;
+    z-index: 5;
+    width: 50%;
     height: 100%;
-    padding: 1.6rem 1.5rem 2rem;
+    max-width: none;
+    margin: 0;
+    padding: 1.2rem 1rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 0.8rem;
   }
-  .hs4-title                     { position: static; font-size: 1.6rem; line-height: 1.3; }
-  .hs4-offer                     { position: static; width: 100%; height: auto; padding: 1.4rem 1.6rem; top: auto; left: auto; }
-  .hs4-number                    { font-size: 5rem; }
-  .hs4-get                       { font-size: 2rem; }
-  .hs4-month                     { font-size: 2rem; }
-  .hs4-plan                      { font-size: 1.1rem; }
-  .hs4-starburst                 { position: static; width: 130px; height: 130px; align-self: center; }
-  .hs4-starburst-text span       { font-size: 1.8rem; }
-  .hs4-starburst-text strong     { font-size: 3.2rem; }
-  .hs4-btn                       { position: static; top: auto; left: auto; padding: 1rem 2.4rem; font-size: 1.4rem; border-radius: 1rem; }
-  .hs4-phone                     { position: static; top: auto; left: auto; font-size: 1.2rem; }
-  .hs4-phone strong              { font-size: 1.3rem; margin-left: 6px; }
+  .hs4-starburst                 { position: static; width: 85px; height: 85px; }
+  .hs4-btn                       { position: static; top: auto; left: auto; padding: 0.8rem 1.4rem; font-size: 1.1rem; }
+  .hs4-phone                     { position: static; top: auto; left: auto; font-size: 0.9rem; text-align: center; }
+  .hs4-phone strong              { font-size: 1rem; margin-left: 4px; display: block; }
   .hs4-img                       { display: none; }
 
-  /* Slide 5: HVAC Rebates — mobile layout */
-  .hs5-navy                      { clip-path: none; background: rgba(13,35,71,0.88); }
-  .hs5-content                   { padding: 2rem 1.5rem; max-width: none; text-align: center; }
-  .hs5-title                     { font-size: 1.4rem; margin-bottom: 1.2em; }
-  .hs5-quote-btn                 { font-size: 0.9rem; width: 100%; justify-content: center; }
+  /* Slide 5 — full-width overlay, hide decorative image */
+  .hs5-navy                      { clip-path: none; width: 100%; background: rgba(13,35,71,0.9); }
+  .hs5-content                   { padding: 3rem 2.4rem; max-width: none; text-align: center; margin-top: 0; }
+  .hs5-title                     { font-size: 2.2rem; margin-bottom: 1.6rem; margin-left: 0; top: 0; }
+  .hs5-quote-btn                 { width: 100%; justify-content: center; font-size: 1.4rem; margin-top: 2.4rem; right: 0; }
+  .hs5-or                        { font-size: 1.4rem; }
+  .hs5-call-label                { font-size: 1.4rem; }
+  .hs5-phone-link                { font-size: 2rem; }
   .hs5-units-wrap                { display: none; }
-
-  /* Hide decorative banner images on mobile */
-  .promo__img                    { display: none; }
 }

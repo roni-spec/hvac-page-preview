@@ -1,14 +1,314 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maple Leaf Plumber</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <link rel="stylesheet" href="header-footer.css">
+  <style>
+    /* ─── GOOGLE REVIEWS SECTION ─────────────────────────── */
+    .grev {
+      background: #fff;
+      padding: 2rem 0 2.5rem;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .grev::before { display: none; }
+    .grev__bg-quote {
+      position: absolute;
+      top: -4rem; left: -2rem;
+      font-size: 50rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      color: rgba(12,52,71,0.04);
+      pointer-events: none;
+      user-select: none;
+    }
+    .grev__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 4rem;
+      margin-bottom: 6.4rem;
+      flex-wrap: wrap;
+    }
+    .grev__left { flex: 1; min-width: 28rem; }
+    .grev__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      border: 0.1rem solid rgba(201,168,76,0.45);
+      border-radius: 0.6rem;
+      padding: 0.7rem 1.6rem 0.7rem 1.2rem;
+      margin-bottom: 2.4rem;
+      background: rgba(201,168,76,0.07);
+    }
+    .grev__badge svg { width: 1.6rem; height: 1.6rem; flex-shrink: 0; }
+    .grev__badge span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #0c3447;
+    }
+    .grev__title {
+      font-size: 5.2rem;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: #0c3447;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.6rem;
+    }
+    .grev__title em { color: #E1251B; font-style: italic; }
+    .grev__rule {
+      display: none;
+      margin-bottom: 1.8rem;
+    }
+    .grev__sub {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #757a7f;
+      line-height: 2.2rem;
+      max-width: 42rem;
+    }
+    .grev__score {
+      flex-shrink: 0;
+      background: #0c3447;
+      border: 0.1rem solid rgba(0,0,0,0.08);
+      border-radius: 1.6rem;
+      padding: 2.8rem 3.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      min-width: 20rem;
+    }
+    .grev__score-num {
+      font-size: 7rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .grev__score-stars { display: flex; gap: 0.4rem; }
+    .grev__score-stars svg { width: 2rem; height: 2rem; }
+    .grev__score-label {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .grev__score-glogo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      border-top: 0.1rem solid rgba(255,255,255,0.12);
+      padding-top: 1.2rem;
+      width: 100%;
+      justify-content: center;
+    }
+    .grev__score-glogo svg { width: 1.6rem; height: 1.6rem; }
+    .grev__score-glogo span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .grev__slider { margin-bottom: 5.6rem; margin-top: 4rem; }
+    #splide-grev .splide__track { padding-bottom: 8rem; }
+    #splide-grev .splide__arrow { bottom: -2rem; top: auto; }
+    #splide-grev .splide__arrow--prev { left: 30rem; }
+    #splide-grev .splide__arrow--next { right: 30rem; }
+    #splide-grev .splide__slide { display: flex; }
+    #splide-grev .grev__card { width: 100%; }
+    @media (max-width: 580px) {
+      .grev__title { font-size: 3.6rem; }
+    }
+    .grev__card {
+      background: #fff;
+      border-radius: 1.6rem;
+      overflow: hidden;
+      transition: transform 0.28s cubic-bezier(.34,1.46,.64,1), box-shadow 0.28s ease;
+      box-shadow: 0 0.4rem 2.4rem rgba(0,0,0,0.18);
+    }
+    .grev__card:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 1.6rem 5rem rgba(0,0,0,0.28);
+    }
+    .gc-visual__score-big {
+      font-size: 8rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .gc-visual__stars { display: flex; gap: 0.5rem; }
+    .gc-visual__stars svg { width: 2.4rem; height: 2.4rem; }
+    .gc-visual__label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 1.7;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .gc-visual__rule {
+      width: 4rem;
+      height: 0.2rem;
+      background: linear-gradient(90deg, #C9A84C, #f5b434);
+    }
+    .gc-body {
+      padding: 2.8rem 2.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      position: relative;
+      min-height: 30rem;
+      padding-bottom: 7rem;
+    }
+    .gc-body::before {
+      content: '\201C';
+      position: absolute;
+      top: -1.5rem;
+      right: 1.8rem;
+      font-size: 13rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      color: rgba(12,52,71,0.06);
+      pointer-events: none;
+      user-select: none;
+    }
+    .gc-top {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      position: relative;
+      z-index: 1;
+      height: 9.5rem;
+    }
+    .gc-avatar {
+      width: 7rem;
+      height: 7rem;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+    }
+    .gc-avatar[src*="trustpilot"] {
+      width: 8.9rem;
+      height: 8.9rem;
+    }
+    .gc-info { flex: 1; min-width: 0; margin-left: 0.8rem; }
+    .gc-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #0c3447;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.4rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .gc-meta { display: flex; align-items: center; gap: 0.9rem; }
+    .gc-stars { display: flex; gap: 0.2rem; }
+    .gc-stars svg { width: 1.3rem; height: 1.3rem; }
+    .gc-glogo { display: none; }
+    .gc-divider {
+      height: 0.1rem;
+      background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.12));
+      position: relative;
+      z-index: 1;
+    }
+    .gc-text {
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 2.6rem;
+      letter-spacing: -0.02rem;
+      color: #555;
+      height: 9.5rem;
+      overflow-y: auto;
+      padding-right: 1.2rem;
+      position: relative;
+      z-index: 1;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .gc-text::-webkit-scrollbar { width: 0.4rem; border-radius: 0.8rem; background: #ebebeb; }
+    .gc-text::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 0.8rem; }
+    .gc-text::-webkit-scrollbar-track { background: #f5f5f5; border-radius: 0.8rem; }
+    .gc-date {
+      position: absolute;
+      bottom: 2.4rem;
+      left: 2.8rem;
+      right: 2.8rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding-top: 1.2rem;
+      border-top: none;
+      z-index: 1;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .grev__cta { text-align: center; }
+    .grev__cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.2rem;
+      height: 5.2rem;
+      padding: 0 3.6rem;
+      background: #0c3447;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 0.8rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .grev__cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #C9A84C, #f5b434);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .grev__cta-btn:hover {
+      color: #0c3447;
+      transform: translateY(-0.2rem);
+      box-shadow: 0 0.8rem 2.4rem rgba(201,168,76,0.35);
+    }
+    .grev__cta-btn:hover::before { opacity: 1; }
+    .grev__cta-btn > * { position: relative; z-index: 1; }
+    .grev__cta-btn svg { width: 1.8rem; height: 1.8rem; }
+    @media (max-width: 768px) {
+      .grev { padding: 7rem 0 8rem; }
+      .grev__title { font-size: 3.8rem; }
+      .grev__header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
@@ -369,6 +669,7 @@
     <!-- Slide 4: 3-month protection plan -->
     <div class="hero-slide hs4-slide">
       <div class="hs4-bg"></div>
+      <h2 class="hs4-title">In addition to the warranty<br>for repairs and spare part</h2>
       <div class="hs4-offer">
         <div class="hs4-offer-content">
           <span class="hs4-get">GET</span>
@@ -382,7 +683,6 @@
         </div>
       </div>
       <div class="hs4-container">
-        <h2 class="hs4-title">In addition to the warranty<br>for repairs and spare part</h2>
         <div class="hs4-starburst">
           <img src="HVCA_image/for-free.svg" alt="For Free" class="hs4-starburst-svg">
         </div>
@@ -424,6 +724,14 @@
     <button class="hs-arrow hs-arrow--prev">&#8249;</button>
     <button class="hs-arrow hs-arrow--next">&#8250;</button>
 
+  </div>
+
+  <div class="hero-dots">
+    <button class="hero-dot is-active" data-idx="0"></button>
+    <button class="hero-dot" data-idx="1"></button>
+    <button class="hero-dot" data-idx="2"></button>
+    <button class="hero-dot" data-idx="3"></button>
+    <button class="hero-dot" data-idx="4"></button>
   </div>
 
   <!-- ===== BRANDS ===== -->
@@ -1053,7 +1361,8 @@
   </section>
 
   <!-- ===== TESTIMONIALS ===== -->
-  <section class="testimonials">
+  <section class="testimonials grev">
+    <div class="grev__bg-quote">"</div>
     <div class="container">
       <div class="testimonials__header">
         <h2 class="testimonials__title h2-t">See what people are saying about our professional HVAC service</h2>
@@ -1066,206 +1375,151 @@
             <i class="icon-star"></i>
             <i class="icon-star"></i>
             <i class="icon-star"></i>
+            <p class="testimonials__subtitle s4-t" style="margin-top:0.6rem;">Hundreds of verified reviews</p>
           </span>
-          <p class="testimonials__subtitle s4-t">Hundreds of verified reviews</p>
           <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:24rem;height:10rem;object-fit:contain;margin-top:1.4rem;grid-area:img-2;">
         </div>
       </div>
 
-      <div class="testimonials__wrap splide" id="splide-testimonials">
+      <!-- SLIDER -->
+      <div class="grev__slider splide" id="splide-grev">
         <div class="splide__track">
           <ul class="splide__list">
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/homestarsBig (1).svg" alt="HomeStars" style="width:7.8rem;height:4rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Sarah Mitchell</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+            <li class="splide__slide">
+              <div class="grev__card">
+                <div class="gc-body">
+                  <div class="gc-top">
+                    <img class="gc-avatar" src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot">
+                    <div class="gc-info">
+                      <div class="gc-name">Sarah Mitchell</div>
+                      <div class="gc-meta">
+                        <div class="gc-stars">
+                          <svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                          <svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                          <svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                          <svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                          <svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                    <svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
                   </div>
+                  <div class="gc-divider"></div>
+                  <p class="gc-text">The technician was thorough, professional, and genuinely went above and beyond. We got exactly the service we needed, and I was impressed by how respectful and efficient he was throughout. Highly recommend this team!</p>
+                  <div class="gc-date">Feb 2, 2026</div>
                 </div>
               </div>
-              <p class="testimonial__text body2-t">The technician was thorough, professional, and genuinely went above and beyond. We got exactly the service we needed, and I was impressed by how respectful and efficient he was throughout. Highly recommend this team!</p>
-              <span class="testimonial__date body2-t">Feb 2, 2026</span>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:20rem;height:8rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Karen Bouchard</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Our AC was running non-stop but not keeping the house cool, so we called Maple Leaf HVAC. The technician tracked down a refrigerant leak and had it fixed the same day, then recharged the system and verified the airflow throughout the house. It's been working great ever since.</p>
-              <span class="testimonial__date body2-t">May 24, 2026</span>
+            <!-- Card 2 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/homestarsBig (1).svg" alt="HomeStars"><div class="gc-info"><div class="gc-name">Karen Bouchard</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Our AC was running non-stop but not keeping the house cool, so we called Maple Leaf HVAC. The technician tracked down a refrigerant leak and had it fixed the same day, then recharged the system and verified the airflow throughout the house. It's been working great ever since.</p>
+                <div class="gc-date">May 24, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/homestarsBig (1).svg" alt="HomeStars" style="width:7.8rem;height:4rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">David MacLeod</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Booked Maple Leaf HVAC for a seasonal AC tune-up and couldn't be happier with how it went. The technician arrived on time, was friendly and thorough, and didn't leave until everything was running the way it should. Our system feels like new.</p>
-              <span class="testimonial__date body2-t">May 11, 2026</span>
+            <!-- Card 3 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot"><div class="gc-info"><div class="gc-name">David MacLeod</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Booked Maple Leaf HVAC for a seasonal AC tune-up and couldn't be happier with how it went. The technician arrived on time, was friendly and thorough, and didn't leave until everything was running the way it should. Our system feels like new.</p>
+                <div class="gc-date">May 11, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:20rem;height:8rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Emily Tremblay</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Just had a brand new central air system put in and the whole experience was smooth from start to finish. The crew showed up when they said they would, kept everything tidy, and wrapped up right on schedule. Very satisfied.</p>
-              <span class="testimonial__date body2-t">May 9, 2026</span>
+            <!-- Card 4 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/homestarsBig (1).svg" alt="HomeStars"><div class="gc-info"><div class="gc-name">Emily Tremblay</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Just had a brand new central air system put in and the whole experience was smooth from start to finish. The crew showed up when they said they would, kept everything tidy, and wrapped up right on schedule. Very satisfied.</p>
+                <div class="gc-date">May 9, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/homestarsBig (1).svg" alt="HomeStars" style="width:7.8rem;height:4rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Christine Leblanc</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">My furnace stopped working on a cold evening and Maple Leaf HVAC had someone out quickly. Really appreciated the fast response and the professional attitude.</p>
-              <span class="testimonial__date body2-t">Feb 1, 2026</span>
+            <!-- Card 5 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/homestarsBig (1).svg" alt="HomeStars"><div class="gc-info"><div class="gc-name">Christine Leblanc</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">My furnace stopped working on a cold evening and Maple Leaf HVAC had someone out quickly. Really appreciated the fast response and the professional attitude.</p>
+                <div class="gc-date">Feb 1, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:20rem;height:8rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Michael O'Brien</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Quick, professional, and reasonably priced. No complaints at all — would absolutely call them again without hesitation.</p>
-              <span class="testimonial__date body2-t">Feb 16, 2026</span>
+            <!-- Card 6 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot"><div class="gc-info"><div class="gc-name">Michael O'Brien</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Quick, professional, and reasonably priced. No complaints at all — would absolutely call them again without hesitation.</p>
+                <div class="gc-date">Feb 16, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/homestarsBig (1).svg" alt="HomeStars" style="width:7.8rem;height:4rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Linda Bergeron</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Our furnace quit unexpectedly and I wasn't sure what to do. Maple Leaf HVAC came out fast, walked me through the issue before touching anything, and had everything running again that same afternoon. Honest, fair pricing and genuinely good service.</p>
-              <span class="testimonial__date body2-t">Feb 3, 2026</span>
+            <!-- Card 7 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot"><div class="gc-info"><div class="gc-name">Linda Bergeron</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Our furnace quit unexpectedly and I wasn't sure what to do. Maple Leaf HVAC came out fast, walked me through the issue before touching anything, and had everything running again that same afternoon. Honest, fair pricing and genuinely good service.</p>
+                <div class="gc-date">Feb 3, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:20rem;height:8rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Jason Whitfield</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Great experience from start to finish. The technician sorted out the problem with my furnace quickly and even took a moment to explain what had caused it. I'll definitely be calling them again next time.</p>
-              <span class="testimonial__date body2-t">Jan 22, 2026</span>
+            <!-- Card 8 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/homestarsBig (1).svg" alt="HomeStars"><div class="gc-info"><div class="gc-name">Jason Whitfield</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Great experience from start to finish. The technician sorted out the problem with my furnace quickly and even took a moment to explain what had caused it. I'll definitely be calling them again next time.</p>
+                <div class="gc-date">Jan 22, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:20rem;height:8rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Stephanie Gagnon</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Had our central AC unit replaced and it couldn't have gone more smoothly. The team was organized, professional, and clearly knew what they were doing. The new system has been working perfectly and we noticed the difference right away.</p>
-              <span class="testimonial__date body2-t">Apr 25, 2026</span>
+            <!-- Card 9 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/homestarsBig (1).svg" alt="HomeStars"><div class="gc-info"><div class="gc-name">Stephanie Gagnon</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Had our central AC unit replaced and it couldn't have gone more smoothly. The team was organized, professional, and clearly knew what they were doing. The new system has been working perfectly and we noticed the difference right away.</p>
+                <div class="gc-date">Apr 25, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/homestarsBig (1).svg" alt="HomeStars" style="width:20rem;height:8rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Raj Sharma</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">The technician came out to assess my older furnace and took real time explaining everything — how it was performing, what to watch for, and what I could expect going forward. Thoughtful service and great communication throughout.</p>
-              <span class="testimonial__date body2-t">Dec 24, 2025</span>
+            <!-- Card 10 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot"><div class="gc-info"><div class="gc-name">Raj Sharma</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">The technician came out to assess my older furnace and took real time explaining everything — how it was performing, what to watch for, and what I could expect going forward. Thoughtful service and great communication throughout.</p>
+                <div class="gc-date">Dec 24, 2025</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot" style="width:20rem;height:8rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Priya Patel</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Truly one of the best home service experiences I've had since moving to the area. The technician was knowledgeable, solved the problem without any fuss, and left everything cleaner than he found it. Would recommend to anyone without hesitation.</p>
-              <span class="testimonial__date body2-t">Apr 27, 2026</span>
+            <!-- Card 11 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/trustpilot-logo-png_seeklogo-619595 (1).png" alt="Trustpilot"><div class="gc-info"><div class="gc-name">Priya Patel</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Truly one of the best home service experiences I've had since moving to the area. The technician was knowledgeable, solved the problem without any fuss, and left everything cleaner than he found it. Would recommend to anyone without hesitation.</p>
+                <div class="gc-date">Apr 27, 2026</div>
+              </div></div>
             </li>
 
-            <li class="testimonial splide__slide">
-              <div class="testimonial__header">
-                <div class="testimonial__logo">
-                  <img src="HVCA_image/homestarsBig (1).svg" alt="HomeStars" style="width:20rem;height:8rem;object-fit:contain;">
-                </div>
-                <div class="testimonial__caption">
-                  <div class="testimonial__name s1-t">Nancy Dagenais</div>
-                  <div class="testimonial__rate">
-                    <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="testimonial__text body2-t">Our furnace broke down during a cold snap and I was worried about getting help quickly. Maple Leaf HVAC responded fast, and the technician was professional and clear about what needed to be done. We ended up replacing the old unit and the installation team handled everything smoothly, even in rough weather. We had heat back that same evening — very grateful.</p>
-              <span class="testimonial__date body2-t">Jan 26, 2026</span>
+            <!-- Card 12 -->
+            <li class="splide__slide">
+              <div class="grev__card"><div class="gc-body">
+                <div class="gc-top"><img class="gc-avatar" src="HVCA_image/homestarsBig (1).svg" alt="HomeStars"><div class="gc-info"><div class="gc-name">Nancy Dagenais</div><div class="gc-meta"><div class="gc-stars"><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="#f5b434"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div></div></div><svg class="gc-glogo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+                <div class="gc-divider"></div>
+                <p class="gc-text">Our furnace broke down during a cold snap and I was worried about getting help quickly. Maple Leaf HVAC responded fast, and the technician was professional and clear about what needed to be done. We ended up replacing the old unit and the installation team handled everything smoothly, even in rough weather. We had heat back that same evening — very grateful.</p>
+                <div class="gc-date">Jan 26, 2026</div>
+              </div></div>
             </li>
 
           </ul>
@@ -1275,6 +1529,8 @@
           <button class="splide__arrow splide__arrow--next"></button>
         </div>
       </div>
+
+
     </div>
   </section>
 
@@ -1631,7 +1887,22 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  new Splide('#splide-testimonials', {
+  if (document.querySelector('#splide-testimonials')) {
+    new Splide('#splide-testimonials', {
+      type      : 'loop',
+      perPage   : 3,
+      perMove   : 1,
+      gap       : '4.8rem',
+      arrows    : true,
+      pagination: false,
+      breakpoints: {
+        1139: { perPage: 2 },
+        576 : { perPage: 1 }
+      }
+    }).mount();
+  }
+
+  new Splide('#splide-grev', {
     type      : 'loop',
     perPage   : 3,
     perMove   : 1,
@@ -1945,13 +2216,16 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 (function () {
   var slides  = document.querySelectorAll('.hero-slide');
+  var dots    = document.querySelectorAll('.hero-dot');
   var current = 0;
   var timer;
 
   function goTo(idx) {
     slides[current].classList.remove('active');
+    dots[current].classList.remove('is-active');
     current = (idx + slides.length) % slides.length;
     slides[current].classList.add('active');
+    dots[current].classList.add('is-active');
     resetTimer();
   }
 
@@ -1960,10 +2234,22 @@ document.addEventListener('DOMContentLoaded', function () {
     timer = setInterval(function () { goTo(current + 1); }, 30000);
   }
 
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () { goTo(+dot.dataset.idx); });
+  });
+
   var prev = document.querySelector('.hs-arrow--prev');
   var next = document.querySelector('.hs-arrow--next');
   if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
   if (next) next.addEventListener('click', function () { goTo(current + 1); });
+
+  var slider = document.querySelector('.hero-slider');
+  var touchStartX = 0;
+  slider.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+  slider.addEventListener('touchend', function (e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
 
   resetTimer();
 }());
